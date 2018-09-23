@@ -1,0 +1,13 @@
+{
+  "description": "wepy",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "appid": "wx872a80ac5261aad4",
+  "projectname": "culator",
+  "miniprogramRoot": "./dist"
+}

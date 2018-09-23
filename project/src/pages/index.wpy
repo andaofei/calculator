@@ -1,0 +1,161 @@
+<style lang="less">
+  @import './index/styles/index';
+  .userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .userinfo-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+
+  .userinfo-nickname {
+    color: #aaa;
+  }
+</style>
+<template>
+  <view class="container">
+    <!-- <view class="userinfo" @tap="handleViewTap">
+      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
+      <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
+    </view> -->
+
+    <view class="wrapper">
+      <view class="wrapper_top">
+        <view class="title">请选择计算类别</view>
+        <view class="wrapper_list">
+          <block wx:for-items="{{groupList}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+            <view class="list_item">
+              <view class="item">
+                <view  class="item_inner {{selected === item.id ? 'item_inner_select':null}}" @tap="select({{item}})">{{item.name}}</view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+
+      <view class="wrapper_bottom">
+        <button class="btn" hover-class="btn_hover" @tap="toHomePage">进入</button>
+        <!--<i-button type="primary" bind:click="handleClick">这是一个按钮</i-button>-->
+        <!--<button class="weui-btn" hover-class="btn_hover">进入</button>-->
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import { connect } from 'wepy-redux'
+  import Counter from 'counter' // alias example
+  import moduleA from 'module-a' // aliasFields ignore module example
+  import testMixin from '../mixins/test'
+
+  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+
+  @connect({
+    num (state) {
+      return state.counter.num
+    },
+    asyncNum (state) {
+      return state.counter.asyncNum
+    },
+    sumNum (state) {
+      return state.counter.num + state.counter.asyncNum
+    }
+  })
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '兜兜软装计算器'
+      // usingComponents: {
+      //   'i-button': '/components/iview/button/index'
+      // }
+    }
+    components = {
+      counter1: Counter,
+      counter2: Counter
+    }
+
+    mixins = [testMixin]
+
+    data = {
+      mynum: 20,
+      userInfo: {
+        nickName: '加载中...'
+      },
+      selected: '',
+      slectText: '',
+      groupList: [
+        {
+          id: 1,
+          name: '背包'
+        },
+        {
+          id: 2,
+          name: '窗帘'
+        },
+        {
+          id: 3,
+          name: '帘头'
+        },
+        {
+          id: 4,
+          name: '地毯'
+        },
+        {
+          id: 5,
+          name: '帘头'
+        },
+        {
+          id: 6,
+          name: '帘头'
+        },
+        {
+          id: 7,
+          name: '+'
+        }
+      ]
+    }
+
+    computed = {
+    }
+
+    methods = {
+      select(item) {
+        this.selected = item.id
+        this.slectText = item.name
+      },
+      toHomePage() {
+        if (this.slectText) {
+          this.$navigate({url: 'home/index'})
+        } else {
+          wepy.showToast({title: '选择或添加类别', icon: 'fail', duration: 2000})
+        }
+      }
+    }
+
+    events = {
+    }
+
+    onLoad() {
+      let self = this
+      this.$parent.getUserInfo(function (userInfo) {
+        if (userInfo) {
+          self.userInfo = userInfo
+        }
+        self.normalTitle = '标题已被修改'
+
+        self.setTimeoutTitle = '标题三秒后会被修改'
+        setTimeout(() => {
+          self.setTimeoutTitle = '到三秒了'
+          self.$apply()
+        }, 3000)
+
+        self.$apply()
+      })
+    }
+  }
+</script>

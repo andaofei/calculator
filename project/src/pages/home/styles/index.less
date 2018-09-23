@@ -1,0 +1,108 @@
+@import "../../../common/styles/base/variable";
+
+.home_box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .scroll_view {
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+    background: @textColor;
+    .nav-name {
+      display: inline-block;
+      font-size: 28rpx;
+      color: @baseColor;
+      padding: 20rpx 20rpx;
+      width: 25%;
+      text-align: center;
+    }
+    .nav-hover {
+      border-bottom: 2px solid @uiColorGreen;
+      color: @uiColorGreen;
+      width: 25%;
+    }
+  }
+  .scroll_wrapper{
+      flex: 1 1 auto;
+      padding: 40rpx 0;
+    .scroll_inner {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      .scroll_container {
+        height: 100%;
+        width: 100%;
+        .main_wrapper{
+          padding: 40rpx 20rpx;
+          .main_img {
+            position: relative;
+            width: 100%;
+            height: 400rpx;
+            .category-icon {
+              width: 100%;
+              height: 100%;
+              border-radius: 5px;
+            }
+            .view_img{
+              position: absolute;
+              transform: translate(-50%,-50%);
+              top: 50%;
+              left: 50%;
+              width: 90%;
+              height: 120%;
+              box-shadow: 0 5px 3px #ddd;
+              .view_img_inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                .category-icon {
+                  width: 100%;
+                  height: 100%;
+                }
+                .view_text{
+                  position: absolute;
+                  right: 0;
+                  bottom: 0;
+                  width: 160rpx;
+                  height: 60rpx;
+                  font-size: @minFont;
+                  color: @textColor;
+                  text-align: center;
+                  line-height: 60rpx;
+                  background: @uiColorGreen;
+                  border-radius: 0 0 5px 0;
+                }
+              }
+            }
+          }
+          .main_counts{
+            margin-top: 100rpx;
+            .count_box{
+              border-radius: 5px;
+              background: @textColor;
+              padding:20rpx;
+              .count_item{
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 0.5px solid #F3F3F3;
+                padding: 20rpx 0;
+                .count_text{
+                  color: @textColor2;
+                  font-size: @minFont;
+                }
+                .count_right{
+                  font-size: @minFont;
+                  color: @baseColor;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+<style lang="less">
+  @import "./styles/index";
+</style>
+<template>
+  <!--头部-->
+  <view class="home_box">
+    <scroll-view class="scroll_view" scroll-x="true" style="width: 100%">
+      <view wx:for="{{section}}"
+            wx:key="id"
+            id="{{item.id}}"
+            @tap="selectTap({{item.id}})"
+            class="nav-name {{item.id == currentId ? 'nav-hover' : ''}}">
+        {{item.name}}
+      </view>
+    </scroll-view>
+    <!-- 主体页面 -->
+    <view class="scroll_wrapper">
+        <swiper class="scroll_inner"
+                duration="0"
+                style="height:100%;"
+                bindchange=""
+                current='{{selectedIndex}}'
+                bindanimationfinish="">
+          <block wx:for="{{section}}" wx:key="id">
+            <!--视图-->
+            <swiper-item class="scroll_container">
+                <view class="main_wrapper">
+<!--图片-->
+                  <view class="main_img">
+                    <image src="{{src}}" class="category-icon"/>
+                    <view class="view_img">
+                      <view class="view_img_inner">
+                        <image src="{{src}}" class="category-icon"/>
+                        <view class="view_text">主视角</view>
+                      </view>
+                    </view>
+                  </view>
+<!--规格-->
+                  <view class="main_counts">
+                      <view class="count_box">
+                            <view class="count_item">
+                                <text class="count_text">成品</text>
+                                <view class="count_right">
+                                  宽 <text>1400m</text>
+                                </view>
+                            </view>
+                        <view class="count_item">
+                          <text class="count_text">成品</text>
+                          <view class="count_right">
+                            宽 <text>1400m</text>
+                          </view>
+                        </view>
+
+                        <view class="count_item">
+                          <text class="count_text">成品</text>
+                          <view class="count_right">
+                            宽 <text>1400m</text>
+                          </view>
+                        </view>
+
+                        <view class="count_item">
+                          <text class="count_text">成品</text>
+                          <view class="count_right">
+                            宽 <text>1400m</text>
+                          </view>
+                        </view>
+
+                        <view class="count_item">
+                          <text class="count_text">成品</text>
+                          <view class="count_right">
+                            宽 <text>1400m</text>
+                          </view>
+                        </view>
+
+                        <view class="count_item">
+                          <text class="count_text">成品</text>
+                          <view class="count_right">
+                            宽 <text>1400m</text>
+                          </view>
+                        </view>
+                      </view>
+                  </view>
+<!--配置-->
+                  <view class="main_slect">
+                    <view></view>
+                    <view>
+                      <text>所需数量</text>
+                      <view></view>
+                    </view>
+                  </view>
+<!--总价-->
+                  <view class="main_results">
+                    <view>布料用量 <text>38m</text></view>
+                    <view>推荐包芯 <text>1400m</text> * <text>2800m</text></view>
+                  </view>
+                </view>
+            </swiper-item>
+          </block>
+        </swiper>
+    </view>
+
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Home extends wepy.page {
+    data = {
+      currentId: -1,
+      selectedIndex: -1,
+      src: '/images/list/dome.jpg',
+      section: [
+        {
+          name: '窗帘',
+          id: 1
+        },
+        {
+          name: '帘头',
+          id: 2
+        },
+        {
+          name: '背包',
+          id: 3
+        },
+        {
+          name: '地毯',
+          id: 4
+        },
+        {
+          name: '+',
+          id: 5
+        }
+      ]
+    }
+    methods = {
+      selectTap(item) {
+        this.currentId = item
+        this.selectedIndex = item
+      }
+    }
+  }
+</script>
