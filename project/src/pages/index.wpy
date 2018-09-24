@@ -38,11 +38,18 @@
       </view>
 
       <view class="wrapper_bottom">
-        <button class="btn" hover-class="btn_hover" @tap="toHomePage">进入</button>
-        <!--<i-button type="primary" bind:click="handleClick">这是一个按钮</i-button>-->
-        <!--<button class="weui-btn" hover-class="btn_hover">进入</button>-->
+        <button class="btn" hover-class="btn_hover" @tap="toHomePage" wx:if="{{isSelect}}">进入</button>
+        <button class="btn" hover-class="btn_hover" @tap="addGroup" wx:else>添加类别</button>
+        <!--<button class="btn" hover-class="btn_hover" @tap="addNumbewr" >add</button>-->
       </view>
     </view>
+    <i-toast id="toast"/>
+    <i-message id="message" />
+    <i-modal title="添加类别" visible="{{ visible }}" bind:ok="handleCancel" bind:cancel="handleClose">
+      <view>
+        <input placeholder="请输入名称" value="{{ groupValue }}" maxlength="20" auto-focus bindinput="handleChange"/>
+      </view>
+    </i-modal>
   </view>
 </template>
 
@@ -52,7 +59,10 @@
   import Counter from 'counter' // alias example
   import moduleA from 'module-a' // aliasFields ignore module example
   import testMixin from '../mixins/test'
-
+  const { $Toast } = require('../components/iview/base/index')
+  import { INCREMENT, DECREMENT } from '../store/types/counter'
+  import { asyncInc } from '../store/actions'
+  // const { $Message } = require('../components/iview/base/index')
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
 
   @connect({
@@ -65,14 +75,20 @@
     sumNum (state) {
       return state.counter.num + state.counter.asyncNum
     }
+  }, {
+    INCREMENT,
+    decNum: DECREMENT,
+    asyncInc
   })
 
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: '兜兜软装计算器'
-      // usingComponents: {
-      //   'i-button': '/components/iview/button/index'
-      // }
+      navigationBarTitleText: '兜兜软装计算器',
+      usingComponents: {
+        'i-toast': '/components/iview/toast/index',
+        'i-modal': '/components/iview/modal/index',
+        'i-input': '/components/iview/input/index'
+      }
     }
     components = {
       counter1: Counter,
@@ -82,7 +98,6 @@
     mixins = [testMixin]
 
     data = {
-      mynum: 20,
       userInfo: {
         nickName: '加载中...'
       },
@@ -117,23 +132,65 @@
           id: 7,
           name: '+'
         }
-      ]
+      ],
+      isSelect: true,
+      visible: false,
+      groupValue: ''
     }
 
     computed = {
     }
 
     methods = {
+      // 点击类别
       select(item) {
+        this.methods.INCREMENT({id: item.id})
+        console.log(item.id)
+        this.isSelect = true
         this.selected = item.id
         this.slectText = item.name
+        if (item.id === 7) {
+          this.isSelect = false
+        }
       },
+      // 选择类别
       toHomePage() {
         if (this.slectText) {
-          this.$navigate({url: 'home/index'})
+          $Toast({
+            content: 'loading',
+            type: 'loading'
+          })
+          setTimeout(() => {
+            $Toast.hide()
+            this.$navigate({url: 'home/index'})
+          }, 300)
         } else {
-          wepy.showToast({title: '选择或添加类别', icon: 'fail', duration: 2000})
+          $Toast({
+            content: '请选择或添加类别',
+            type: 'warning'
+          })
         }
+      },
+      // 添加类别
+      addGroup() {
+        this.visible = true
+      },
+      handleCancel() {
+        if (!this.groupValue) {
+          return false
+        } else {
+          $Toast({
+            content: '添加成功',
+            type: 'success'
+          })
+          this.visible = false
+        }
+      },
+      handleClose() {
+        this.visible = false
+      },
+      handleChange(e) {
+        this.groupValue = e.detail.value
       }
     }
 
@@ -141,6 +198,7 @@
     }
 
     onLoad() {
+      console.log(this.num)
       let self = this
       this.$parent.getUserInfo(function (userInfo) {
         if (userInfo) {
