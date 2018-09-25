@@ -4,27 +4,10 @@
 <template>
   <!--头部-->
   <view class="home_box">
-    <!--<scroll-view class="scroll_view" scroll-x="true" style="width: 100%">-->
-      <!--<view wx:for="{{section}}"-->
-            <!--wx:key="id"-->
-            <!--id="{{item.id}}"-->
-            <!--@tap="selectTap({{item.id}})"-->
-            <!--class="nav-name {{item.id == currentId ? 'nav-hover' : ''}}">-->
-        <!--{{item.name}}-->
-        <!---->
-      <!--</view>-->
-    <!--</scroll-view>-->
     <view class="scroll_view">
       <i-tabs current="{{ current_scroll }}" scroll  bindchange="handleScroll" color="#47A3AD">
         <i-tab wx:for="{{section}}" wx:key="id"  key="{{item.id}}" title="{{item.name}}" ></i-tab>
-        <!--<i-tab key="tab2" title="选项2"></i-tab>-->
-        <!--<i-tab key="tab3" title="选项3"></i-tab>-->
-        <!--<i-tab key="tab4" title="选项4"></i-tab>-->
-        <!--<i-tab key="tab5" title="选项5"></i-tab>-->
-        <!--<i-tab key="tab6" title="选项6"></i-tab>-->
-        <!--<i-tab key="tab7" title="选项7"></i-tab>-->
-        <!--<i-tab key="tab8" title="选项8"></i-tab>-->
-        <!--<i-tab key="tab9" title="选项9"></i-tab>-->
+        <i-tab key="-1" title="+">+</i-tab>
       </i-tabs>
     </view>
     <!-- 主体页面 -->
@@ -172,13 +155,16 @@
 </template>
 <script>
   import wepy from 'wepy'
+  import { INCREMENT } from '../../store/types/counter'
   import { connect } from 'wepy-redux'
   const { $Toast } = require('../../components/iview/base/index')
 
   @connect({
-    num (state) {
-      return state.counter.num
+    selectId (state) {
+      return state.counter.selectId
     }
+  }, {
+    INCREMENT
   })
 
   export default class Home extends wepy.page {
@@ -208,24 +194,16 @@
       ],
       section: [
         {
-          name: '窗帘',
-          id: 1
+          id: 1,
+          name: '窗帘'
         },
         {
-          name: '帘头',
-          id: 2
+          id: 2,
+          name: '帘头'
         },
         {
-          name: '背包',
-          id: 3
-        },
-        {
-          name: '地毯',
-          id: 4
-        },
-        {
-          name: '+',
-          id: 5
+          id: 3,
+          name: '背包'
         }
       ],
       value: 1
@@ -233,6 +211,11 @@
     methods = {
       handleScroll ({ detail }) {
         this.current_scroll = detail.key
+        if (detail.key === -1) {
+          return
+        }
+        this.methods.INCREMENT(detail.key)
+        console.log(detail)
         $Toast({
           content: 'loading',
           type: 'loading'
@@ -245,12 +228,12 @@
         this.value = detail.value
       },
       checkboxChange: function(e) {
-        console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+        console.log('value值', e.detail.value)
       }
     }
 
     onLoad() {
-      console.log(this.num)
+      this.current_scroll = this.selectId
     }
   }
 </script>

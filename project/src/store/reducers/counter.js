@@ -9,7 +9,7 @@ const initState = {
 export default handleActions({
   [INCREMENT](state, actions) {
     console.log(state, actions)
-    return { ...state, num: state.num + 1 }
+    return { ...state, num: state.num + 1, selectId: actions.payload }
   },
 
   [DECREMENT](state) {
@@ -20,5 +20,5 @@ export default handleActions({
     return { ...state, asyncNum: state.asyncNum + action.payload }
   }
 
-}, { num: 0, asyncNum: 0 })
+}, { num: 0, asyncNum: 0, selectId: '' })
 // , { num: 0, asyncNum: 0 }

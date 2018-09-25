@@ -34,12 +34,17 @@
               </view>
             </view>
           </block>
+          <view  class="list_item">
+            <view class="item">
+              <view class="item_inner {{newAdd? 'item_inner_select':null}}" @tap="addNewGruop()">+</view>
+            </view>
+          </view>
         </view>
       </view>
 
       <view class="wrapper_bottom">
         <button class="btn" hover-class="btn_hover" @tap="toHomePage" wx:if="{{isSelect}}">进入</button>
-        <button class="btn" hover-class="btn_hover" @tap="addGroup" wx:else>添加类别</button>
+        <button class="btn" hover-class="btn_hover" @tap="handleAdd" wx:else>添加类别</button>
         <!--<button class="btn" hover-class="btn_hover" @tap="addNumbewr" >add</button>-->
       </view>
     </view>
@@ -47,7 +52,7 @@
     <i-message id="message" />
     <i-modal title="添加类别" visible="{{ visible }}" bind:ok="handleCancel" bind:cancel="handleClose">
       <view>
-        <input placeholder="请输入名称" value="{{ groupValue }}" maxlength="20" auto-focus bindinput="handleChange"/>
+        <input placeholder="请输入名称" value="{{ groupValue }}" maxlength="20"  bindinput="handleChange"/>
       </view>
     </i-modal>
   </view>
@@ -66,8 +71,8 @@
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
 
   @connect({
-    num (state) {
-      return state.counter.num
+    selectId (state) {
+      return state.counter.selectId
     },
     asyncNum (state) {
       return state.counter.asyncNum
@@ -106,36 +111,21 @@
       groupList: [
         {
           id: 1,
-          name: '背包'
-        },
-        {
-          id: 2,
           name: '窗帘'
         },
         {
+          id: 2,
+          name: '帘头'
+        },
+        {
           id: 3,
-          name: '帘头'
-        },
-        {
-          id: 4,
-          name: '地毯'
-        },
-        {
-          id: 5,
-          name: '帘头'
-        },
-        {
-          id: 6,
-          name: '帘头'
-        },
-        {
-          id: 7,
-          name: '+'
+          name: '背包'
         }
       ],
       isSelect: true,
       visible: false,
-      groupValue: ''
+      groupValue: '',
+      newAdd: false
     }
 
     computed = {
@@ -144,15 +134,13 @@
     methods = {
       // 点击类别
       select(item) {
-        this.methods.INCREMENT({id: item.id})
-        console.log(item.id)
+        this.methods.INCREMENT(item.id)
         this.isSelect = true
         this.selected = item.id
         this.slectText = item.name
-        if (item.id === 7) {
-          this.isSelect = false
-        }
+        this.newAdd = false
       },
+
       // 选择类别
       toHomePage() {
         if (this.slectText) {
@@ -171,10 +159,18 @@
           })
         }
       },
-      // 添加类别
-      addGroup() {
+
+      addNewGruop() {
+        this.isSelect = false
+        this.selected = -1
+        this.newAdd = true
+      },
+
+      // 确认添加类别
+      handleAdd() {
         this.visible = true
       },
+
       handleCancel() {
         if (!this.groupValue) {
           return false
@@ -186,19 +182,23 @@
           this.visible = false
         }
       },
+
       handleClose() {
         this.visible = false
       },
+
       handleChange(e) {
         this.groupValue = e.detail.value
       }
     }
 
-    events = {
+    events = {}
+
+    onShow() {
+      this.selected = parseInt(this.selectId)
     }
 
     onLoad() {
-      console.log(this.num)
       let self = this
       this.$parent.getUserInfo(function (userInfo) {
         if (userInfo) {

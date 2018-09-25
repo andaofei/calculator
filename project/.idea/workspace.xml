@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1453824-c472-4c0e-a46a-8bd49ef70f8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/styles/base/variable.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/styles/base/variable.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/button/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/button/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/index/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/load-more/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/load-more/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/message/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/message/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/modal/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/modal/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/page/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/page/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/spin/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/spin/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/step/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/step/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/switch/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/switch/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/tab-bar-item/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/tab-bar-item/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/tab/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/tab/index.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/iview/toast/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/iview/toast/index.wxss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/home/index.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/index.wpy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/styles/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/styles/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.wpy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/counter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/counter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/types/counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/types/counter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/types/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/types/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,22 +31,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="65" />
+          <entry key="js" value="96" />
           <entry key="less" value="2172" />
-          <entry key="wpy" value="2866" />
+          <entry key="wpy" value="3075" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="65" />
+          <entry key="JavaScript" value="96" />
           <entry key="Less" value="2172" />
-          <entry key="Vue.js" value="2866" />
+          <entry key="Vue.js" value="3075" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="21" />
+          <entry key="js" value="22" />
           <entry key="json" value="5" />
           <entry key="less" value="8" />
           <entry key="wpy" value="16" />
@@ -80,7 +59,7 @@
           <entry key="CSS" value="1" />
           <entry key="HTML" value="4" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="21" />
+          <entry key="JavaScript" value="22" />
           <entry key="Less" value="8" />
           <entry key="Vue.js" value="16" />
         </counts>
@@ -89,11 +68,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3146">
-              <caret line="146" column="43" selection-start-line="146" selection-start-column="43" selection-end-line="146" selection-end-column="43" />
+            <state relative-caret-position="320">
+              <caret line="138" column="21" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="21" />
+              <folding>
+                <element signature="e#2077#2138#0" expanded="true" />
+                <element signature="e#4830#5229#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mixins/test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" selection-start-line="13" selection-end-line="15" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -101,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="179" column="26" selection-start-line="179" selection-start-column="19" selection-end-line="179" selection-end-column="26" />
+            <state relative-caret-position="771">
+              <caret line="235" column="41" lean-forward="true" selection-start-line="235" selection-start-column="6" selection-end-line="235" selection-end-column="41" />
               <folding>
                 <element signature="e#7194#7217#0" expanded="true" />
               </folding>
@@ -111,22 +103,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/counter.wpy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="41" column="6" lean-forward="true" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-              <folding>
-                <element signature="e#730#753#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/store/reducers/counter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            <state relative-caret-position="484">
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="34" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -147,7 +127,7 @@
         <entry file="file://$PROJECT_DIR$/src/store/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="44">
-              <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+              <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -165,7 +145,7 @@
         <entry file="file://$PROJECT_DIR$/src/store/types/counter.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+              <caret column="16" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -196,7 +176,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>container</find>
-      <find>selected</find>
       <find>pages/home.wxml</find>
       <find>scroll_inner</find>
       <find>main_slect</find>
@@ -208,7 +187,6 @@
       <find>count_text</find>
       <find>result_text</find>
       <find>handleChangeScroll</find>
-      <find>current_scroll</find>
       <find>handleChange</find>
       <find>stateNum</find>
       <find>INCREMENT</find>
@@ -216,6 +194,10 @@
       <find>current</find>
       <find>toHomePage</find>
       <find>incNum</find>
+      <find>current_scroll</find>
+      <find>handleScroll</find>
+      <find>isSelect</find>
+      <find>selected</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -240,9 +222,9 @@
         <option value="$PROJECT_DIR$/src/store/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/store/actions/index.js" />
         <option value="$PROJECT_DIR$/src/store/actions/counter.js" />
+        <option value="$PROJECT_DIR$/src/store/reducers/counter.js" />
         <option value="$PROJECT_DIR$/src/pages/home/index.wpy" />
         <option value="$PROJECT_DIR$/src/pages/index.wpy" />
-        <option value="$PROJECT_DIR$/src/store/reducers/counter.js" />
       </list>
     </option>
   </component>
@@ -262,7 +244,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1591" />
     <option name="y" value="124" />
     <option name="width" value="1023" />
@@ -324,22 +306,13 @@
               <item name="project" type="b2602c69:ProjectViewProjectNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="mixins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project" type="b2602c69:ProjectViewProjectNode" />
@@ -436,15 +409,15 @@
       <option name="presentableId" value="Default" />
       <updated>1537676704664</updated>
       <workItem from="1537676707681" duration="16694000" />
-      <workItem from="1537753040513" duration="16850000" />
+      <workItem from="1537753040513" duration="19896000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33544000" />
+    <option name="totallyTimeSpent" value="36590000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1072" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="1072" y="-8" width="1936" height="1176" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15542677" />
@@ -615,37 +588,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/counter.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="41" column="6" lean-forward="true" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-          <folding>
-            <element signature="e#730#753#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="179" column="26" selection-start-line="179" selection-start-column="19" selection-end-line="179" selection-end-column="26" />
-          <folding>
-            <element signature="e#7194#7217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3146">
-          <caret line="146" column="43" selection-start-line="146" selection-start-column="43" selection-end-line="146" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/types/counter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -676,7 +622,7 @@
     <entry file="file://$PROJECT_DIR$/src/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
-          <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -689,10 +635,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/reducers/counter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="484">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="34" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/counter.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+          <folding>
+            <element signature="e#730#753#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="771">
+          <caret line="235" column="41" lean-forward="true" selection-start-line="235" selection-start-column="6" selection-end-line="235" selection-end-column="41" />
+          <folding>
+            <element signature="e#7194#7217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mixins/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" selection-start-line="13" selection-end-line="15" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="138" column="21" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="21" />
+          <folding>
+            <element signature="e#2077#2138#0" expanded="true" />
+            <element signature="e#4830#5229#0" />
           </folding>
         </state>
       </provider>
