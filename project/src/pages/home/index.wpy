@@ -5,150 +5,180 @@
   <!--头部-->
   <view class="home_box">
     <view class="scroll_view">
-      <i-tabs current="{{ current_scroll }}" scroll  bindchange="handleScroll" color="#47A3AD">
-        <i-tab wx:for="{{section}}" wx:key="id"  key="{{item.id}}" title="{{item.name}}" ></i-tab>
+      <i-tabs current="{{ current_scroll }}" scroll bindchange="handleScroll" color="#47A3AD">
+        <i-tab wx:for="{{section}}" wx:key="id" key="{{item.id}}" title="{{item.name}}"></i-tab>
         <i-tab key="-1" title="+">+</i-tab>
       </i-tabs>
     </view>
     <!-- 主体页面 -->
     <view class="scroll_wrapper">
-          <!--视图-->
-          <view class="scroll_container">
-            <view class="main_wrapper">
+      <!--视图-->
+      <view class="scroll_container">
+        <view class="main_wrapper">
 
-              <!--图片-->
-              <view class="main_img">
-                <image src="{{src}}" class="category-icon"/>
-                <view class="view_img">
-                  <view class="view_img_inner">
-                    <image src="{{src}}" class="category-icon"/>
-                    <view class="view_text">主视角</view>
-                  </view>
+          <!--图片-->
+          <view class="main_img">
+            <image src="{{src}}" class="category-icon"/>
+            <view class="view_img">
+              <view class="view_img_inner">
+                <!--<image src="{{src}}" class="category-icon"/>-->
+                <swiper style="width: 100%;height: 100%"
+                        bindchange="handleSwiperChange"
+                        indicator-dots="{{indicatorDots}}"
+                        autoplay="{{autoplay}}"
+                        interval="{{interval}}"
+                        duration="{{duration}}">
+                  <block wx:for="{{imgUrls}}" wx:key="id">
+                    <swiper-item style="width: 100%;height: 100%">
+                      <view style="width: 100%;height: 100%" class="swiper-item">
+                        <image style="width: 100%;height: 100%" src="{{item}}" data-src="{{item}}" class="category-icon" catchtap="handleClickImage"/>
+                      </view>
+                    </swiper-item>
+                  </block>
+                </swiper>
+                <view class="view_text">{{text}}</view>
+              </view>
+            </view>
+          </view>
+
+          <!--规格-->
+          <view class="main_counts">
+            <view class="count_box">
+              <!--1 -->
+              <view class="count_item">
+                <view class="count_text">倍数</view>
+                <view class="count_right">
+                  <view class="count_right_text">2 倍</view>
                 </view>
               </view>
-
-              <!--规格-->
-              <view class="main_counts">
-                <view class="count_box">
-                  <!--1 -->
-                  <view class="count_item">
-                    <view class="count_text">倍数</view>
-                    <view class="count_right">
-                      <view class="count_right_text">2 倍</view>
-                    </view>
-                  </view>
-                  <!--2-->
-                  <view class="count_item">
-                    <view class="count_text">成品</view>
-                    <view class="count_right">
-                      <view class="count_right_text">宽 1400m</view>
-                    </view>
-                  </view>
-                  <!--3-->
-                  <view class="count_item">
-                    <view class="count_text"></view>
-                    <view class="count_right">
-                      <view class="count_right_text">高 1400m</view>
-                    </view>
-                  </view>
-                  <!--4-->
-                  <view class="count_item">
-                    <view class="count_text">
-                      <view class="count_group">
-                        <checkbox class="wx-checkbox-input"></checkbox>
-                      </view>
-                      <view class="count_right_text">宽幅</view>
-                    </view>
-
-                    <view class="count_right">
-                      <view class="count_group">
-                        <checkbox class="wx-checkbox-input"></checkbox>
-                        <view class="checkbox_text">宽幅</view>
-                      </view>
-                      <view class="count_group">
-                        <checkbox class="wx-checkbox-input"></checkbox>
-                        <view class="checkbox_text">宽幅</view>
-                      </view>
-                      <view class="count_right_text">宽 1400m</view>
-                    </view>
-                  </view>
-                  <!--5-->
-                  <view class="count_item">
-                    <view class="count_text">
-                      <view class="count_group">
-                        <checkbox class="wx-checkbox-input"></checkbox>
-                      </view>
-                      <view class="count_right_text">窄幅</view>
-                    </view>
-
-                    <view class="count_right">
-                      <view class="count_right_text">1.4m</view>
-                    </view>
-                  </view>
+              <!--2-->
+              <view class="count_item">
+                <view class="count_text">成品</view>
+                <view class="count_right">
+                  <view class="count_right_text">宽 1400m</view>
                 </view>
               </view>
-
-              <!--配置-->
-              <view class="main_select">
-                <view class="select_box">
-                  <checkbox-group class="select_groups" bindchange="checkboxChange">
-                    <label class="checkbox-label" wx:for="{{items}}" wx:key="id">
-                      <checkbox class="wx-checkbox-input" value="{{item.name}}" checked="{{item.checked}}"/>
-                      {{item.value}}
-                    </label>
-                  </checkbox-group>
-                </view>
-                <view class="select_counts">
-                  <view class="need_count">所需数量</view>
-                  <view>
-                    <i-input-number i-class="number_class" value="{{ value }}" min="0" max="100" bindchange="handleChange" />
-                  </view>
+              <!--3-->
+              <view class="count_item">
+                <view class="count_text"></view>
+                <view class="count_right">
+                  <view class="count_right_text">高 1400m</view>
                 </view>
               </view>
-
-              <!--总价-->
-              <view class="main_results">
-                <view class="results_box">
-                  <view class="results_count">
-                    <view class="result_text">布料用量</view>
-                    <view class="counts">38m</view>
+              <!--4-->
+              <view class="count_item">
+                <view class="count_text">
+                  <view class="count_group">
+                    <checkbox class="wx-checkbox-input"></checkbox>
                   </view>
-
-                  <view class="results_max">
-                    <view  class="result_text">推荐倍数</view>
-                    <view class="counts">2</view>
-                  </view>
+                  <view class="count_right_text">宽幅</view>
                 </view>
 
-                <view class="results_static">
-                  <view class="results_header">
-                    <i-row>
-                      <i-col span="6" i-class="col-class">
-                        <view class="col-inner">布料<text class="col-text">(m)</text></view>
-                      </i-col>
-                      <i-col span="6" i-class="col-class">
-                        <view class="col-inner">牙绳<text class="col-text">(m)</text></view>
-                      </i-col>
-                      <i-col span="6" i-class="col-class">
-                        <view class="col-inner">花边<text class="col-text">(m)</text></view>
-                      </i-col>
-                      <i-col span="6" i-class="col-class">
-                        <view class="col-inner">靠包芯<text class="col-text">(m)</text></view>
-                      </i-col>
-                    </i-row>
+                <view class="count_right">
+                  <view class="count_group">
+                    <checkbox class="wx-checkbox-input"></checkbox>
+                    <view class="checkbox_text">宽幅</view>
                   </view>
-                  <view class="results_inner">
-                    <i-row >
-                      <i-col span="6" i-class="col-class"><view class="col-inner">20</view></i-col>
-                      <i-col span="6" i-class="col-class"><view class="col-inner">30</view></i-col>
-                      <i-col span="6" i-class="col-class"><view class="col-inner">40</view></i-col>
-                      <i-col span="6" i-class="col-class"><view class="col-inner">36</view></i-col>
-                    </i-row>
+                  <view class="count_group">
+                    <checkbox class="wx-checkbox-input"></checkbox>
+                    <view class="checkbox_text">宽幅</view>
                   </view>
+                  <view class="count_right_text">宽 1400m</view>
+                </view>
+              </view>
+              <!--5-->
+              <view class="count_item">
+                <view class="count_text">
+                  <view class="count_group">
+                    <checkbox class="wx-checkbox-input"></checkbox>
+                  </view>
+                  <view class="count_right_text">窄幅</view>
+                </view>
+
+                <view class="count_right">
+                  <view class="count_right_text">1.4m</view>
                 </view>
               </view>
             </view>
           </view>
+
+          <!--配置-->
+          <view class="main_select">
+            <view class="select_box">
+              <checkbox-group class="select_groups" bindchange="checkboxChange">
+                <label class="checkbox-label" wx:for="{{items}}" wx:key="id">
+                  <checkbox class="wx-checkbox-input" value="{{item.name}}" checked="{{item.checked}}"/>
+                  {{item.value}}
+                </label>
+              </checkbox-group>
+            </view>
+            <view class="select_counts">
+              <view class="need_count">所需数量</view>
+              <view>
+                <i-input-number i-class="number_class" value="{{ value }}" min="0" max="100" bindchange="handleChange"/>
+              </view>
+            </view>
+          </view>
+
+          <!--总价-->
+          <view class="main_results">
+            <view class="results_box">
+              <view class="results_count">
+                <view class="result_text">布料用量</view>
+                <view class="counts">38m</view>
+              </view>
+
+              <view class="results_max">
+                <view class="result_text">推荐倍数</view>
+                <view class="counts">2</view>
+              </view>
+            </view>
+
+            <view class="results_static">
+              <view class="results_header">
+                <i-row>
+                  <i-col span="6" i-class="col-class">
+                    <view class="col-inner">布料
+                      <text class="col-text">(m)</text>
+                    </view>
+                  </i-col>
+                  <i-col span="6" i-class="col-class">
+                    <view class="col-inner">牙绳
+                      <text class="col-text">(m)</text>
+                    </view>
+                  </i-col>
+                  <i-col span="6" i-class="col-class">
+                    <view class="col-inner">花边
+                      <text class="col-text">(m)</text>
+                    </view>
+                  </i-col>
+                  <i-col span="6" i-class="col-class">
+                    <view class="col-inner">靠包芯
+                      <text class="col-text">(m)</text>
+                    </view>
+                  </i-col>
+                </i-row>
+              </view>
+              <view class="results_inner">
+                <i-row>
+                  <i-col span="6" i-class="col-class">
+                    <view class="col-inner">20</view>
+                  </i-col>
+                  <i-col span="6" i-class="col-class">
+                    <view class="col-inner">30</view>
+                  </i-col>
+                  <i-col span="6" i-class="col-class">
+                    <view class="col-inner">40</view>
+                  </i-col>
+                  <i-col span="6" i-class="col-class">
+                    <view class="col-inner">36</view>
+                  </i-col>
+                </i-row>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
     <i-toast id="toast"/>
   </view>
@@ -157,10 +187,11 @@
   import wepy from 'wepy'
   import { INCREMENT } from '../../store/types/counter'
   import { connect } from 'wepy-redux'
+
   const { $Toast } = require('../../components/iview/base/index')
 
   @connect({
-    selectId (state) {
+    selectId(state) {
       return state.counter.selectId
     }
   }, {
@@ -183,7 +214,12 @@
       currentId: -1,
       selectedIndex: -1,
       current_scroll: 1,
-      src: '/images/list/dome.jpg',
+      src: './images/dome.jpg',
+      imgUrls: [
+        './images/dome.jpg',
+        './images/dome.jpg',
+        './images/dome.jpg'
+      ],
       items: [
         { name: 'USA', value: '美国' },
         { name: 'CHN', value: '中国', checked: 'true' },
@@ -206,10 +242,23 @@
           name: '背包'
         }
       ],
-      value: 1
+      indicatorDots: false,
+      autoplay: false,
+      interval: 1000,
+      duration: 300,
+      text: '主视图',
+      value: 1,
+      touchMove: '',
+      urls: [],
+      touchDot: 0, // 触摸时的原点
+      time: 0, // 时间记录，用于滑动时且时间小于1s则执行左右滑动
+      // interval: '', // 记录/清理 时间记录
+      nth: 0, // 设置活动菜单的index
+      nthMax: 5, // 活动菜单的最大个数
+      tmpFlag: true // 判断左右华东超出菜单最大值时不再执行滑动事件
     }
     methods = {
-      handleScroll ({ detail }) {
+      handleScroll({ detail }) {
         this.current_scroll = detail.key
         if (detail.key === -1) {
           return
@@ -224,14 +273,40 @@
           $Toast.hide()
         }, 300)
       },
-      handleChange ({ detail }) {
+
+      handleChange({ detail }) {
         this.value = detail.value
       },
-      checkboxChange: function(e) {
+
+      checkboxChange(e) {
         console.log('value值', e.detail.value)
+      },
+      // 点击查看
+      handleClickImage(e) {
+        // e.stopPropagation()
+        console.log(e)
+        let current = e.target.dataset.src
+        let List = []
+        List.push(current)
+        let imgList = this.imgUrls
+        wepy.previewImage({
+          current: current,
+          urls: imgList,
+          success: function() {
+            console.log('success')
+          },
+          fail: function() {
+            console.log('fail')
+          },
+          complete: function() {
+            // console.info("点击图片了");
+          }
+        })
+      },
+      handleSwiperChange(e) {
+        console.log(e)
       }
     }
-
     onLoad() {
       this.current_scroll = this.selectId
     }
