@@ -40,10 +40,11 @@
             position: relative;
             width: 100%;
             height: 400rpx;
+            margin-bottom: 60rpx;
             .category-icon {
               width: 100%;
               height: 100%;
-              border-radius: 5px;
+              border-radius: 10px;
             }
             .view_img{
               position: absolute;
@@ -52,12 +53,13 @@
               left: 50%;
               width: 90%;
               height: 120%;
-              box-shadow: 0 5px 3px #ddd;
+              border-radius: 10px;
+              box-shadow: 0 10px 12px 0 rgba(66,68,71,0.20);
               .view_img_inner {
                 position: relative;
                 width: 100%;
                 height: 100%;
-                border-radius: 5px;
+                border-radius: 10px;
                 .category-icon {
                   width: 100%;
                   height: 100%;
@@ -73,78 +75,133 @@
                   text-align: center;
                   line-height: 60rpx;
                   background: @uiColorGreen;
-                  border-radius: 0 0 5px 0;
+                  border-radius: 0 0 10px 0;
                 }
               }
             }
           }
-          //数量
-          .main_counts{
-            margin-top: 100rpx;
-            .count_box{
+          .main_card{
+            margin: 20rpx 0;
+            box-shadow: 0 1px 7px 0 rgba(162,164,168,0.20);
+            .i-card{
+              margin: 0;
+            }
+          }
+          .main_box {
+            padding: 0 20rpx;
+            //数量
+            .main_counts {
+              margin-top: 20rpx;
+              padding: 20rpx 10rpx;
+              box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
               border-radius: 5px;
               background: @textColor;
-              padding: 20rpx;
-              .count_item{
-                display: flex;
-                justify-content: space-between;
-                border-bottom: 0.5px solid #F3F3F3;
-                padding: 20rpx 0;
-                .count_text{
-                  color: @textColor2;
-                  font-size: @minFont;
+              .count_box {
+                .count_item {
                   display: flex;
-                  .count_group {
-                    margin-right: 10rpx;
-                    .wx-checkbox-input {
-                      width: 24rpx;
-                      height: 24rpx;
-                      outline: none;
-                    }
-                    .wx-checkbox-input-checked {
-                      background: @uiColorGreen;
-                      outline: none;
-                    }
-                    .wx-checkbox-input-checked::before {
-                      width: 24rpx;
-                      height: 24rpx;
-                      line-height: 24rpx;
-                      text-align: center;
-                      font-size: 24rpx;
-                      color: @textColor;
-                      background: transparent;
-                      transform: translate(-50%, -50%) scale(1);
-                      -webkit-transform: translate(-50%, -50%) scale(1);
-                    }
-                  }
-                }
-                .count_right{
-                  display: flex;
-                  .count_right_text{
+                  justify-content: space-between;
+                  border-bottom: 0.5px solid #F3F3F3;
+                  padding: 20rpx 0;
+                  .count_text {
+                    color: @textColor2;
                     font-size: @minFont;
-                    color: @baseColor;
-                    font-weight: 600;
-                  }
-                  .count_group {
-                    margin-right: 10rpx;
                     display: flex;
-                    .checkbox_text{
+                    .count_group {
+                      margin-right: 10rpx;
+                      .wx-checkbox-input {
+                        width: 24rpx;
+                        height: 24rpx;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked {
+                        background: @uiColorGreen;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked::before {
+                        width: 24rpx;
+                        height: 24rpx;
+                        line-height: 24rpx;
+                        text-align: center;
+                        font-size: 24rpx;
+                        color: @textColor;
+                        background: transparent;
+                        transform: translate(-50%, -50%) scale(1);
+                        -webkit-transform: translate(-50%, -50%) scale(1);
+                      }
+                    }
+                  }
+                  .count_right {
+                    display: flex;
+                    .count_right_text {
                       font-size: @minFont;
                       color: @baseColor;
                       font-weight: 600;
                     }
+                    .count_group {
+                      margin-right: 10rpx;
+                      display: flex;
+                      .checkbox_text {
+                        font-size: @minFont;
+                        color: @baseColor;
+                        font-weight: 600;
+                      }
+                      .wx-checkbox-input {
+                        width: 24rpx;
+                        height: 24rpx;
+                        outline: none;
+                        margin-right: 10rpx;
+                        line-height: 40rpx;
+                      }
+                      .wx-checkbox-input-checked {
+                        background: @uiColorGreen;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked::before {
+                        width: 24rpx;
+                        height: 24rpx;
+                        line-height: 24rpx;
+                        text-align: center;
+                        font-size: 24rpx;
+                        color: @textColor;
+                        background: transparent;
+                        transform: translate(-50%, -50%) scale(1);
+                        -webkit-transform: translate(-50%, -50%) scale(1);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            // 配置
+            .main_select {
+              border-radius: 5px;
+              background: @textColor;
+              box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
+              padding: 20rpx;
+              margin-top: 20rpx;
+              .select_box {
+                //border-bottom: 0.5px solid #F3F3F3;
+                .select_groups {
+                  display: flex;
+                  flex-wrap: wrap;
+                  .checkbox-label {
+                    width: 25%;
+                    font-size: @minFont;
+                    color: @baseColor;
+                    font-weight: 600;
+                    margin-bottom: 20rpx;
                     .wx-checkbox-input {
                       width: 24rpx;
                       height: 24rpx;
                       outline: none;
-                      margin-right: 10rpx;
-                      line-height: 40rpx;
+                      margin-right: 20rpx;
+                      line-height: 40 rpx;
                     }
                     .wx-checkbox-input-checked {
                       background: @uiColorGreen;
                       outline: none;
                     }
-                    .wx-checkbox-input-checked::before {
+                    .wx-checkbox-input::before {
                       width: 24rpx;
                       height: 24rpx;
                       line-height: 24rpx;
@@ -158,143 +215,107 @@
                   }
                 }
               }
-            }
-          }
-          // 配置
-          .main_select{
-            border-radius: 5px;
-            background: @textColor;
-            padding: 20rpx;
-            margin-top: 40rpx;
-            .select_box{
-              border-bottom: 0.5px solid #F3F3F3;
-              .select_groups{
+              .select_counts {
                 display: flex;
-                flex-wrap: wrap;
-                .checkbox-label{
-                  width: 25%;
+                justify-content: space-between;
+                padding: 10rpx 0;
+                .need_count {
+                  color: @textColor2;
                   font-size: @minFont;
-                  color: @baseColor;
-                  font-weight: 600;
-                  margin-bottom: 20rpx;
-                .wx-checkbox-input{
-                  width: 24rpx;
-                  height: 24rpx;
-                  outline: none;
-                  margin-right: 20rpx;
-                  line-height: 40rpx;
+                  line-height: 60rpx;
                 }
-                .wx-checkbox-input-checked {
-                  background: @uiColorGreen;
-                  outline: none;
+                .number_class {
+                  view, input {
+                    border: none;
+                    font-size: @minFont;
+                    font-weight: 600;
+                  }
                 }
-                .wx-checkbox-input::before {
-                  width: 24rpx;
-                  height: 24rpx;
-                  line-height: 24rpx;
-                  text-align: center;
-                  font-size: 24rpx;
-                  color: @textColor;
-                  background: transparent;
-                  transform: translate(-50%, -50%) scale(1);
-                  -webkit-transform: translate(-50%, -50%) scale(1);
-                }
-                }
-              }
-            }
-            .select_counts{
-              display: flex;
-              justify-content: space-between;
-              .need_count{
-                color: @textColor2;
-                font-size: @minFont;
-                line-height: 60rpx;
-              }
-              .number_class{
-                view,input{
-                  border: none;
-                  font-size: @minFont;
-                  font-weight: 600;
-              }
               }
             }
           }
           // 数量
-          .main_results{
-            margin-top: 40rpx;
-            .results_box{
+          .main_results {
+            margin-top: 20rpx;
+            box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
+            background: @textColor;
+            .results_box {
               border-radius: 5px;
               background: @textColor;
               padding: 20rpx;
-              .results_count{
+              .results_count {
                 display: flex;
                 justify-content: flex-end;
-                .result_text{
+                .result_text {
                   font-size: @minFont;
                   color: @baseColor2;
                   margin-right: 20rpx;
                   line-height: 60rpx;
                 }
-                .counts{
+                .counts {
                   font-weight: 600;
                   font-size: @initFont;
                 }
               }
-              .results_max{
+              .results_max {
                 display: flex;
                 justify-content: flex-end;
-                .result_text{
+                .result_text {
                   font-size: @minFont;
                   color: @baseColor2;
                   margin-right: 20rpx;
                   line-height: 60rpx;
                 }
-                .counts{
-                  font-size: @initFont;
+                .counts {
+                  display: flex;
+                  .count-text {
+                    font-size: @minFont;
+                    line-height: 60rpx;
+                  }
                 }
               }
             }
-            .results_static{
+            .results_static {
               margin-top: 20rpx;
               padding: 20rpx;
               background: @textColor;
-              .results_header{
+              .results_header {
                 border-radius: 5px 5px 0 0;
                 background: @bgColor;
-                .col-class{
+                .col-class {
                   text-align: center;
                   line-height: 60rxp;
-                  view{
+                  view {
                     font-size: @minFont;
                     font-weight: 400;
                     text-align: center;
                   }
-                  .col-inner{
+                  .col-inner {
                     font-size: @minFont;
                     line-height: 32px;
                     font-weight: 600;
                     color: @baseColor;
                   }
-                  .col-text{
+                  .col-text {
                     font-size: @miniFont;
                     font-weight: 400;
                   }
                 }
               }
-              .results_inner{
+              .results_inner {
                 border-radius: 0 0 5px 5px;
                 border-bottom: 1px solid @bgColor;
                 border-left: 1px solid @bgColor;
                 border-right: 1px solid @bgColor;
-                .col-class{
+                .col-class {
                   text-align: center;
                   line-height: 60rxp;
-                  view{
+                  view {
                     font-size: @minFont;
                     font-weight: 400;
                     text-align: center;
                   }
-                  .col-inner{
+                  .col-inner {
                     font-size: @minFont;
                     line-height: 32px;
                   }

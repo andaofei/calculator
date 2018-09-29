@@ -119,7 +119,7 @@
         },
         {
           id: 3,
-          name: '背包'
+          name: '靠包'
         }
       ],
       isSelect: true,

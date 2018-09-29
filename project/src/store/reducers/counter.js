@@ -1,10 +1,10 @@
 import { handleActions } from 'redux-actions'
 import { INCREMENT, DECREMENT, ASYNC_INCREMENT } from '../types/counter'
-const initState = {
-  name: '',
-  num: 0,
-  asyncNum: 0
-}
+// const initState = {
+//   name: '',
+//   num: 0,
+//   asyncNum: 0
+// }
 
 export default handleActions({
   [INCREMENT](state, actions) {
