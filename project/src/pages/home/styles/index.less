@@ -92,7 +92,7 @@
             //数量
             .main_counts {
               margin-top: 20rpx;
-              padding: 20rpx 10rpx;
+              padding: 20rpx;
               box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
               border-radius: 5px;
               background: @textColor;
@@ -102,10 +102,11 @@
                   justify-content: space-between;
                   border-bottom: 0.5px solid #F3F3F3;
                   padding: 20rpx 0;
-                  .count_text {
+                  .count_text, .check_groups {
                     color: @textColor2;
                     font-size: @minFont;
                     display: flex;
+                    margin-right: 5px;
                     .count_group {
                       margin-right: 10rpx;
                       .wx-checkbox-input {
@@ -129,6 +130,34 @@
                         -webkit-transform: translate(-50%, -50%) scale(1);
                       }
                     }
+                    .count_right_text {
+                      line-height: 1.4rem;
+                    }
+                  }
+                  .count_right_text{
+                    margin-right: 5px;
+                  }
+                  // radio
+                  .radio-group{
+                    .radio{
+                      margin-right: 5px;
+                      .wx-radio-input {
+                        border-radius: 50%;
+                        width: 28rpx;
+                        height: 28rpx;
+                      }
+                      .wx-radio-input.wx-radio-input-checked::before {
+                        border-radius: 50%;
+                        width: 44rpx;
+                        height: 44rpx;
+                        line-height: 44rpx;
+                        text-align: center;
+                        font-size: 26rpx; /* 对勾大小 26rpx */
+                        color:#fff; /* 对勾颜色 */
+                        background: @uiColorGreen;
+                        border-color: @uiColorGreen;
+                      }
+                    }
                   }
                   .count_right {
                     display: flex;
@@ -136,13 +165,26 @@
                       font-size: @minFont;
                       color: @baseColor;
                       font-weight: 600;
+                      line-height: 1.4rem;
+                      .count_right_text_input{
+                        display: flex;
+                        input{
+                          text-align: center;
+                          width: 40px;
+                          font-size: @minFont;
+                          color: @baseColor;
+                        }
+                      }
                     }
+                    // 多选
                     .count_group {
-                      margin-right: 10rpx;
+                      margin-right: 20rpx;
                       display: flex;
+                      justify-content: center;
                       .checkbox_text {
                         font-size: @minFont;
                         color: @baseColor;
+                        line-height: 1.4rem;
                         font-weight: 600;
                       }
                       .wx-checkbox-input {
@@ -172,6 +214,13 @@
                 }
               }
             }
+            .number_class {
+              view, input {
+                border: none;
+                font-size: @minFont;
+                font-weight: 600;
+              }
+            }
             // 配置
             .main_select {
               border-radius: 5px;
@@ -181,39 +230,69 @@
               margin-top: 20rpx;
               .select_box {
                 //border-bottom: 0.5px solid #F3F3F3;
-                .select_groups {
+                color: @textColor2;
+                font-size: @minFont;
+                display: flex;
+                .count_group {
+                  margin-right: 10rpx;
                   display: flex;
-                  flex-wrap: wrap;
-                  .checkbox-label {
-                    width: 25%;
-                    font-size: @minFont;
-                    color: @baseColor;
-                    font-weight: 600;
-                    margin-bottom: 20rpx;
-                    .wx-checkbox-input {
-                      width: 24rpx;
-                      height: 24rpx;
-                      outline: none;
-                      margin-right: 20rpx;
-                      line-height: 40 rpx;
-                    }
-                    .wx-checkbox-input-checked {
-                      background: @uiColorGreen;
-                      outline: none;
-                    }
-                    .wx-checkbox-input::before {
-                      width: 24rpx;
-                      height: 24rpx;
-                      line-height: 24rpx;
-                      text-align: center;
-                      font-size: 24rpx;
-                      color: @textColor;
-                      background: transparent;
-                      transform: translate(-50%, -50%) scale(1);
-                      -webkit-transform: translate(-50%, -50%) scale(1);
-                    }
+                  .checkbox_text{
+                    margin-left: 5px;
+                  }
+                  .wx-checkbox-input {
+                    width: 24rpx;
+                    height: 24rpx;
+                    outline: none;
+                  }
+                  .wx-checkbox-input-checked {
+                    background: @uiColorGreen;
+                    outline: none;
+                  }
+                  .wx-checkbox-input-checked::before {
+                    width: 24rpx;
+                    height: 24rpx;
+                    line-height: 24rpx;
+                    text-align: center;
+                    font-size: 24rpx;
+                    color: @textColor;
+                    background: transparent;
+                    transform: translate(-50%, -50%) scale(1);
+                    -webkit-transform: translate(-50%, -50%) scale(1);
                   }
                 }
+                //.select_groups {
+                //  display: flex;
+                //  flex-wrap: wrap;
+                //  .checkbox-label {
+                //    width: 25%;
+                //    font-size: @minFont;
+                //    color: @baseColor;
+                //    font-weight: 600;
+                //    margin-bottom: 20rpx;
+                //    .wx-checkbox-input {
+                //      width: 24rpx;
+                //      height: 24rpx;
+                //      outline: none;
+                //      margin-right: 20rpx;
+                //      line-height: 40 rpx;
+                //    }
+                //    .wx-checkbox-input-checked {
+                //      background: @uiColorGreen;
+                //      outline: none;
+                //    }
+                //    .wx-checkbox-input::before {
+                //      width: 24rpx;
+                //      height: 24rpx;
+                //      line-height: 24rpx;
+                //      text-align: center;
+                //      font-size: 24rpx;
+                //      color: @textColor;
+                //      background: transparent;
+                //      transform: translate(-50%, -50%) scale(1);
+                //      -webkit-transform: translate(-50%, -50%) scale(1);
+                //    }
+                //  }
+                //}
               }
               .select_counts {
                 display: flex;

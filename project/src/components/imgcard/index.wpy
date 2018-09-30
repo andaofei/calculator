@@ -1,0 +1,67 @@
+<style lang="less">
+  .card-box{
+    display: flex;
+    background: #fff;
+    .img{
+      flex: 0 0 64px;
+      padding: 10px;
+      .thumb {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        background-size: cover;
+      }
+    }
+    .text{
+      flex:  1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .text-inner{
+        color: #2A2D32;
+        line-height: 32rpx;
+        font-family: PingFangSC-Medium;
+        font-size: 28rpx;
+        font-weight: 600;
+      }
+      .text-inner2{
+        font-size: 24rpxpx;
+      }
+    }
+  }
+</style>
+<template>
+  <view class="card-box">
+      <view class="img">
+        <image src="{{thumb}}" alt="" class="thumb"/>
+      </view>
+      <view class="text">
+        <view class="text-inner">{{title}}</view>
+        <view class="text-inner text-inner2">{{extra}}</view>
+      </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class imgCard extends wepy.component {
+    props = {
+      title: {},
+      thumb: {},
+      extra: {}
+    }
+    data = {
+    }
+
+    methods = {
+    }
+
+    onLoad () {
+      console.log('card')
+    }
+  }
+</script>
