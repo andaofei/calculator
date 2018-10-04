@@ -23,11 +23,8 @@
 
             <view class="view_img">
               <view class="view_img_inner">
-                <swiper style="width: 100%;height: 100%"
-                        bindchange="handleSwiperChange"
-                        indicator-dots="{{indicatorDots}}"
-                        autoplay="{{autoplay}}"
-                        interval="{{interval}}"
+                <swiper style="width: 100%;height: 100%" bindchange="handleSwiperChange"
+                        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
                         duration="{{duration}}">
                   <block wx:for="{{imgUrls}}" wx:key="id">
                     <swiper-item style="width: 100%;height: 100%">
@@ -73,7 +70,7 @@
                     <view class="count_right_text">
                       <view class="count_right_text_input">
                         <view>宽</view>
-                        <input type="digit" placeholder=""  bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                        <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
                         <view>m</view>
                       </view>
                     </view>
@@ -162,46 +159,46 @@
 
                 <!--宽幅-->
                 <block wx:if="{{current_scroll === 3}}">
-                      <view class="count_item">
-                       <view class="count_text">
-                         <view class="count_right_text">宽幅</view>
-                         <radio-group class="radio-group" bindchange="radioChange">
-                           <label class="radio" wx:for="{{fruit}}" wx:key="id">
-                             <radio value="{{item.id}}" checked="{{item.checked}}">{{item.name}}</radio>
-                           </label>
-                         </radio-group>
-                        </view>
-
-                        <view class="count_right">
-
-                          <view class="count_right_text">
-                            <view class="count_right_text_input">
-                              <input type="digit" placeholder="" bindinput="bindDefaultWidth"  value="{{defaultWidth}}"/>
-                              <view>m</view>
-                            </view>
-                          </view>
-                        </view>
+                  <view class="count_item">
+                    <view class="count_text">
+                      <view class="count_right_text">宽幅</view>
+                      <radio-group class="radio-group" bindchange="radioChange">
+                        <label class="radio" wx:for="{{fruit}}" wx:key="id">
+                          <radio value="{{item.id}}" checked="{{item.checked}}">{{item.name}}</radio>
+                        </label>
+                      </radio-group>
                     </view>
+
+                    <view class="count_right">
+
+                      <view class="count_right_text">
+                        <view class="count_right_text_input">
+                          <input type="digit" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
+                          <view>m</view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
                 </block>
 
                 <!--窄幅-->
                 <!--<block wx:if="{{current_scroll === 3}}">-->
-                  <!--<view class="count_item">-->
-                    <!--<view class="count_text">-->
-                      <!--<view class="count_group">-->
-                        <!--<checkbox class="wx-checkbox-input" check="{{bagHChecked}}"></checkbox>-->
-                      <!--</view>-->
-                      <!--<view class="count_right_text">窄幅</view>-->
-                    <!--</view>-->
-                    <!--<view class="count_right">-->
-                      <!--<view class="count_right_text">-->
-                        <!--<view class="count_right_text_input">-->
-                          <!--<input type="digit" placeholder="" value="{{narrow}}"/>-->
-                          <!--<view>m</view>-->
-                        <!--</view>-->
-                      <!--</view>-->
-                    <!--</view>-->
-                  <!--</view>-->
+                <!--<view class="count_item">-->
+                <!--<view class="count_text">-->
+                <!--<view class="count_group">-->
+                <!--<checkbox class="wx-checkbox-input" check="{{bagHChecked}}"></checkbox>-->
+                <!--</view>-->
+                <!--<view class="count_right_text">窄幅</view>-->
+                <!--</view>-->
+                <!--<view class="count_right">-->
+                <!--<view class="count_right_text">-->
+                <!--<view class="count_right_text_input">-->
+                <!--<input type="digit" placeholder="" value="{{narrow}}"/>-->
+                <!--<view>m</view>-->
+                <!--</view>-->
+                <!--</view>-->
+                <!--</view>-->
+                <!--</view>-->
                 <!--</block>-->
 
                 <!--取花 -->
@@ -238,18 +235,19 @@
             <view class="main_select">
               <view class="select_box">
                 <!--<view class="count_group">-->
-                  <!--<checkbox class="wx-checkbox-input" checked="{{tooth}}"></checkbox>-->
-                  <!--<view class="checkbox_text">牙绳</view>-->
+                <!--<checkbox class="wx-checkbox-input" checked="{{tooth}}"></checkbox>-->
+                <!--<view class="checkbox_text">牙绳</view>-->
                 <!--</view>-->
 
                 <!--<view class="count_group">-->
-                  <!--<checkbox class="wx-checkbox-input" checked="{{lace}}"></checkbox>-->
-                  <!--<view class="checkbox_text">花边</view>-->
+                <!--<checkbox class="wx-checkbox-input" checked="{{lace}}"></checkbox>-->
+                <!--<view class="checkbox_text">花边</view>-->
                 <!--</view>-->
 
                 <checkbox-group class="count_group" bindchange="toolChange">
                   <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
-                    <checkbox value="{{item.id}}" checked="{{item.checked}}"/>{{item.name}}
+                    <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+                    {{item.name}}
                   </label>
                 </checkbox-group>
               </view>
@@ -260,7 +258,8 @@
                   <view class="select_counts">
                     <view class="need_count">所需数量</view>
                     <view>
-                      <i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100" bindchange="handleChangeBag"/>
+                      <i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100"
+                                      bindchange="handleChangeBag"/>
                     </view>
                   </view>
                 </block>
@@ -312,24 +311,24 @@
 
             <!--详情-->
             <block wx:if="{{current_scroll === 3}}">
-            <view class="results_static">
-              <view class="results_header">
-                <i-row>
-                  <i-col span="6" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
-                    <view class="col-inner">{{item.name}}
-                      <text class="col-text">({{item.unit}})</text>
-                    </view>
-                  </i-col>
-                </i-row>
+              <view class="results_static">
+                <view class="results_header">
+                  <i-row>
+                    <i-col span="6" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
+                      <view class="col-inner">{{item.name}}
+                        <text class="col-text">({{item.unit}})</text>
+                      </view>
+                    </i-col>
+                  </i-row>
+                </view>
+                <view class="results_inner">
+                  <i-row>
+                    <i-col span="6" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
+                      <view class="col-inner">{{item.counts}}</view>
+                    </i-col>
+                  </i-row>
+                </view>
               </view>
-              <view class="results_inner">
-                <i-row>
-                  <i-col span="6" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
-                    <view class="col-inner">{{item.counts}}</view>
-                  </i-col>
-                </i-row>
-              </view>
-            </view>
             </block>
           </view>
         </view>
@@ -340,12 +339,13 @@
 </template>
 <script>
   import wepy from 'wepy'
-  import { INCREMENT } from '../../store/types/counter'
-  import { connect } from 'wepy-redux'
+  import {INCREMENT} from '../../store/types/counter'
+  import {connect} from 'wepy-redux'
   import '../../config/config'
+  import 'wepy-async-function'
   import imgCard from '../../components/imgcard/index'
   import moduleA from 'module-a' // aliasFields ignore module example
-  const { $Toast } = require('../../components/iview/base/index')
+  const {$Toast} = require('../../components/iview/base/index')
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
   @connect({
     selectId(state) {
@@ -385,7 +385,7 @@
       checkList: [],
       colList: [],
       rowList: [],
-      fruit: [ {
+      fruit: [{
         id: 2,
         checked: false,
         name: '定宽'
@@ -431,20 +431,20 @@
       toothRope: '', // 牙绳
       colCounts: 6,
       items3: [
-        { name: '牙绳', value: '0', checked: 'true' },
-        { name: '花边', value: '1', checked: 'true' }
+        {name: '牙绳', value: '0', checked: 'true'},
+        {name: '花边', value: '1', checked: 'true'}
       ], // 牙绳
       items2: [
-        { name: '加衬', value: '0', checked: 'true' },
-        { name: '花边', value: '1' }
+        {name: '加衬', value: '0', checked: 'true'},
+        {name: '花边', value: '1'}
       ],
       items1: [
-        { name: '衬布', value: '0', checked: 'true' },
-        { name: '轨道', value: '1', checked: 'true' },
-        { name: '窗杆', value: '2' },
-        { name: '遮光布', value: '3' },
-        { name: '横向花边', value: '4' },
-        { name: '竖向花边', value: '5' }
+        {name: '衬布', value: '0', checked: 'true'},
+        {name: '轨道', value: '1', checked: 'true'},
+        {name: '窗杆', value: '2'},
+        {name: '遮光布', value: '3'},
+        {name: '横向花边', value: '4'},
+        {name: '竖向花边', value: '5'}
       ],
       detailList1: [
         {
@@ -565,14 +565,14 @@
           name: '靠包'
         }
       ],
-      bag: 1,
+      bag: 0,
       indicatorDots: false,
       imgIndex: 0, // 视图下标
       autoplay: false,
       interval: 1000,
       duration: 300,
       text: '主视图',
-      value: 1,
+      value: 0,
       touchMove: '',
       urls: [],
       touchDot: 0, // 触摸时的原点
@@ -582,46 +582,27 @@
       nthMax: 5, // 活动菜单的最大个数
       tmpFlag: true // 判断左右华东超出菜单最大值时不再执行滑动事件
     }
-    components = { imgCard: imgCard }
-    // 获取数据async
-    setBagData(obj) {
+    components = {imgCard: imgCard}
+    // sleep (obj) {
+    //     await wepy.request({
+    //       method: 'post',
+    //       header: {
+    //         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+    //       },
+    //       url: 'https://www.doudoufuwu.com/mobile/calculator',
+    //       data: s
+    //     })
+    // }
+    async testAsync(obj) {
       let that = this
-      // try {
-      //   const d = await wepy.request({
-      //     method: 'post',
-      //     header: {
-      //       'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-      //     },
-      //     url: 'https://www.doudoufuwu.com/mobile/calculator',
-      //     data: {
-      //       type: 2, // 2:靠包
-      //       goodsWidth: 0.3, // 靠包宽
-      //       goodsHight: 0.2, // 靠包高
-      //       clothType: 1, // 1：窄幅 2:宽幅定宽 3:宽幅定高
-      //       clothValue: 1.4, // 布料固定值
-      //       flowerType: 0, // 0:无对花 1:有对花
-      //       flowerWidth: 0.7, // 花距宽
-      //       flowerHight: 0.5, // 花距高
-      //       num: 3, // 数量
-      //       lace: 0, // 花边 0:无 1:有
-      //       toothRope: 1 // 牙绳 0:无 1:有
-      //     }
-      //   })
-      //   console.log(d)
-      // } catch (err) {
-      //   console.log(err)
-      // }
-      wepy.request({
+//      console.log(obj)
+      await wepy.request({
         method: 'POST',
-        header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-        },
+        header: {'content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
         url: 'https://www.doudoufuwu.com/mobile/calculator',
         data: obj,
         success(res) {
-          console.log(res.data.CalculatorResult)
-          console.log(that.data)
-          console.log(that.useLevel)
+          console.log(that.data.bagCore)
           that.countList3[0].counts = res.data.CalculatorResult.useLevel
           that.countList3[1].counts = res.data.CalculatorResult.toothRope
           that.countList3[2].counts = res.data.CalculatorResult.bagCore
@@ -634,9 +615,34 @@
         }
       })
     }
+    // 获取数据async
+    setBagData(obj) {
+      let that = this
+      wepy.request({
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        url: 'https://www.doudoufuwu.com/mobile/calculator',
+        data: obj,
+        success(res) {
+          console.log(that.data.bagCore)
+          that.data.countList3[0].counts = res.data.CalculatorResult.useLevel
+          that.data.countList3[1].counts = res.data.CalculatorResult.toothRope
+          that.data.countList3[2].counts = res.data.CalculatorResult.bagCore
+          that.data.countList3[3].counts = res.data.CalculatorResult.recommendedBagCoreWidth
+          that.data.useLevel = res.data.CalculatorResult.useLevel
+          that.data.resultsLace = res.data.CalculatorResult.lace
+          that.data.resultsTooth = res.data.CalculatorResult.toothRope
+          that.data.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth
+          that.data.bagCore = res.data.CalculatorResult.bagCore
+        }
+      })
+    }
+
     methods = {
       // 头部
-      handleClick({ detail }) {
+      handleClick({detail}) {
         this.current_scroll = parseInt(detail.key)
         if (this.current_scroll === -1) {
           return
@@ -654,7 +660,7 @@
       },
 
 // 靠包
-      handleChangeBag({ detail }) {
+      handleChangeBag({detail}) {
         // console.log(this.tooth)
         // console.log(this.lace)
         this.bag = detail.value
@@ -671,10 +677,11 @@
           lace: this.lace ? 1 : 0, // 花边 0:无 1:有
           toothRope: this.toothRope ? 1 : 0 // 牙绳 0:无 1:有
         }
-        this.setBagData(obj)
+//        this.setBagData(obj)
+        this.testAsync(obj)
         // console.log(obj)
       },
-      handleFruitChange({ detail = {} }) {
+      handleFruitChange({detail = {}}) {
         this.current = detail.value
       },
       // 输入框
@@ -699,7 +706,7 @@
         this.flowerHeight = e.detail.current
       },
 
-      handleChange({ detail }) {
+      handleChange({detail}) {
         this.value = detail.value
       },
 // 牙绳
@@ -727,13 +734,13 @@
         wepy.previewImage({
           current: current,
           urls: imgList,
-          success: function() {
+          success: function () {
             console.log('success')
           },
-          fail: function() {
+          fail: function () {
             console.log('fail')
           },
-          complete: function() {
+          complete: function () {
             // console.info("点击图片了");
           }
         })

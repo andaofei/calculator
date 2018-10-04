@@ -52,7 +52,7 @@ export default class extends wepy.app {
   }
 
   async testAsync () {
-    const data = await this.sleep(3)
+    const data = await this.sleep(1)
     console.log(data)
   }
 
