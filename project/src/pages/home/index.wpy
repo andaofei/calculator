@@ -158,7 +158,7 @@
                 </block>
 
                 <!--宽幅-->
-                <block wx:if="{{current_scroll === 3}}">
+                <block wx:if="{{current_scroll === 3 || current_scroll === 1}}">
                   <view class="count_item">
                     <view class="count_text">
                       <view class="count_right_text">宽幅</view>
@@ -181,28 +181,9 @@
                   </view>
                 </block>
 
-                <!--窄幅-->
-                <!--<block wx:if="{{current_scroll === 3}}">-->
-                <!--<view class="count_item">-->
-                <!--<view class="count_text">-->
-                <!--<view class="count_group">-->
-                <!--<checkbox class="wx-checkbox-input" check="{{bagHChecked}}"></checkbox>-->
-                <!--</view>-->
-                <!--<view class="count_right_text">窄幅</view>-->
-                <!--</view>-->
-                <!--<view class="count_right">-->
-                <!--<view class="count_right_text">-->
-                <!--<view class="count_right_text_input">-->
-                <!--<input type="digit" placeholder="" value="{{narrow}}"/>-->
-                <!--<view>m</view>-->
-                <!--</view>-->
-                <!--</view>-->
-                <!--</view>-->
-                <!--</view>-->
-                <!--</block>-->
 
                 <!--取花 -->
-                <block wx:if="{{current_scroll === 3}}">
+                <block wx:if="{{current_scroll === 3 || current_scroll === 1}}">
                   <view class="count_item">
                     <view class="count_text">取花</view>
                     <view class="count_right">
@@ -234,27 +215,28 @@
             <!--配置-->
             <view class="main_select">
               <view class="select_box">
-                <!--<view class="count_group">-->
-                <!--<checkbox class="wx-checkbox-input" checked="{{tooth}}"></checkbox>-->
-                <!--<view class="checkbox_text">牙绳</view>-->
-                <!--</view>-->
+                <block wx:if="{{current_scroll === 1}}">
+                  <checkbox-group class="count_group" bindchange="toolChange">
+                    <label class="count_group" wx:for="{{curtainhGroups}}" wx:key="{{item.id}}">
+                      <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+                      {{item.name}}
+                    </label>
+                  </checkbox-group>
+                </block>
 
-                <!--<view class="count_group">-->
-                <!--<checkbox class="wx-checkbox-input" checked="{{lace}}"></checkbox>-->
-                <!--<view class="checkbox_text">花边</view>-->
-                <!--</view>-->
-
-                <checkbox-group class="count_group" bindchange="toolChange">
-                  <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
-                    <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
-                    {{item.name}}
-                  </label>
-                </checkbox-group>
+                <block wx:if="{{current_scroll === 3}}">
+                  <checkbox-group class="count_group" bindchange="toolChange">
+                    <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
+                      <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+                      {{item.name}}
+                    </label>
+                  </checkbox-group>
+                </block>
               </view>
               <block>
 
                 <!--靠包数量-->
-                <block wx:if="{{current_scroll === 3}}">
+                <block wx:if="{{current_scroll === 3 || current_scroll === 1}}">
                   <view class="select_counts">
                     <view class="need_count">所需数量</view>
                     <view>
@@ -282,11 +264,14 @@
 
           <!--用料-->
           <view class="main_results">
+
             <view class="results_box">
-              <view class="results_count">
-                <view class="result_text">布料用量</view>
-                <view class="counts">{{useLevel}}m</view>
-              </view>
+              <block wx:if="{{current_scroll === 1 || current_scroll === 3}}">
+                <view class="results_count">
+                  <view class="result_text">布料用量</view>
+                  <view class="counts">{{useLevel}}m</view>
+                </view>
+              </block>
 
               <block wx:if="{{current_scroll === 1 || current_scroll === 2}}">
                 <view class="results_max">
@@ -302,14 +287,33 @@
                   <view class="result_text">推荐靠包芯</view>
                   <view class="counts">
                     <view class="count-text">{{recommendedBagCoreWidth}}</view>
-                    <!--*-->
-                    <!--<view class="count-text">2800m</view>-->
                   </view>
                 </view>
               </block>
             </view>
 
             <!--详情-->
+            <block wx:if="{{current_scroll === 1}}">
+              <view class="results_static">
+                <view class="results_header">
+                  <i-row>
+                    <i-col span="6" i-class="col-class" wx:for="{{detailList1}}" wx:key="id">
+                      <view class="col-inner">{{item.name}}
+                        <text class="col-text">({{item.unit}})</text>
+                      </view>
+                    </i-col>
+                  </i-row>
+                </view>
+                <view class="results_inner">
+                  <i-row>
+                    <i-col span="6" i-class="col-class" wx:for="{{countList1}}" wx:key="id">
+                      <view class="col-inner">{{item.counts}}</view>
+                    </i-col>
+                  </i-row>
+                </view>
+              </view>
+            </block>
+
             <block wx:if="{{current_scroll === 3}}">
               <view class="results_static">
                 <view class="results_header">
@@ -330,6 +334,7 @@
                 </view>
               </view>
             </block>
+
           </view>
         </view>
       </view>
@@ -339,8 +344,8 @@
 </template>
 <script>
   import wepy from 'wepy'
-  import {INCREMENT} from '../../store/types/counter'
-  import {connect} from 'wepy-redux'
+  import { INCREMENT } from '../../store/types/counter'
+  import { connect } from 'wepy-redux'
   import '../../config/config'
   import 'wepy-async-function'
   import imgCard from '../../components/imgcard/index'
@@ -423,9 +428,41 @@
           name: '花边'
         }
       ],
+      curtainhGroups: [
+        {
+          id: 1,
+          checked: false,
+          name: '衬布'
+        },
+        {
+          id: 2,
+          checked: false,
+          name: '轨道'
+        },
+        {
+          id: 3,
+          checked: false,
+          name: '窗杆'
+        },
+        {
+          id: 4,
+          checked: false,
+          name: '遮光布'
+        },
+        {
+          id: 5,
+          checked: false,
+          name: '横向花边'
+        },
+        {
+          id: 6,
+          checked: false,
+          name: '竖向花边'
+        }
+      ],
       lace: '', // 花边check
       narrow: 1.4, // 窄幅
-      defaultWidth: 2.8, // 宽幅定值
+      defaultWidth: 1.4, // 宽幅定值
       flowerWidth: 1.4, // 取花宽
       flowerHeight: 2.8, // 取花高
       toothRope: '', // 牙绳
@@ -467,19 +504,19 @@
       countList1: [
         {
           id: 0,
-          counts: 30
+          counts: 0
         },
         {
           id: 1,
-          counts: 32
+          counts: 0
         },
         {
           id: 2,
-          counts: 43
+          counts: 0
         },
         {
           id: 3,
-          counts: 43
+          counts: 0
         }
       ],
       detailList2: [
@@ -531,25 +568,25 @@
       countList3: [
         {
           id: 0,
-          counts: 30
+          counts: 0
         },
         {
           id: 1,
-          counts: 32
+          counts: 0
         },
         {
           id: 2,
-          counts: 43
+          counts: 0
         },
         {
           id: 3,
-          counts: 43
+          counts: 0
         }
       ],
-      useLevel: 12, // 用量
+      useLevel: 0, // 用量
       resultsLace: '', // 花边
       resultsTooth: '', // 牙绳
-      recommendedBagCoreWidth: '', // 推荐靠包心
+      recommendedBagCoreWidth: 0, // 推荐靠包心
       bagCore: '', // 靠包心
       section: [
         {
@@ -582,41 +619,12 @@
       nthMax: 5, // 活动菜单的最大个数
       tmpFlag: true // 判断左右华东超出菜单最大值时不再执行滑动事件
     }
+
     components = {imgCard: imgCard}
-    // sleep (obj) {
-    //     await wepy.request({
-    //       method: 'post',
-    //       header: {
-    //         'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-    //       },
-    //       url: 'https://www.doudoufuwu.com/mobile/calculator',
-    //       data: s
-    //     })
-    // }
-    async testAsync(obj) {
-      let that = this
-//      console.log(obj)
-      await wepy.request({
-        method: 'POST',
-        header: {'content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
-        url: 'https://www.doudoufuwu.com/mobile/calculator',
-        data: obj,
-        success(res) {
-          console.log(that.data.bagCore)
-          that.countList3[0].counts = res.data.CalculatorResult.useLevel
-          that.countList3[1].counts = res.data.CalculatorResult.toothRope
-          that.countList3[2].counts = res.data.CalculatorResult.bagCore
-          that.countList3[3].counts = res.data.CalculatorResult.recommendedBagCoreWidth
-          that.useLevel = res.data.CalculatorResult.useLevel
-          that.resultsLace = res.data.CalculatorResult.lace
-          that.resultsTooth = res.data.CalculatorResult.toothRope
-          that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth
-          that.bagCore = res.data.CalculatorResult.bagCore
-        }
-      })
-    }
+
     // 获取数据async
-    setBagData(obj) {
+    setBagData (obj) {
+      console.log(obj)
       let that = this
       wepy.request({
         method: 'POST',
@@ -624,19 +632,20 @@
           'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
         },
         url: 'https://www.doudoufuwu.com/mobile/calculator',
-        data: obj,
-        success(res) {
-          console.log(that.data.bagCore)
-          that.data.countList3[0].counts = res.data.CalculatorResult.useLevel
-          that.data.countList3[1].counts = res.data.CalculatorResult.toothRope
-          that.data.countList3[2].counts = res.data.CalculatorResult.bagCore
-          that.data.countList3[3].counts = res.data.CalculatorResult.recommendedBagCoreWidth
-          that.data.useLevel = res.data.CalculatorResult.useLevel
-          that.data.resultsLace = res.data.CalculatorResult.lace
-          that.data.resultsTooth = res.data.CalculatorResult.toothRope
-          that.data.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth
-          that.data.bagCore = res.data.CalculatorResult.bagCore
-        }
+        data: obj
+      }).then((res) => {
+//        console.log(res.data.CalculatorResult, 'bag')
+//        console.log(that.data, 'data')
+        that.data.countList3[0].counts = res.data.CalculatorResult.useLevel
+        that.data.countList3[1].counts = res.data.CalculatorResult.toothRope
+        that.data.countList3[2].counts = res.data.CalculatorResult.bagCore
+        that.data.countList3[3].counts = res.data.CalculatorResult.recommendedBagCoreWidth
+        that.data.resultsLace = res.data.CalculatorResult.lace
+        that.resultsTooth = res.data.CalculatorResult.toothRope
+        that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
+        that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
+        that.bagCore = res.data.CalculatorResult.bagCore
+        that.$apply() // 回调app
       })
     }
 
@@ -662,7 +671,18 @@
 // 靠包
       handleChangeBag({detail}) {
         // console.log(this.tooth)
-        // console.log(this.lace)
+        if (!this.bagWChecked) {
+          return $Toast({
+            content: '请选择宽或高',
+            type: 'warning'
+          })
+        }
+        if (!this.lace && !this.toothRope) {
+          return $Toast({
+            content: '请选择牙绳或花边',
+            type: 'warning'
+          })
+        }
         this.bag = detail.value
         let obj = {
           type: 2, // 2:靠包
@@ -677,9 +697,7 @@
           lace: this.lace ? 1 : 0, // 花边 0:无 1:有
           toothRope: this.toothRope ? 1 : 0 // 牙绳 0:无 1:有
         }
-//        this.setBagData(obj)
-        this.testAsync(obj)
-        // console.log(obj)
+        this.setBagData(obj)
       },
       handleFruitChange({detail = {}}) {
         this.current = detail.value
@@ -778,7 +796,7 @@
       }
     }
 
-    onLoad() {
+    onLoad () {
       console.log(this.selectId)
       this.current_scroll = this.selectId
       this.methods.loadData(this.selectId)
