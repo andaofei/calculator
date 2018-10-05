@@ -1,9 +1,10 @@
 <style lang="less">
+
 </style>
 <template>
   <view class="main_img">
 
-    <image src="https://i.loli.net/2017/08/21/599a521472424.jpg" class="category-icon"/>
+    <image src="https://i.loli.net/2017/08/21/599a521472424.jpg" class="category-icon" style="filter: blur(5px);"/>
 
     <view class="view_img">
       <view class="view_img_inner">
