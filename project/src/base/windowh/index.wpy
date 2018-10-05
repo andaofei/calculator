@@ -1,0 +1,343 @@
+<style lang="less">
+</style>
+<template>
+  <view>
+    <!--图片卡片-->
+    <view class="main_card">
+      <imgCard title="水波窗帘" extra="兜兜定制专家，从方案到成品一键解决"
+               thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+      </imgCard>
+    </view>
+
+    <view class="main_box">
+      <!--规格-->
+      <view class="main_counts">
+        <view class="count_box">
+          <!--成品-->
+            <view class="count_item">
+            <view class="count_text">成品</view>
+            <view class="count_right">
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <view>宽</view>
+                  <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <view>m</view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+            <!--高-->
+            <view class="count_item">
+              <view class="count_text"></view>
+              <view class="count_right">
+                <view class="count_right_text">
+                  <view class="count_right_text_input">
+                    <view>高</view>
+                    <input type="digit" placeholder="" bindinput="bindBagHeight" value="{{bagHeight}}"/>
+                    <view>m</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          <!--拐弯-->
+            <view class="count_item">
+              <view class="count_text">左拐弯</view>
+              <view class="count_right">
+                <view class="count_right_text">
+                  <view class="count_right_text_input">
+                    <view>宽</view>
+                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <view>m</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <view class="count_item">
+              <view class="count_text">右拐弯</view>
+              <view class="count_right">
+                <view class="count_right_text">
+                  <view class="count_right_text_input">
+                    <view>宽</view>
+                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <view>m</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+          <!--边旗-->
+            <view class="count_item">
+              <view class="count_text">边旗</view>
+              <view class="count_right">
+                <view class="count_right_text">
+                  <view class="count_right_text_input">
+                    <view>宽</view>
+                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <view>m</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <view class="count_item">
+              <view class="count_text"></view>
+              <view class="count_right">
+                <view class="count_right_text">
+                  <view class="count_right_text_input">
+                    <view>宽</view>
+                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <view>m</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <!--数量-->
+            <view class="count_item">
+              <view class="count_text">数量</view>
+              <view class="count_right_text">
+                <i-input-number i-class="number_class" value="{{ value }}" min="0" max="100" bindchange="handleChange"/>
+              </view>
+            </view>
+          <!--中旗-->
+            <view class="count_item">
+              <view class="count_text">中旗</view>
+              <view class="count_right">
+                <view class="count_right_text">
+                  <view class="count_right_text_input">
+                    <view>宽</view>
+                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <view>m</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <view class="count_item">
+              <view class="count_text"></view>
+              <view class="count_right">
+                <view class="count_right_text">
+                  <view class="count_right_text_input">
+                    <view>宽</view>
+                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <view>m</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+          <!--数量-->
+          <view class="count_item">
+            <view class="count_text">数量</view>
+            <view class="count_right_text">
+              <i-input-number i-class="number_class" value="{{ value }}" min="0" max="100" bindchange="handleChange"/>
+            </view>
+          </view>
+          <!--宽幅-->
+
+          <view class="count_item">
+            <view class="count_text">
+              <view class="count_right_text">宽幅</view>
+              <radio-group class="radio-group" bindchange="radioChange">
+                <label class="radio" wx:for="{{fruit}}" wx:key="id">
+                  <radio value="{{item.id}}" checked="{{item.checked}}">{{item.name}}</radio>
+                </label>
+              </radio-group>
+            </view>
+
+            <view class="count_right">
+
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <input type="digit" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
+                  <view>m</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!--对花-->
+          <view class="count_item">
+            <view class="count_text">对花</view>
+            <view class="count_right">
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <view>宽</view>
+                  <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <view>m</view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class="count_item">
+            <view class="count_text"></view>
+            <view class="count_right">
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <view>宽</view>
+                  <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <view>m</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--配置-->
+      <view class="main_select">
+        <view class="select_box">
+
+          <checkbox-group class="count_group" bindchange="toolChange">
+            <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
+              <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+              {{item.name}}
+            </label>
+          </checkbox-group>
+        </view>
+
+        <!--数量-->
+        <view class="select_counts">
+          <view class="need_count">所需数量</view>
+          <view>
+            <i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100" bindchange="handleChangeBag"/>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="main_card">
+      <imgCard title="水波窗帘" extra="兜兜定制专家，从方案到成品一键解决"
+               thumb="https://i.loli.net/2017/08/21/599a521472424.jpg"></imgCard>
+    </view>
+
+    <view class="main_card">
+      <imgCard title="水波窗帘" extra="兜兜定制专家，从方案到成品一键解决"
+               thumb="https://i.loli.net/2017/08/21/599a521472424.jpg"></imgCard>
+    </view>
+
+    <!--用料-->
+    <view class="main_results">
+
+      <view class="results_box">
+        <view class="results_count">
+          <view class="result_text">布料用量</view>
+          <view class="counts">{{useLevel}}m</view>
+        </view>
+      </view>
+
+      <!--详情-->
+      <view class="results_static">
+        <view class="results_header">
+          <i-row>
+            <i-col span="8" i-class="col-class" wx:for="{{detailList2}}" wx:key="id">
+              <view class="col-inner">{{item.name}}
+                <text class="col-text">({{item.unit}})</text>
+              </view>
+            </i-col>
+          </i-row>
+        </view>
+        <view class="results_inner">
+          <i-row>
+            <i-col span="8" i-class="col-class" wx:for="{{countList2}}" wx:key="id">
+              <view class="col-inner">{{item.counts}}</view>
+            </i-col>
+          </i-row>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import imgCard from '../../components/imgcard/index'
+  export default class Window extends wepy.component {
+    components = {imgCard: imgCard}
+    data = {
+      fruit: [
+        {
+          id: 2,
+          checked: false,
+          name: '定宽'
+        },
+        {
+          id: 3,
+          checked: false,
+          name: '定高'
+        },
+        {
+          id: 1,
+          checked: false,
+          name: '窄幅'
+        }
+      ],
+      detailList2: [
+        {
+          name: '布料',
+          unit: 'm'
+        },
+        {
+          name: '衬布',
+          unit: 'm'
+        },
+        {
+          name: '花边',
+          unit: 'm'
+        }
+      ], // 详情
+      countList2: [
+        {
+          id: 0,
+          counts: 30
+        },
+        {
+          id: 1,
+          counts: 32
+        },
+        {
+          id: 2,
+          counts: 43
+        }
+      ],
+      toothGroups: [
+        {
+          id: 1,
+          checked: false,
+          name: '加衬'
+        },
+        {
+          id: 2,
+          checked: false,
+          name: '花边'
+        }
+      ],
+      bagWChecked: '', // 宽幅
+      useLevel: 0, // 用量
+      bagWidth: 0.7, // 宽
+      bagHeight: 0.3, // 高
+      lace: '', // 花边
+      toothRope: '' // 加衬
+    }
+
+    methods = {
+      // 配置
+      toolChange(e) {
+        console.log('value值', e.detail.value)
+        const obj = e.detail.value.find((n) => n === '1')
+        const obj2 = e.detail.value.find((n) => n === '2')
+        this.toothRope = obj
+        this.lace = obj2
+      },
+      radioChange(e) {
+        console.log('radio', e.detail.value)
+        this.bagWChecked = e.detail.value
+      }
+    }
+
+    onLoad () {
+      console.log('window')
+    }
+  }
+</script>

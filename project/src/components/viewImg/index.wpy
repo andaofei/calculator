@@ -1,0 +1,86 @@
+<style lang="less">
+</style>
+<template>
+  <view class="main_img">
+
+    <image src="https://i.loli.net/2017/08/21/599a521472424.jpg" class="category-icon"/>
+
+    <view class="view_img">
+      <view class="view_img_inner">
+        <swiper style="width: 100%;height: 100%"
+                bindchange="handleChange"
+                indicator-dots="{{indicatorDots}}"
+                autoplay="{{autoplay}}"
+                interval="{{interval}}"
+                duration="{{duration}}">
+          <block wx:for="{{imgUrls}}" wx:key="id">
+            <swiper-item style="width: 100%;height: 100%">
+              <view style="width: 100%;height: 100%" class="swiper-item">
+                <image style="width: 100%;height: 100%" src="{{item}}" data-src="{{item}}" class="category-icon" catchtap="clickImage"/>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class="view_text" wx:if="{{imgIndex === 0}}">左视图</view>
+        <view class="view_text" wx:elif="{{imgIndex === 1}}">主视图</view>
+        <view class="view_text" wx:else="{{imgIndex === 2}}">右视图</view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class viewImg extends wepy.component {
+    props = {
+      title: {},
+      thumb: {},
+      extra: {}
+    }
+    data = {
+      src: './images/dome.jpg',
+      imgIndex: 0, // 视图下标
+      indicatorDots: false,
+      autoplay: false,
+      interval: 1000,
+      duration: 300,
+      imgUrls: [
+        'https://i.loli.net/2017/08/21/599a521472424.jpg',
+        'https://i.loli.net/2017/08/21/599a521472424.jpg',
+        'https://i.loli.net/2017/08/21/599a521472424.jpg'
+      ]
+    }
+    methods = {
+      handleChange(e) {
+//        console.log(e.detail.current)
+        this.imgIndex = e.detail.current
+      },
+      // 点击查看
+      clickImage(e) {
+        // e.stopPropagation()
+        console.log(e)
+        let current = e.target.dataset.src
+        let List = []
+        List.push(current)
+        let imgList = this.imgUrls
+        wepy.previewImage({
+          current: current,
+          urls: imgList,
+          success: function () {
+            console.log('success')
+          },
+          fail: function () {
+            console.log('fail')
+          },
+          complete: function () {
+            // console.info("点击图片了");
+          }
+        })
+      }
+    }
+
+    onLoad () {
+      console.log('viewImg')
+    }
+  }
+</script>

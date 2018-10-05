@@ -16,326 +16,23 @@
       <view class="scroll_container">
         <view class="main_wrapper">
 
-          <!--图片-->
-          <view class="main_img">
+          <!--头部轮播-->
+          <viewImg></viewImg>
 
-            <image src="https://i.loli.net/2017/08/21/599a521472424.jpg" class="category-icon"/>
-
-            <view class="view_img">
-              <view class="view_img_inner">
-                <swiper style="width: 100%;height: 100%" bindchange="handleSwiperChange"
-                        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
-                        duration="{{duration}}">
-                  <block wx:for="{{imgUrls}}" wx:key="id">
-                    <swiper-item style="width: 100%;height: 100%">
-                      <view style="width: 100%;height: 100%" class="swiper-item">
-                        <image style="width: 100%;height: 100%" src="{{item}}" data-src="{{item}}" class="category-icon"
-                               catchtap="handleClickImage"/>
-                      </view>
-                    </swiper-item>
-                  </block>
-                </swiper>
-                <view class="view_text" wx:if="{{imgIndex === 0}}">左视图</view>
-                <view class="view_text" wx:elif="{{imgIndex === 1}}">主视图</view>
-                <view class="view_text" wx:else="{{imgIndex === 2}}">右视图</view>
-              </view>
-            </view>
-          </view>
-          <!--图片卡片-->
-          <block wx:if="{{current_scroll === 2}}">
-            <view class="main_card">
-              <imgCard title="水波窗帘" extra="兜兜定制专家，从方案到成品一键解决"
-                       thumb="https://i.loli.net/2017/08/21/599a521472424.jpg"></imgCard>
-            </view>
+          <!--窗帘-->
+          <block wx:if="{{current_scroll === 1}}">
+            <Curtain></Curtain>
           </block>
 
-          <view class="main_box">
-            <!--规格-->
-            <view class="main_counts">
-              <view class="count_box">
-                <!--倍数 -->
-                <block wx:if="{{current_scroll === 1}}">
-                  <view class="count_item">
-                    <view class="count_text">倍数</view>
-                    <view class="count_right">
-                      <view class="count_right_text">2 倍</view>
-                    </view>
-                  </view>
-                </block>
-
-                <!--成品-->
-                <view class="count_item">
-                  <view class="count_text">成品</view>
-                  <view class="count_right">
-                    <view class="count_right_text">
-                      <view class="count_right_text_input">
-                        <view>宽</view>
-                        <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
-                        <view>m</view>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-
-                <!--高-->
-                <view class="count_item">
-                  <view class="count_text"></view>
-                  <view class="count_right">
-                    <view class="count_right_text">
-                      <view class="count_right_text_input">
-                        <view>高</view>
-                        <input type="digit" placeholder="" bindinput="bindBagHeight" value="{{bagHeight}}"/>
-                        <view>m</view>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-
-                <!--拐弯-->
-                <block wx:if="{{current_scroll === 2}}">
-                  <view class="count_item">
-                    <view class="count_text">左拐弯</view>
-                    <view class="count_right">
-                      <view class="count_right_text">2800m</view>
-                    </view>
-                  </view>
-
-                  <view class="count_item">
-                    <view class="count_text">右拐弯</view>
-                    <view class="count_right">
-                      <view class="count_right_text">2800m</view>
-                    </view>
-                  </view>
-                </block>
-
-                <!--边旗-->
-                <block wx:if="{{current_scroll === 2}}">
-                  <view class="count_item">
-                    <view class="count_text">边旗</view>
-                    <view class="count_right">
-                      <view class="count_right_text">宽 1400m</view>
-                    </view>
-                  </view>
-
-                  <view class="count_item">
-                    <view class="count_text"></view>
-                    <view class="count_right">
-                      <view class="count_right_text">高 2800m</view>
-                    </view>
-                  </view>
-
-                  <!--数量-->
-                  <view class="count_item">
-                    <view class="count_text">数量</view>
-                    <view class="count_right_text">
-                      <i-input-number i-class="number_class" value="{{ value }}" min="0" max="100"
-                                      bindchange="handleChange"/>
-                    </view>
-                  </view>
-
-                  <view class="count_item">
-                    <view class="count_text">中旗</view>
-                    <view class="count_right">
-                      <view class="count_right_text">宽 1400m</view>
-                    </view>
-                  </view>
-
-                  <view class="count_item">
-                    <view class="count_text"></view>
-                    <view class="count_right">
-                      <view class="count_right_text">高 2800m</view>
-                    </view>
-                  </view>
-
-                  <!--数量-->
-                  <view class="count_item">
-                    <view class="count_text">数量</view>
-                    <view class="count_right_text">
-                      <i-input-number i-class="number_class" value="{{ value }}" min="0" max="100"
-                                      bindchange="handleChange"/>
-                    </view>
-                  </view>
-                </block>
-
-                <!--宽幅-->
-                <block wx:if="{{current_scroll === 3 || current_scroll === 1}}">
-                  <view class="count_item">
-                    <view class="count_text">
-                      <view class="count_right_text">宽幅</view>
-                      <radio-group class="radio-group" bindchange="radioChange">
-                        <label class="radio" wx:for="{{fruit}}" wx:key="id">
-                          <radio value="{{item.id}}" checked="{{item.checked}}">{{item.name}}</radio>
-                        </label>
-                      </radio-group>
-                    </view>
-
-                    <view class="count_right">
-
-                      <view class="count_right_text">
-                        <view class="count_right_text_input">
-                          <input type="digit" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
-                          <view>m</view>
-                        </view>
-                      </view>
-                    </view>
-                  </view>
-                </block>
-
-
-                <!--取花 -->
-                <block wx:if="{{current_scroll === 3 || current_scroll === 1}}">
-                  <view class="count_item">
-                    <view class="count_text">取花</view>
-                    <view class="count_right">
-                      <view class="count_right_text">
-                        <view class="count_right_text_input">
-                          <view>花距宽</view>
-                          <input type="digit" placeholder="" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
-                          <view>m</view>
-                        </view>
-                      </view>
-                    </view>
-                  </view>
-                  <view class="count_item">
-                    <view class="count_text"></view>
-                    <view class="count_right">
-                      <view class="count_right_text">
-                        <view class="count_right_text_input">
-                          <view>花距高</view>
-                          <input type="digit" placeholder="" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
-                          <view>m</view>
-                        </view>
-                      </view>
-                    </view>
-                  </view>
-                </block>
-              </view>
-            </view>
-
-            <!--配置-->
-            <view class="main_select">
-              <view class="select_box">
-                <block wx:if="{{current_scroll === 1}}">
-                  <checkbox-group class="count_group" bindchange="toolChange">
-                    <label class="count_group" wx:for="{{curtainhGroups}}" wx:key="{{item.id}}">
-                      <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
-                      {{item.name}}
-                    </label>
-                  </checkbox-group>
-                </block>
-
-                <block wx:if="{{current_scroll === 3}}">
-                  <checkbox-group class="count_group" bindchange="toolChange">
-                    <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
-                      <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
-                      {{item.name}}
-                    </label>
-                  </checkbox-group>
-                </block>
-              </view>
-              <block>
-
-                <!--靠包数量-->
-                <block wx:if="{{current_scroll === 3 || current_scroll === 1}}">
-                  <view class="select_counts">
-                    <view class="need_count">所需数量</view>
-                    <view>
-                      <i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100"
-                                      bindchange="handleChangeBag"/>
-                    </view>
-                  </view>
-                </block>
-              </block>
-            </view>
-
-          </view>
-
+          <!--帘头-->
           <block wx:if="{{current_scroll === 2}}">
-            <view class="main_card">
-              <imgCard title="水波窗帘" extra="兜兜定制专家，从方案到成品一键解决"
-                       thumb="https://i.loli.net/2017/08/21/599a521472424.jpg"></imgCard>
-            </view>
-
-            <view class="main_card">
-              <imgCard title="水波窗帘" extra="兜兜定制专家，从方案到成品一键解决"
-                       thumb="https://i.loli.net/2017/08/21/599a521472424.jpg"></imgCard>
-            </view>
+            <Windowh></Windowh>
           </block>
 
-          <!--用料-->
-          <view class="main_results">
-
-            <view class="results_box">
-              <block wx:if="{{current_scroll === 1 || current_scroll === 3}}">
-                <view class="results_count">
-                  <view class="result_text">布料用量</view>
-                  <view class="counts">{{useLevel}}m</view>
-                </view>
-              </block>
-
-              <block wx:if="{{current_scroll === 1 || current_scroll === 2}}">
-                <view class="results_max">
-                  <view class="result_text">推荐倍数</view>
-                  <view class="counts">
-                    <view class="count-text">2</view>
-                  </view>
-                </view>
-              </block>
-
-              <block wx:if="{{current_scroll === 3}}">
-                <view class="results_max">
-                  <view class="result_text">推荐靠包芯</view>
-                  <view class="counts">
-                    <view class="count-text">{{recommendedBagCoreWidth}}</view>
-                  </view>
-                </view>
-              </block>
-            </view>
-
-            <!--详情-->
-            <block wx:if="{{current_scroll === 1}}">
-              <view class="results_static">
-                <view class="results_header">
-                  <i-row>
-                    <i-col span="6" i-class="col-class" wx:for="{{detailList1}}" wx:key="id">
-                      <view class="col-inner">{{item.name}}
-                        <text class="col-text">({{item.unit}})</text>
-                      </view>
-                    </i-col>
-                  </i-row>
-                </view>
-                <view class="results_inner">
-                  <i-row>
-                    <i-col span="6" i-class="col-class" wx:for="{{countList1}}" wx:key="id">
-                      <view class="col-inner">{{item.counts}}</view>
-                    </i-col>
-                  </i-row>
-                </view>
-              </view>
-            </block>
-
-            <block wx:if="{{current_scroll === 3}}">
-              <view class="results_static">
-                <view class="results_header">
-                  <i-row>
-                    <i-col span="6" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
-                      <view class="col-inner">{{item.name}}
-                        <text class="col-text">({{item.unit}})</text>
-                      </view>
-                    </i-col>
-                  </i-row>
-                </view>
-                <view class="results_inner">
-                  <i-row>
-                    <i-col span="6" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
-                      <view class="col-inner">{{item.counts}}</view>
-                    </i-col>
-                  </i-row>
-                </view>
-              </view>
-            </block>
-
-          </view>
+          <!--靠包-->
+          <block wx:if="{{current_scroll === 3}}">
+            <Package></Package>
+          </block>
         </view>
       </view>
     </view>
@@ -348,9 +45,12 @@
   import { connect } from 'wepy-redux'
   import '../../config/config'
   import 'wepy-async-function'
-  import imgCard from '../../components/imgcard/index'
-  import moduleA from 'module-a' // aliasFields ignore module example
+  import viewImg from '../../components/viewImg/index'
+  import Package from '../../base/package/index'
+  import Windowh from '../../base/windowh/index'
+  import Curtain from '../../base/curtain/index'
   const {$Toast} = require('../../components/iview/base/index')
+  import moduleA from 'module-a' // aliasFields ignore module example
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
   @connect({
     selectId(state) {
@@ -381,213 +81,9 @@
       currentId: -1,
       selectedIndex: -1,
       current_scroll: 1,
-      src: './images/dome.jpg',
-      imgUrls: [
-        'https://i.loli.net/2017/08/21/599a521472424.jpg',
-        'https://i.loli.net/2017/08/21/599a521472424.jpg',
-        'https://i.loli.net/2017/08/21/599a521472424.jpg'
-      ],
       checkList: [],
       colList: [],
       rowList: [],
-      fruit: [{
-        id: 2,
-        checked: false,
-        name: '定宽'
-      }, {
-        id: 3,
-        checked: false,
-        name: '定高'
-      }, {
-        id: 1,
-        checked: false,
-        name: '窄幅'
-      }
-      ],
-      current: '苹果',
-      position: 'left',
-      animal: '熊猫',
-      checked: false,
-      disabled: false,
-      bagWidth: 0.7, // 宽
-      bagHeight: 0.3, // 高
-      bagWChecked: '', // 宽幅
-      bagHChecked: false, // 窄幅
-      bagCheckedW: false, // 定宽
-      bagCheckedH: false, // 定高
-      tooth: true, // 牙绳check
-      toothGroups: [
-        {
-          id: 1,
-          checked: false,
-          name: '牙绳'
-        },
-        {
-          id: 2,
-          checked: false,
-          name: '花边'
-        }
-      ],
-      curtainhGroups: [
-        {
-          id: 1,
-          checked: false,
-          name: '衬布'
-        },
-        {
-          id: 2,
-          checked: false,
-          name: '轨道'
-        },
-        {
-          id: 3,
-          checked: false,
-          name: '窗杆'
-        },
-        {
-          id: 4,
-          checked: false,
-          name: '遮光布'
-        },
-        {
-          id: 5,
-          checked: false,
-          name: '横向花边'
-        },
-        {
-          id: 6,
-          checked: false,
-          name: '竖向花边'
-        }
-      ],
-      lace: '', // 花边check
-      narrow: 1.4, // 窄幅
-      defaultWidth: 1.4, // 宽幅定值
-      flowerWidth: 1.4, // 取花宽
-      flowerHeight: 2.8, // 取花高
-      toothRope: '', // 牙绳
-      colCounts: 6,
-      items3: [
-        {name: '牙绳', value: '0', checked: 'true'},
-        {name: '花边', value: '1', checked: 'true'}
-      ], // 牙绳
-      items2: [
-        {name: '加衬', value: '0', checked: 'true'},
-        {name: '花边', value: '1'}
-      ],
-      items1: [
-        {name: '衬布', value: '0', checked: 'true'},
-        {name: '轨道', value: '1', checked: 'true'},
-        {name: '窗杆', value: '2'},
-        {name: '遮光布', value: '3'},
-        {name: '横向花边', value: '4'},
-        {name: '竖向花边', value: '5'}
-      ],
-      detailList1: [
-        {
-          name: '布料',
-          unit: 'm'
-        },
-        {
-          name: '衬布',
-          unit: 'm'
-        },
-        {
-          name: '花边',
-          unit: 'm'
-        },
-        {
-          name: '轨道',
-          unit: 'm'
-        }
-      ], // 详情
-      countList1: [
-        {
-          id: 0,
-          counts: 0
-        },
-        {
-          id: 1,
-          counts: 0
-        },
-        {
-          id: 2,
-          counts: 0
-        },
-        {
-          id: 3,
-          counts: 0
-        }
-      ],
-      detailList2: [
-        {
-          name: '布料',
-          unit: 'm'
-        },
-        {
-          name: '衬布',
-          unit: 'm'
-        },
-        {
-          name: '花边',
-          unit: 'm'
-        }
-      ], // 详情
-      countList2: [
-        {
-          id: 0,
-          counts: 30
-        },
-        {
-          id: 1,
-          counts: 32
-        },
-        {
-          id: 2,
-          counts: 43
-        }
-      ],
-      detailList3: [
-        {
-          name: '布料',
-          unit: 'm'
-        },
-        {
-          name: '牙绳',
-          unit: 'm'
-        },
-        {
-          name: '花边',
-          unit: 'm'
-        },
-        {
-          name: '靠包芯',
-          unit: '个'
-        }
-      ], // 详情
-      countList3: [
-        {
-          id: 0,
-          counts: 0
-        },
-        {
-          id: 1,
-          counts: 0
-        },
-        {
-          id: 2,
-          counts: 0
-        },
-        {
-          id: 3,
-          counts: 0
-        }
-      ],
-      useLevel: 0, // 用量
-      resultsLace: '', // 花边
-      resultsTooth: '', // 牙绳
-      recommendedBagCoreWidth: 0, // 推荐靠包心
-      bagCore: '', // 靠包心
       section: [
         {
           id: 1,
@@ -601,53 +97,9 @@
           id: 3,
           name: '靠包'
         }
-      ],
-      bag: 0,
-      indicatorDots: false,
-      imgIndex: 0, // 视图下标
-      autoplay: false,
-      interval: 1000,
-      duration: 300,
-      text: '主视图',
-      value: 0,
-      touchMove: '',
-      urls: [],
-      touchDot: 0, // 触摸时的原点
-      time: 0, // 时间记录，用于滑动时且时间小于1s则执行左右滑动
-      // interval: '', // 记录/清理 时间记录
-      nth: 0, // 设置活动菜单的index
-      nthMax: 5, // 活动菜单的最大个数
-      tmpFlag: true // 判断左右华东超出菜单最大值时不再执行滑动事件
+      ]
     }
-
-    components = {imgCard: imgCard}
-
-    // 获取数据async
-    setBagData (obj) {
-      console.log(obj)
-      let that = this
-      wepy.request({
-        method: 'POST',
-        header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-        },
-        url: 'https://www.doudoufuwu.com/mobile/calculator',
-        data: obj
-      }).then((res) => {
-//        console.log(res.data.CalculatorResult, 'bag')
-//        console.log(that.data, 'data')
-        that.data.countList3[0].counts = res.data.CalculatorResult.useLevel
-        that.data.countList3[1].counts = res.data.CalculatorResult.toothRope
-        that.data.countList3[2].counts = res.data.CalculatorResult.bagCore
-        that.data.countList3[3].counts = res.data.CalculatorResult.recommendedBagCoreWidth
-        that.data.resultsLace = res.data.CalculatorResult.lace
-        that.resultsTooth = res.data.CalculatorResult.toothRope
-        that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
-        that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
-        that.bagCore = res.data.CalculatorResult.bagCore
-        that.$apply() // 回调app
-      })
-    }
+    components = {Package: Package, Windowh: Windowh, Curtain: Curtain, viewImg: viewImg}
 
     methods = {
       // 头部
@@ -657,8 +109,6 @@
           return
         }
         this.methods.INCREMENT(detail.key)
-        this.methods.loadData(parseInt(detail.key))
-        console.log(detail)
         $Toast({
           content: 'loading',
           type: 'loading'
@@ -666,140 +116,13 @@
         setTimeout(() => {
           $Toast.hide()
         }, 300)
-      },
-
-// 靠包
-      handleChangeBag({detail}) {
-        // console.log(this.tooth)
-        if (!this.bagWChecked) {
-          return $Toast({
-            content: '请选择宽或高',
-            type: 'warning'
-          })
-        }
-        if (!this.lace && !this.toothRope) {
-          return $Toast({
-            content: '请选择牙绳或花边',
-            type: 'warning'
-          })
-        }
-        this.bag = detail.value
-        let obj = {
-          type: 2, // 2:靠包
-          goodsWidth: this.bagWidth, // 靠包宽
-          goodsHight: this.bagHeight, // 靠包高
-          clothType: this.bagWChecked, // 1：宽幅 2:宽幅定宽 3:宽幅定高
-          clothValue: this.defaultWidth, // 布料固定值
-          flowerType: 0, // 0:无对花 1:有对花
-          flowerWidth: this.flowerWidth, // 花距宽
-          flowerHight: this.flowerHeight, // 花距高
-          num: detail.value, // 数量
-          lace: this.lace ? 1 : 0, // 花边 0:无 1:有
-          toothRope: this.toothRope ? 1 : 0 // 牙绳 0:无 1:有
-        }
-        this.setBagData(obj)
-      },
-      handleFruitChange({detail = {}}) {
-        this.current = detail.value
-      },
-      // 输入框
-      bindBagWidth(e) {
-        console.log(e)
-        this.bagWidth = e.detail.current
-      },
-      bindBagHeight(e) {
-        console.log(e)
-        this.bagHeight = e.detail.current
-      },
-      bindDefaultWidth(e) {
-        console.log(e)
-        this.defaultWidth = e.detail.current
-      },
-      bindFlowerWidth(e) {
-        console.log(e)
-        this.flowerWidth = e.detail.current
-      },
-      bindFlowerHeight(e) {
-        console.log(e)
-        this.flowerHeight = e.detail.current
-      },
-
-      handleChange({detail}) {
-        this.value = detail.value
-      },
-// 牙绳
-      toolChange(e) {
-        console.log('value值', e.detail.value)
-        const obj = e.detail.value.find((n) => n === '1')
-        const obj2 = e.detail.value.find((n) => n === '2')
-        this.toothRope = obj
-        this.lace = obj2
-        console.log(this.toothRope, '牙绳')
-        console.log(this.lace, '花边')
-      },
-      radioChange(e) {
-        console.log('radio', e.detail.value)
-        this.bagWChecked = e.detail.value
-      },
-      // 点击查看
-      handleClickImage(e) {
-        // e.stopPropagation()
-        console.log(e)
-        let current = e.target.dataset.src
-        let List = []
-        List.push(current)
-        let imgList = this.imgUrls
-        wepy.previewImage({
-          current: current,
-          urls: imgList,
-          success: function () {
-            console.log('success')
-          },
-          fail: function () {
-            console.log('fail')
-          },
-          complete: function () {
-            // console.info("点击图片了");
-          }
-        })
-      },
-      handleSwiperChange(e) {
-        console.log(e.detail.current)
-        this.imgIndex = e.detail.current
-      },
-      loadData(item) {
-        switch (item) {
-          case 1:
-            this.checkList = this.items1
-            this.rowList = this.detailList1
-            this.colList = this.countList1
-            this.colCounts = 6
-            break
-          case 2:
-            this.checkList = this.items2
-            this.rowList = this.detailList2
-            this.colList = this.countList2
-            this.colCounts = 8
-            break
-          case 3:
-            this.checkList = this.items3
-            this.rowList = this.detailList3
-            this.colList = this.countList3
-            this.colCounts = 6
-            break
-          default:
-            this.colCounts = 6
-            this.checkList = []
-            this.rowList = []
-            this.colList = []
-        }
       }
     }
 
     onLoad () {
       console.log(this.selectId)
       this.current_scroll = this.selectId
-      this.methods.loadData(this.selectId)
+//      this.methods.loadData(this.selectId)
     }
   }
 </script>
