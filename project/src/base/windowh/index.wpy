@@ -47,7 +47,7 @@
                 <view class="count_right_text">
                   <view class="count_right_text_input">
                     <view>宽</view>
-                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <input type="digit" placeholder="" bindinput="bindLeftTurn" value="{{leftTurn}}"/>
                     <view>m</view>
                   </view>
                 </view>
@@ -60,7 +60,7 @@
                 <view class="count_right_text">
                   <view class="count_right_text_input">
                     <view>宽</view>
-                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <input type="digit" placeholder="" bindinput="bindRightTurn" value="{{rightTurn}}"/>
                     <view>m</view>
                   </view>
                 </view>
@@ -74,7 +74,7 @@
                 <view class="count_right_text">
                   <view class="count_right_text_input">
                     <view>宽</view>
-                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <input type="digit" placeholder="" bindinput="bindFlagWidth" value="{{flagWidth}}"/>
                     <view>m</view>
                   </view>
                 </view>
@@ -86,8 +86,8 @@
               <view class="count_right">
                 <view class="count_right_text">
                   <view class="count_right_text_input">
-                    <view>宽</view>
-                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <view>高</view>
+                    <input type="digit" placeholder="" bindinput="bindFlagHeight" value="{{flagHeight}}"/>
                     <view>m</view>
                   </view>
                 </view>
@@ -98,7 +98,7 @@
             <view class="count_item">
               <view class="count_text">数量</view>
               <view class="count_right_text">
-                <i-input-number i-class="number_class" value="{{ value }}" min="0" max="100" bindchange="handleChange"/>
+                <i-input-number i-class="number_class" value="{{ flagNumber }}" min="0" max="100" bindchange="handleFlagNumber"/>
               </view>
             </view>
           <!--中旗-->
@@ -108,7 +108,7 @@
                 <view class="count_right_text">
                   <view class="count_right_text_input">
                     <view>宽</view>
-                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <input type="digit" placeholder="" bindinput="bindMediumFlagWidth" value="{{mediumFlagWidth}}"/>
                     <view>m</view>
                   </view>
                 </view>
@@ -120,8 +120,8 @@
               <view class="count_right">
                 <view class="count_right_text">
                   <view class="count_right_text_input">
-                    <view>宽</view>
-                    <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                    <view>高</view>
+                    <input type="digit" placeholder="" bindinput="bindMediumFlagHeight" value="{{mediumFlagHeight}}"/>
                     <view>m</view>
                   </view>
                 </view>
@@ -132,11 +132,22 @@
           <view class="count_item">
             <view class="count_text">数量</view>
             <view class="count_right_text">
-              <i-input-number i-class="number_class" value="{{ value }}" min="0" max="100" bindchange="handleChange"/>
+              <i-input-number i-class="number_class" value="{{ mediumFlagNumber }}" min="0" max="100" bindchange="handleMediumNumber"/>
             </view>
           </view>
+          <!--类型-->
+          <view class="count_item">
+            <view class="count_text">帘头类型</view>
+            <view class="count_right_text">
+            </view>
+          </view>
+          <view class="count_item_radio">
+            <i-radio-group current="{{currentRadio}}" bindchange="handleFruitChange">
+              <i-radio wx:for="{{curtainTypes}}" position="{{position}}" wx:key="{{item.id}}" value="{{item.name}}">
+              </i-radio>
+            </i-radio-group>
+          </view>
           <!--宽幅-->
-
           <view class="count_item">
             <view class="count_text">
               <view class="count_right_text">宽幅</view>
@@ -148,7 +159,6 @@
             </view>
 
             <view class="count_right">
-
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <input type="digit" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
@@ -159,12 +169,30 @@
           </view>
           <!--对花-->
           <view class="count_item">
-            <view class="count_text">对花</view>
+            <view class="count_text">
+              <view class="count_right_text">对花</view>
+            </view>
+
+            <view class="count_right">
+
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <i-switch value="{{switchValue}}" size="large" bind:change="onChange" slot="footer">
+                    <view slot="open">有</view>
+                    <view slot="close">无</view>
+                  </i-switch>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!--取花-->
+          <view class="count_item">
+            <view class="count_text">取花</view>
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>宽</view>
-                  <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <input type="digit" placeholder="" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -176,8 +204,8 @@
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
-                  <view>宽</view>
-                  <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <view>高</view>
+                  <input type="digit" placeholder="" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -253,7 +281,16 @@
 <script>
   import wepy from 'wepy'
   import imgCard from '../../components/imgcard/index'
+  const {$Toast} = require('../../components/iview/base/index')
   export default class Window extends wepy.component {
+    config = {
+      navigationBarTitleText: '兜兜软装计算器',
+      usingComponents: {
+        'i-radio-group': '/components/iview/radio-group/index',
+        'i-radio': '/components/iview/radio/index',
+        'i-switch': '/components/iview/switch/index'
+      }
+    }
     components = {imgCard: imgCard}
     data = {
       fruit: [
@@ -273,6 +310,23 @@
           name: '窄幅'
         }
       ],
+      curtainTypes: [
+        {
+          id: 1,
+          checked: false,
+          name: '平板帘头'
+        },
+        {
+          id: 2,
+          checked: false,
+          name: '水波帘头'
+        },
+        {
+          id: 3,
+          checked: false,
+          name: '抽褶帘头'
+        }
+      ],
       detailList2: [
         {
           name: '布料',
@@ -290,15 +344,15 @@
       countList2: [
         {
           id: 0,
-          counts: 30
+          counts: 0
         },
         {
           id: 1,
-          counts: 32
+          counts: 0
         },
         {
           id: 2,
-          counts: 43
+          counts: 0
         }
       ],
       toothGroups: [
@@ -313,15 +367,126 @@
           name: '花边'
         }
       ],
+      lace: '', // 花边
+      currentRadio: '平板帘头', // 花边
+      toothRope: '', // 加衬
       bagWChecked: '', // 宽幅
       useLevel: 0, // 用量
       bagWidth: 0.7, // 宽
+      defaultWidth: 1.4, // 默认宽
       bagHeight: 0.3, // 高
-      lace: '', // 花边
-      toothRope: '' // 加衬
+      leftTurn: 0.3, // 左拐弯
+      rightTurn: 0.3, // 右拐弯
+      flagHeight: 0.3, // 边旗
+      flagWidth: 0.3, // 边旗
+      flagNumber: 1, // 边旗数量
+      mediumFlagWidth: 0.4, // 中旗宽
+      mediumFlagHeight: 0.4, // 中期高
+      mediumFlagNumber: 1, // 中期数量
+      flowerWidth: 0.2, // 花宽
+      flowerHeight: 0.4, // 花高
+      switchValue: false, // 对花
+      bag: 0 // 数量
     }
-
+    // 获取数据async
+    setBagData (obj) {
+//      console.log(obj)
+      let that = this
+      wepy.request({
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        url: 'https://www.doudoufuwu.com/mobile/calculator',
+        data: obj
+      }).then((res) => {
+        console.log(res.data)
+        if (res.statusCode === 200) {
+          console.log(res.data)
+        } else {
+          return $Toast({
+            content: '请求失败',
+            type: 'error'
+          })
+        }
+        that.$apply() // 回调app
+      })
+    }
     methods = {
+      // 帘头
+      handleChangeBag({detail}) {
+        if (!this.bagWChecked) {
+          return $Toast({
+            content: '请选择宽或高',
+            type: 'warning'
+          })
+        }
+        if (!this.lace && !this.toothRope) {
+          return $Toast({
+            content: '请选择配置',
+            type: 'warning'
+          })
+        }
+        this.bag = detail.value
+        let obj = {
+          type: 2, // 2:帘头
+          goodsWidth: this.bagWidth, // 靠包宽
+          goodsHight: this.bagHeight, // 靠包高
+          clothType: this.bagWChecked, // 1：宽幅 2:宽幅定宽 3:宽幅定高
+          clothValue: this.defaultWidth, // 布料固定值
+          flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
+          flowerWidth: this.flowerWidth, // 花距宽
+          flowerHight: this.flowerHeight, // 花距高
+          num: detail.value, // 数量
+          lace: this.lace ? 1 : 0, // 花边 0:无 1:有
+          toothRope: this.toothRope ? 1 : 0 // 牙绳 0:无 1:有
+        }
+        this.setBagData(obj)
+      },
+      //      对花
+      onChange(event) {
+        console.log(event)
+        this.switchValue = event.detail.value
+      },
+      // 帘头类型
+      handleFruitChange({ detail = {} }) {
+        console.log(detail)
+        this.currentRadio = detail.value
+      },
+      // 输入框
+      bindBagWidth(e) {
+        this.bagWidth = e.detail.value
+      },
+      bindBagHeight(e) {
+        this.bagHeight = e.detail.value
+      },
+      bindLeftTurn(e) {
+        this.leftTurn = e.detail.value
+      },
+      bindRightTurn(e) {
+        this.rightTurn = e.detail.value
+      },
+      bindFlagWidth(e) {
+        this.flagWidth = e.detail.value
+      },
+      bindFlagHeight(e) {
+        this.flagHeight = e.detail.value
+      },
+      bindMediumFlagWidth(e) {
+        this.mediumFlagWidth = e.detail.value
+      },
+      bindMediumFlagHeight(e) {
+        this.mediumFlagHeight = e.detail.value
+      },
+      bindFlowerWidth(e) {
+        this.flowerWidth = e.detail.value
+      },
+      bindFlowerHeight(e) {
+        this.flowerHeight = e.detail.value
+      },
+      bindDefaultWidth(e) {
+        this.defaultWidth = e.detail.value
+      },
       // 配置
       toolChange(e) {
         console.log('value值', e.detail.value)
@@ -330,9 +495,17 @@
         this.toothRope = obj
         this.lace = obj2
       },
+      // 宽幅
       radioChange(e) {
         console.log('radio', e.detail.value)
         this.bagWChecked = e.detail.value
+      },
+    //      数量
+      handleFlagNumber({detail}) {
+        this.flagNumber = detail.value
+      },
+      handleMediumNumber({ detail }) {
+        this.mediumFlagNumber = detail.value
       }
     }
 

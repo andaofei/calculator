@@ -7,7 +7,7 @@
     <view class="scroll_view">
       <i-tabs current="{{ current_scroll }}" scroll bindchange="handleClick" color="#47A3AD">
         <i-tab wx:for="{{section}}" wx:key="id" key="{{item.id}}" title="{{item.name}}"></i-tab>
-        <i-tab key="-1" title="+">+</i-tab>
+        <!--<i-tab key="-1" title="+">+</i-tab>-->
       </i-tabs>
     </view>
     <!-- 主体页面 -->
@@ -15,7 +15,6 @@
       <!--视图-->
       <view class="scroll_container">
         <view class="main_wrapper">
-
           <!--头部轮播-->
           <viewImg></viewImg>
 
@@ -73,7 +72,8 @@
         'i-card': '/components/iview/card/index',
         'i-input': '/components/iview/input/index',
         'i-radio-group': '/components/iview/radio-group/index',
-        'i-radio': '/components/iview/radio/index'
+        'i-radio': '/components/iview/radio/index',
+        'i-switch': '/components/iview/switch/index'
       }
     }
     // mixins = [intercetor]

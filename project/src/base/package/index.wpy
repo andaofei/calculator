@@ -34,7 +34,25 @@
             </view>
           </view>
 
-          <!--宽幅-->
+          <!--对花-->
+
+          <view class="count_item">
+            <view class="count_text">
+              <view class="count_right_text">对花</view>
+            </view>
+
+            <view class="count_right">
+
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <i-switch value="{{switchValue}}" size="large" bind:change="onChange" slot="footer">
+                    <view slot="open">有</view>
+                    <view slot="close">无</view>
+                  </i-switch>
+                </view>
+              </view>
+            </view>
+          </view>
 
           <view class="count_item">
             <view class="count_text">
@@ -56,7 +74,6 @@
               </view>
             </view>
           </view>
-
           <!--取花 -->
             <view class="count_item">
               <view class="count_text">取花</view>
@@ -247,6 +264,7 @@
       resultsTooth: '', // 牙绳
       recommendedBagCoreWidth: 0, // 推荐靠包心
       bagCore: '', // 靠包心
+      switchValue: false, // 对花
       bag: 0,
       value: 0
     }
@@ -262,15 +280,23 @@
         url: 'https://www.doudoufuwu.com/mobile/calculator',
         data: obj
       }).then((res) => {
-        that.countList3[0].counts = res.data.CalculatorResult.useLevel
-        that.countList3[1].counts = res.data.CalculatorResult.toothRope
-        that.countList3[2].counts = res.data.CalculatorResult.bagCore
-        that.countList3[3].counts = res.data.CalculatorResult.recommendedBagCoreWidth
-        that.resultsLace = res.data.CalculatorResult.lace
-        that.resultsTooth = res.data.CalculatorResult.toothRope
-        that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
-        that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
-        that.bagCore = res.data.CalculatorResult.bagCore
+        console.log(res.data)
+        if (res.statusCode === 200) {
+          that.countList3[0].counts = res.data.CalculatorResult.useLevel
+          that.countList3[1].counts = res.data.CalculatorResult.toothRope
+          that.countList3[2].counts = res.data.CalculatorResult.bagCore
+          that.countList3[3].counts = res.data.CalculatorResult.recommendedBagCoreWidth
+          that.resultsLace = res.data.CalculatorResult.lace
+          that.resultsTooth = res.data.CalculatorResult.toothRope
+          that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
+          that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
+          that.bagCore = res.data.CalculatorResult.bagCore
+        } else {
+          return $Toast({
+            content: '请求失败',
+            type: 'error'
+          })
+        }
         that.$apply() // 回调app
       })
     }
@@ -297,7 +323,7 @@
           goodsHight: this.bagHeight, // 靠包高
           clothType: this.bagWChecked, // 1：宽幅 2:宽幅定宽 3:宽幅定高
           clothValue: this.defaultWidth, // 布料固定值
-          flowerType: 0, // 0:无对花 1:有对花
+          flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
           flowerWidth: this.flowerWidth, // 花距宽
           flowerHight: this.flowerHeight, // 花距高
           num: detail.value, // 数量
@@ -323,6 +349,11 @@
       radioChange(e) {
         console.log('radio', e.detail.value)
         this.bagWChecked = e.detail.value
+      },
+      // 对花
+      onChange(event) {
+        console.log(event)
+        this.switchValue = event.detail.value
       },
       // 输入框
       bindBagWidth(e) {
