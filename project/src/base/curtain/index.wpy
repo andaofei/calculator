@@ -366,7 +366,7 @@
       },
       // 配置
       toolChange(e) {
-        console.log('value值', e)
+//        console.log('value值', e)
         const obj = e.detail.value.find((n) => n === '1')
         const obj2 = e.detail.value.find((n) => n === '2')
         const obj3 = e.detail.value.find((n) => n === '3')
@@ -387,7 +387,7 @@
       },
       // 宽幅
       radioChange(e) {
-        console.log('radio', e.detail.value)
+//        console.log('radio', e.detail.value)
         this.bagWChecked = e.detail.value
       },
       // 输入框

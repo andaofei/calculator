@@ -5,259 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1453824-c472-4c0e-a46a-8bd49ef70f8a" name="Default Changelist" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/fn.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/mixin/setArrow.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/mixin/setOnepx.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/mixin/text.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/reset.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/variable/color.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/variable/global.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/variable/weui-button.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/variable/weui-cell.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/variable/weui-dialog.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/variable/weui-grid.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/variable/weui-msg.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/base/variable/weui-progress.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/action-sheet/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/action-sheet/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/action-sheet/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/action-sheet/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/alert/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/alert/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/alert/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/alert/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/avatar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/avatar/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/avatar/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/avatar/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/badge/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/badge/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/badge/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/badge/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/base/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/button/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/button/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/button/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/button/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/card/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/card/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/card/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/card/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/cell-group/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/cell-group/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/cell-group/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/cell/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/cell/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/cell/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/cell/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/checkbox-group/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/checkbox-group/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/checkbox-group/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/checkbox-group/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/checkbox/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/checkbox/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/checkbox/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/checkbox/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/col/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/col/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/col/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/col/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/collapse-item/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/collapse-item/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/collapse-item/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/collapse-item/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/collapse/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/collapse/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/collapse/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/collapse/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/count-down/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/count-down/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/count-down/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/count-down/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/divider/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/divider/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/divider/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/divider/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/drawer/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/drawer/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/drawer/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/drawer/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-icon/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-icon/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-icon/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-icon/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-item/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-item/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-item/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-item/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-label/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-label/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-label/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid-label/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/grid/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/icon/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/icon/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/icon/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/icon/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/index-item/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/index-item/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/index-item/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/index-item/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/index/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/index/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/index/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/index/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/input-number/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/input-number/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/input-number/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/input-number/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/input/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/input/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/input/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/input/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/load-more/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/load-more/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/load-more/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/load-more/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/message/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/message/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/message/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/message/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/modal/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/modal/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/modal/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/modal/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/notice-bar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/notice-bar/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/notice-bar/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/notice-bar/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/page/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/page/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/page/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/page/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/panel/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/panel/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/panel/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/panel/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/progress/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/progress/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/progress/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/progress/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/radio-group/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/radio-group/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/radio-group/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/radio-group/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/radio/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/radio/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/radio/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/radio/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/rate/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/rate/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/rate/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/rate/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/row/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/row/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/row/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/row/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/slide/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/slide/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/slide/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/slide/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/spin/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/spin/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/spin/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/spin/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/step/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/step/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/step/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/step/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/steps/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/steps/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/steps/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/steps/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/sticky-item/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/sticky-item/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/sticky-item/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/sticky-item/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/sticky/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/sticky/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/sticky/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/sticky/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/swipeout/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/swipeout/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/swipeout/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/swipeout/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/switch/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/switch/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/switch/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/switch/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab-bar-item/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab-bar-item/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab-bar-item/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab-bar-item/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab-bar/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab-bar/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab-bar/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab-bar/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tab/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tabs/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tabs/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tabs/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tabs/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tag/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tag/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tag/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/tag/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/toast/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/toast/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/toast/index.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/iview/toast/index.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/weui.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-agree/weui-agree.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-animate/weui-animate.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-button/weui-button.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-access.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-cell.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-check.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-form.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-form/weui-form-preview.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-form/weui-form_common.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-form/weui-select.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-form/weui-vcode.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-switch.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-cell/weui-uploader.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-flex/weui-flex.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-footer/weui-footer.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-grid/weui-grid.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-loading/weui-loading.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-media-box/weui-media-box.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-page/weui-article.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-page/weui-msg.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-panel/weui-panel.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-progress/weui-progress.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-searchbar/weui-searchbar.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-tab/weui-navbar.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-tab/weui-tab.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-tips/weui-badge.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/styles/widget/weui-tips/weui-loadmore.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/list/cate-da@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/list/dome.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.wepycache" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.wpy" afterPath="$PROJECT_DIR$/src/app.wpy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/curtain/index.wpy" afterPath="$PROJECT_DIR$/src/base/curtain/index.wpy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/package/index.wpy" afterPath="$PROJECT_DIR$/src/base/package/index.wpy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/windowh/index.wpy" afterPath="$PROJECT_DIR$/src/base/windowh/index.wpy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/imgcard/index.wpy" afterPath="$PROJECT_DIR$/src/components/imgcard/index.wpy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/viewImg/index.wpy" afterPath="$PROJECT_DIR$/src/components/viewImg/index.wpy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home/index.wpy" afterPath="$PROJECT_DIR$/src/pages/home/index.wpy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home/styles/index.less" afterPath="$PROJECT_DIR$/src/pages/home/styles/index.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/index.wpy" afterPath="$PROJECT_DIR$/src/pages/index.wpy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/reducers/counter.js" afterPath="$PROJECT_DIR$/src/store/reducers/counter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/types/counter.js" afterPath="$PROJECT_DIR$/src/store/types/counter.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -334,11 +86,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.wpy" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.wpy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-310">
-              <caret line="110" column="9" lean-forward="false" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
+            <state relative-caret-position="328">
+              <caret line="64" column="38" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="38" />
               <folding>
                 <element signature="e#1071#1094#0" expanded="true" />
               </folding>
@@ -350,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/home/styles/index.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+              <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
               <folding>
                 <element signature="e#2168#2330#0" expanded="false" />
                 <element signature="e#2682#7286#0" expanded="false" />
@@ -359,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.wpy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.wpy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/windowh/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1282">
-              <caret line="582" column="5" lean-forward="true" selection-start-line="582" selection-start-column="5" selection-end-line="582" selection-end-column="5" />
+            <state relative-caret-position="776">
+              <caret line="418" column="24" lean-forward="true" selection-start-line="418" selection-start-column="24" selection-end-line="418" selection-end-column="24" />
               <folding>
                 <element signature="n#view#8;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="e#10144#10167#0" expanded="true" />
@@ -383,8 +135,8 @@
       <file leaf-file-name="index.wpy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/package/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="271" column="0" lean-forward="false" selection-start-line="271" selection-start-column="0" selection-end-line="301" selection-end-column="5" />
+            <state relative-caret-position="1392">
+              <caret line="376" column="37" lean-forward="true" selection-start-line="376" selection-start-column="37" selection-end-line="376" selection-end-column="37" />
               <folding>
                 <element signature="n#view#3;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="e#5939#6202#0" expanded="false" />
@@ -400,8 +152,8 @@
       <file leaf-file-name="index.wpy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/curtain/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="343" column="19" lean-forward="false" selection-start-line="343" selection-start-column="19" selection-end-line="343" selection-end-column="19" />
+            <state relative-caret-position="248">
+              <caret line="369" column="35" lean-forward="true" selection-start-line="369" selection-start-column="35" selection-end-line="369" selection-end-column="35" />
               <folding>
                 <element signature="n#view#1;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#view#2;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
@@ -464,7 +216,7 @@
         <entry file="file://$PROJECT_DIR$/src/store/reducers/counter.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+              <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -521,10 +273,10 @@
       <find>useLevels</find>
       <find>useLevel</find>
       <find>handleFruitChange</find>
-      <find>currentRadio</find>
       <find>clickImage</find>
       <find>main_wrapper</find>
       <find>INCREMENT</find>
+      <find>currentRadio</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -557,10 +309,8 @@
         <option value="$PROJECT_DIR$/src/components/iview/card/index.wxss" />
         <option value="$PROJECT_DIR$/wepy.config.js" />
         <option value="$PROJECT_DIR$/src/base/window/index.wpy" />
-        <option value="$PROJECT_DIR$/src/base/curtain/index.wpy" />
         <option value="$PROJECT_DIR$/src/components/iview/radio/index.js" />
         <option value="$PROJECT_DIR$/src/components/iview/radio/index.wxss" />
-        <option value="$PROJECT_DIR$/src/base/package/index.wpy" />
         <option value="$PROJECT_DIR$/src/app.wpy" />
         <option value="$PROJECT_DIR$/src/store/types/counter.js" />
         <option value="$PROJECT_DIR$/src/pages/index.wpy" />
@@ -569,6 +319,8 @@
         <option value="$PROJECT_DIR$/src/components/viewImg/index.wpy" />
         <option value="$PROJECT_DIR$/src/pages/home/styles/index.less" />
         <option value="$PROJECT_DIR$/src/store/reducers/counter.js" />
+        <option value="$PROJECT_DIR$/src/base/package/index.wpy" />
+        <option value="$PROJECT_DIR$/src/base/curtain/index.wpy" />
         <option value="$PROJECT_DIR$/src/base/windowh/index.wpy" />
       </list>
     </option>
@@ -1109,12 +861,12 @@
       <workItem from="1538444971416" duration="1092000" />
       <workItem from="1538662909190" duration="4498000" />
       <workItem from="1538670799381" duration="3656000" />
-      <workItem from="1538746200409" duration="27658000" />
+      <workItem from="1538746200409" duration="27969000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121814000" />
+    <option name="totallyTimeSpent" value="122125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1841" height="1087" extended-state="0" />
@@ -1488,42 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/curtain/index.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="343" column="19" lean-forward="false" selection-start-line="343" selection-start-column="19" selection-end-line="343" selection-end-column="19" />
-          <folding>
-            <element signature="n#view#1;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#view#2;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#view#3;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#view#5;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#view#6;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#6135#6398#0" expanded="false" />
-            <element signature="e#6145#6220#0" expanded="false" />
-            <element signature="e#6230#6305#0" expanded="false" />
-            <element signature="e#6315#6390#0" expanded="false" />
-            <element signature="e#6419#6679#0" expanded="false" />
-            <element signature="e#6705#6945#0" expanded="false" />
-            <element signature="e#7247#7770#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/package/index.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="271" column="0" lean-forward="false" selection-start-line="271" selection-start-column="0" selection-end-line="301" selection-end-column="5" />
-          <folding>
-            <element signature="n#view#3;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#5939#6202#0" expanded="false" />
-            <element signature="e#6218#6328#0" expanded="false" />
-            <element signature="e#6354#6594#0" expanded="false" />
-            <element signature="e#6615#6876#0" expanded="false" />
-            <element signature="e#7156#7334#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/imgcard/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
@@ -1548,7 +1264,7 @@
     <entry file="file://$PROJECT_DIR$/src/pages/home/styles/index.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
           <folding>
             <element signature="e#2168#2330#0" expanded="false" />
             <element signature="e#2682#7286#0" expanded="false" />
@@ -1559,27 +1275,53 @@
     <entry file="file://$PROJECT_DIR$/src/store/reducers/counter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
+    <entry file="file://$PROJECT_DIR$/src/base/package/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-310">
-          <caret line="110" column="9" lean-forward="false" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
+        <state relative-caret-position="1392">
+          <caret line="376" column="37" lean-forward="true" selection-start-line="376" selection-start-column="37" selection-end-line="376" selection-end-column="37" />
           <folding>
-            <element signature="e#1071#1094#0" expanded="true" />
+            <element signature="n#view#3;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#5939#6202#0" expanded="false" />
+            <element signature="e#6218#6328#0" expanded="false" />
+            <element signature="e#6354#6594#0" expanded="false" />
+            <element signature="e#6615#6876#0" expanded="false" />
+            <element signature="e#7156#7334#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/curtain/index.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="369" column="35" lean-forward="true" selection-start-line="369" selection-start-column="35" selection-end-line="369" selection-end-column="35" />
+          <folding>
+            <element signature="n#view#1;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#view#2;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#view#3;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#view#5;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#view#6;n#view#0;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#6135#6398#0" expanded="false" />
+            <element signature="e#6145#6220#0" expanded="false" />
+            <element signature="e#6230#6305#0" expanded="false" />
+            <element signature="e#6315#6390#0" expanded="false" />
+            <element signature="e#6419#6679#0" expanded="false" />
+            <element signature="e#6705#6945#0" expanded="false" />
+            <element signature="e#7247#7770#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/windowh/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1282">
-          <caret line="582" column="5" lean-forward="true" selection-start-line="582" selection-start-column="5" selection-end-line="582" selection-end-column="5" />
+        <state relative-caret-position="776">
+          <caret line="418" column="24" lean-forward="true" selection-start-line="418" selection-start-column="24" selection-end-line="418" selection-end-column="24" />
           <folding>
             <element signature="n#view#8;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="false" />
             <element signature="e#10144#10167#0" expanded="true" />
@@ -1591,6 +1333,16 @@
             <element signature="e#11526#11723#0" expanded="false" />
             <element signature="e#11749#11931#0" expanded="false" />
             <element signature="e#11952#12130#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="64" column="38" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="38" />
+          <folding>
+            <element signature="e#1071#1094#0" expanded="true" />
           </folding>
         </state>
       </provider>

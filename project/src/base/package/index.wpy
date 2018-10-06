@@ -352,28 +352,28 @@
       },
       // 对花
       onChange(event) {
-        console.log(event)
+//        console.log(event)
         this.switchValue = event.detail.value
       },
       // 输入框
       bindBagWidth(e) {
-        console.log(e.detail.value)
+//        console.log(e.detail.value)
         this.bagWidth = e.detail.value
       },
       bindBagHeight(e) {
-        console.log(e.detail.value)
+//        console.log(e.detail.value)
         this.bagHeight = e.detail.value
       },
       bindDefaultWidth(e) {
-        console.log(e.detail.value)
+//        console.log(e.detail.value)
         this.defaultWidth = e.detail.value
       },
       bindFlowerWidth(e) {
-        console.log(e.detail.value)
+//        console.log(e.detail.value)
         this.flowerWidth = e.detail.value
       },
       bindFlowerHeight(e) {
-        console.log(e.detail.value)
+//        console.log(e.detail.value)
         this.flowerHeight = e.detail.value
       }
     }
