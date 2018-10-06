@@ -40,8 +40,8 @@
 </template>
 <script>
   import wepy from 'wepy'
-  import { INCREMENT } from '../../store/types/counter'
   import { connect } from 'wepy-redux'
+  import { INCREMENT, SET_IMAGES } from '../../store/types/counter'
   import '../../config/config'
   import 'wepy-async-function'
   import viewImg from '../../components/viewImg/index'
@@ -56,7 +56,8 @@
       return state.counter.selectId
     }
   }, {
-    INCREMENT
+    INCREMENT,
+    SET_IMAGES
   })
 
   export default class Home extends wepy.page {
@@ -109,6 +110,33 @@
           return
         }
         this.methods.INCREMENT(detail.key)
+        let imgUrls = []
+        switch (parseInt(detail.key)) {
+          case 1:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/cl.jpg',
+              'https://www.doudoufuwu.com/pic/cl2.jpg'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 2:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/pblt.jpg',
+              'https://www.doudoufuwu.com/pic/pblt1.jpg'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 3:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/kb.jpg',
+              'https://www.doudoufuwu.com/pic/kb1.jpg'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          default:
+            this.imgUrls = []
+            break
+        }
         $Toast({
           content: 'loading',
           type: 'loading'
@@ -120,7 +148,7 @@
     }
 
     onLoad () {
-      console.log(this.selectId)
+//      console.log(this.selectId)
       this.current_scroll = this.selectId
 //      this.methods.loadData(this.selectId)
     }

@@ -1,5 +1,5 @@
 <style lang="less">
-  @import './common/styles/weui.less';
+  /*@import './common/styles/weui.less';*/
   @import "./common/styles/index";
 </style>
 

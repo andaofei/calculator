@@ -65,7 +65,7 @@
   import moduleA from 'module-a' // aliasFields ignore module example
   import testMixin from '../mixins/test'
   const { $Toast } = require('../components/iview/base/index')
-  import { INCREMENT, DECREMENT } from '../store/types/counter'
+  import { INCREMENT, DECREMENT, SET_IMAGES } from '../store/types/counter'
   import { asyncInc } from '../store/actions'
   // const { $Message } = require('../components/iview/base/index')
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
@@ -82,8 +82,9 @@
     }
   }, {
     INCREMENT,
-    decNum: DECREMENT,
-    asyncInc
+    DECREMENT,
+    asyncInc,
+    SET_IMAGES
   })
 
   export default class Index extends wepy.page {
@@ -134,11 +135,39 @@
     methods = {
       // 点击类别
       select(item) {
-        this.methods.INCREMENT(item.id)
+        this.methods.INCREMENT({id: item.id})
         this.isSelect = true
         this.selected = item.id
         this.slectText = item.name
         this.newAdd = false
+        console.log(item.id)
+        let imgUrls = []
+        switch (item.id) {
+          case 1:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/cl.jpg',
+              'https://www.doudoufuwu.com/pic/cl2.jpg'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 2:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/pblt.jpg',
+              'https://www.doudoufuwu.com/pic/pblt1.jpg'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 3:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/kb.jpg',
+              'https://www.doudoufuwu.com/pic/kb1.jpg'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          default:
+            this.imgUrls = []
+            break
+        }
       },
 
       // 选择类别
@@ -212,7 +241,6 @@
           self.setTimeoutTitle = '到三秒了'
           self.$apply()
         }, 3000)
-
         self.$apply()
       })
     }
