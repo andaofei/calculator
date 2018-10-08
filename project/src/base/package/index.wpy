@@ -7,13 +7,13 @@
       <view class="main_counts">
         <view class="count_box">
           <!--成品-->
-          <view class="count_item">
+          <view class="count_item count_height">
             <view class="count_text">成品</view>
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>宽</view>
-                  <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <input type="digit" placeholder="成品宽" bindinput="bindBagWidth" value="{{bagWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -27,7 +27,7 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>高</view>
-                  <input type="digit" placeholder="" bindinput="bindBagHeight" value="{{bagHeight}}"/>
+                  <input type="digit" placeholder="成品高" bindinput="bindBagHeight" value="{{bagHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -75,30 +75,30 @@
             </view>
           </view>
           <!--取花 -->
-            <view class="count_item">
-              <view class="count_text">取花</view>
-              <view class="count_right">
-                <view class="count_right_text">
-                  <view class="count_right_text_input">
-                    <view>花距宽</view>
-                    <input type="digit" placeholder="" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
-                    <view>m</view>
-                  </view>
+          <view class="count_item count_height">
+            <view class="count_text">取花</view>
+            <view class="count_right">
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <view>花距宽</view>
+                  <input type="digit" placeholder="花距宽" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
+                  <view>m</view>
                 </view>
               </view>
             </view>
-            <view class="count_item">
-              <view class="count_text"></view>
-              <view class="count_right">
-                <view class="count_right_text">
-                  <view class="count_right_text_input">
-                    <view>花距高</view>
-                    <input type="digit" placeholder="" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
-                    <view>m</view>
-                  </view>
+          </view>
+          <view class="count_item">
+            <view class="count_text"></view>
+            <view class="count_right">
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <view>花距高</view>
+                  <input type="digit" placeholder="花距高" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
+                  <view>m</view>
                 </view>
               </view>
             </view>
+          </view>
         </view>
       </view>
 
@@ -106,21 +106,21 @@
       <view class="main_select">
         <view class="select_box">
 
-            <checkbox-group class="count_group" bindchange="toolChange">
-              <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
-                <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
-                {{item.name}}
-              </label>
-            </checkbox-group>
+          <checkbox-group class="count_group" bindchange="toolChange">
+            <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
+              <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+              {{item.name}}
+            </label>
+          </checkbox-group>
         </view>
 
-          <!--数量-->
-            <view class="select_counts">
-              <view class="need_count">所需数量</view>
-              <view>
-                <i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100" bindchange="changeBag"/>
-              </view>
-            </view>
+        <!--数量-->
+        <view class="select_counts">
+          <view class="need_count">所需数量</view>
+          <view>
+            <i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100" bindchange="changeBag"/>
+          </view>
+        </view>
       </view>
 
     </view>
@@ -129,41 +129,41 @@
     <view class="main_results">
 
       <view class="results_box">
-          <view class="results_count">
-            <view class="result_text">布料用量</view>
-            <view class="counts">{{useLevel}}m</view>
-          </view>
+        <view class="results_count">
+          <view class="result_text">布料用量</view>
+          <view class="counts">{{useLevel}}m</view>
+        </view>
 
 
-          <view class="results_max">
-            <view class="result_text">推荐靠包芯</view>
-            <view class="counts">
-              <view class="count-text">{{recommendedBagCoreWidth}}</view>
-            </view>
+        <view class="results_max">
+          <view class="result_text">推荐靠包芯</view>
+          <view class="counts">
+            <view class="count-text">{{recommendedBagCoreWidth}}</view>
           </view>
+        </view>
       </view>
 
       <!--详情-->
 
 
-        <view class="results_static">
-          <view class="results_header">
-            <i-row>
-              <i-col span="6" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
-                <view class="col-inner">{{item.name}}
-                  <text class="col-text">({{item.unit}})</text>
-                </view>
-              </i-col>
-            </i-row>
-          </view>
-          <view class="results_inner">
-            <i-row>
-              <i-col span="6" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
-                <view class="col-inner">{{item.counts}}</view>
-              </i-col>
-            </i-row>
-          </view>
+      <view class="results_static">
+        <view class="results_header">
+          <i-row>
+            <i-col span="6" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
+              <view class="col-inner">{{item.name}}
+                <text class="col-text">({{item.unit}})</text>
+              </view>
+            </i-col>
+          </i-row>
         </view>
+        <view class="results_inner">
+          <i-row>
+            <i-col span="6" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
+              <view class="col-inner">{{item.counts}}</view>
+            </i-col>
+          </i-row>
+        </view>
+      </view>
     </view>
   </view>
 </template>
@@ -187,14 +187,10 @@
         },
         {
           id: 1,
-          checked: false,
+          checked: true,
           name: '窄幅'
         }
       ],
-      items3: [
-        {name: '牙绳', value: '0', checked: 'true'},
-        {name: '花边', value: '1', checked: 'true'}
-      ], // 牙绳
       countList3: [
         {
           id: 0,
@@ -228,36 +224,36 @@
         },
         {
           name: '靠包芯',
-          unit: '个'
+          unit: '长*宽'
         }
       ], // 详情
       checked: false,
       disabled: false,
-      bagWidth: 0.7, // 宽
-      bagHeight: 0.3, // 高
-      bagWChecked: '', // 宽幅
-      bagHChecked: false, // 窄幅
-      bagCheckedW: false, // 定宽
-      bagCheckedH: false, // 定高
+      bagWidth: '', // 宽
+      bagHeight: '', // 高
+      bagWChecked: 1, // 窄幅
+//      bagHChecked: false, // 窄幅
+//      bagCheckedW: false, // 定宽
+//      bagCheckedH: false, // 定高
       tooth: true, // 牙绳check
       toothGroups: [
         {
           id: 1,
-          checked: false,
+          checked: true,
           name: '牙绳'
         },
         {
           id: 2,
-          checked: false,
+          checked: true,
           name: '花边'
         }
       ],
-      lace: '', // 花边check
-      narrow: 1.4, // 窄幅
+      lace: true, // 花边
+      narrow: 0, // 窄幅
       defaultWidth: 1.4, // 宽幅定值
-      flowerWidth: 1.4, // 取花宽
-      flowerHeight: 2.8, // 取花高
-      toothRope: '', // 牙绳
+      flowerWidth: '', // 取花宽
+      flowerHeight: '', // 取花高
+      toothRope: true, // 牙绳
       colCounts: 6,
       useLevel: 0, // 用量
       resultsLace: '', // 花边
@@ -282,12 +278,12 @@
       }).then((res) => {
         console.log(res.data)
         if (res.statusCode === 200) {
-          that.countList3[0].counts = res.data.CalculatorResult.useLevel
-          that.countList3[1].counts = res.data.CalculatorResult.toothRope
-          that.countList3[2].counts = res.data.CalculatorResult.bagCore
-          that.countList3[3].counts = res.data.CalculatorResult.recommendedBagCoreWidth
-          that.resultsLace = res.data.CalculatorResult.lace
-          that.resultsTooth = res.data.CalculatorResult.toothRope
+          that.countList3[0].counts = res.data.CalculatorResult.useLevel // 布料用量
+          that.countList3[1].counts = res.data.CalculatorResult.toothRope // 牙绳
+          that.countList3[2].counts = res.data.CalculatorResult.lace // 花边
+          that.countList3[3].counts = res.data.CalculatorResult.bagCore // 靠包心
+//          that.resultsLace = res.data.CalculatorResult.bagCore
+//          that.resultsTooth = res.data.CalculatorResult.toothRope
           that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
           that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
           that.bagCore = res.data.CalculatorResult.bagCore
@@ -299,11 +295,45 @@
         }
         that.$apply() // 回调app
       })
+        .catch((err) => {
+          console.log(err)
+        })
     }
+
     methods = {
       // 靠包
       changeBag({detail}) {
         // console.log(this.tooth)
+        if (!this.bagWidth) {
+          return $Toast({
+            content: '请输入成品宽',
+            type: 'warning'
+          })
+        }
+        if (!this.bagHeight) {
+          return $Toast({
+            content: '请输入成品高',
+            type: 'warning'
+          })
+        }
+        if (!this.flowerWidth) {
+          return $Toast({
+            content: '请输入花距宽',
+            type: 'warning'
+          })
+        }
+        if (!this.flowerHeight) {
+          return $Toast({
+            content: '请输入花距高',
+            type: 'warning'
+          })
+        }
+        if (!this.defaultWidth) {
+          return $Toast({
+            content: '请输入布料默认值',
+            type: 'warning'
+          })
+        }
         if (!this.bagWChecked) {
           return $Toast({
             content: '请选择宽或高',
@@ -321,7 +351,7 @@
           type: 2, // 2:靠包
           goodsWidth: this.bagWidth, // 靠包宽
           goodsHight: this.bagHeight, // 靠包高
-          clothType: this.bagWChecked, // 1：宽幅 2:宽幅定宽 3:宽幅定高
+          clothType: this.bagWChecked, // 1：窄幅 2:宽幅定宽 3:宽幅定高
           clothValue: this.defaultWidth, // 布料固定值
           flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
           flowerWidth: this.flowerWidth, // 花距宽
@@ -349,6 +379,12 @@
       radioChange(e) {
         console.log('radio', e.detail.value)
         this.bagWChecked = e.detail.value
+        if (e.detail.value === '3' || e.detail.value === '2') {
+          this.defaultWidth = 2.8
+        }
+        if (e.detail.value === '1') {
+          this.defaultWidth = 1.4
+        }
       },
       // 对花
       onChange(event) {
@@ -379,7 +415,7 @@
     }
 
     onLoad () {
-      console.log('Package')
+//      console.log('Package')
     }
   }
 </script>

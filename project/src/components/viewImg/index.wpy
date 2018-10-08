@@ -78,7 +78,7 @@
 
     onLoad () {
 //      console.log(this.imagesUrl, 'viewImg')
-      console.log('viewImg')
+//      console.log('viewImg')
     }
   }
 </script>

@@ -34,11 +34,11 @@
               </view>
             </view>
           </block>
-          <view  class="list_item">
-            <view class="item">
-              <view class="item_inner {{newAdd? 'item_inner_select':null}}" @tap="addNewGruop()">+</view>
-            </view>
-          </view>
+          <!--<view  class="list_item">-->
+            <!--<view class="item">-->
+              <!--<view class="item_inner {{newAdd? 'item_inner_select':null}}" @tap="addNewGruop()">+</view>-->
+            <!--</view>-->
+          <!--</view>-->
         </view>
       </view>
 
@@ -62,13 +62,13 @@
   import wepy from 'wepy'
   import { connect } from 'wepy-redux'
   import Counter from 'counter' // alias example
-  import moduleA from 'module-a' // aliasFields ignore module example
+//  import moduleA from 'module-a' // aliasFields ignore module example
   import testMixin from '../mixins/test'
   const { $Toast } = require('../components/iview/base/index')
   import { INCREMENT, DECREMENT, SET_IMAGES } from '../store/types/counter'
   import { asyncInc } from '../store/actions'
   // const { $Message } = require('../components/iview/base/index')
-  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+//  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
 
   @connect({
     selectId (state) {
@@ -89,7 +89,7 @@
 
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: '兜兜软装计算器',
+      navigationBarTitleText: '兜兜计算器',
       usingComponents: {
         'i-toast': '/components/iview/toast/index',
         'i-modal': '/components/iview/modal/index',
@@ -228,21 +228,21 @@
     }
 
     onLoad() {
-      let self = this
-      this.$parent.getUserInfo(function (userInfo) {
-        console.log(userInfo)
-        if (userInfo) {
-          self.userInfo = userInfo
-        }
-        self.normalTitle = '标题已被修改'
-
-        self.setTimeoutTitle = '标题三秒后会被修改'
-        setTimeout(() => {
-          self.setTimeoutTitle = '到三秒了'
-          self.$apply()
-        }, 3000)
-        self.$apply()
-      })
+//      let self = this
+//      this.$parent.getUserInfo(function (userInfo) {
+//        console.log(userInfo)
+//        if (userInfo) {
+//          self.userInfo = userInfo
+//        }
+//        self.normalTitle = '标题已被修改'
+//
+//        self.setTimeoutTitle = '标题三秒后会被修改'
+//        setTimeout(() => {
+//          self.setTimeoutTitle = '到三秒了'
+//          self.$apply()
+//        }, 3000)
+//        self.$apply()
+//      })
     }
   }
 </script>

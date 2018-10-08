@@ -20,13 +20,13 @@
           </view>
 
           <!--成品-->
-          <view class="count_item">
+          <view class="count_item count_height">
             <view class="count_text">成品</view>
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>宽</view>
-                  <input type="digit" placeholder="" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <input type="digit" placeholder="成品宽" bindinput="bindBagWidth" value="{{bagWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -40,7 +40,7 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>高</view>
-                  <input type="digit" placeholder="" bindinput="bindBagHeight" value="{{bagHeight}}"/>
+                  <input type="digit" placeholder="成品高" bindinput="bindBagHeight" value="{{bagHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -88,13 +88,13 @@
             </view>
           </view>
           <!--取花 -->
-          <view class="count_item">
+          <view class="count_item count_height">
             <view class="count_text">取花</view>
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>花距宽</view>
-                  <input type="digit" placeholder="" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
+                  <input type="digit" placeholder="花距宽" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -107,7 +107,7 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>花距高</view>
-                  <input type="digit" placeholder="" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
+                  <input type="digit" placeholder="花距高" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -194,7 +194,7 @@
         },
         {
           id: 1,
-          checked: false,
+          checked: true,
           name: '窄幅'
         }
       ],
@@ -237,32 +237,32 @@
       checked: false,
       disabled: false,
       dultiple: 2, // 倍数
-      bagWidth: 0.7, // 宽
-      bagHeight: 0.3, // 高
-      bagWChecked: '', // 宽幅
-      bagHChecked: false, // 窄幅
-      bagCheckedW: false, // 定宽
-      bagCheckedH: false, // 定高
+      bagWidth: '', // 宽
+      bagHeight: '', // 高
+      bagWChecked: 1, // 窄幅
+//      bagHChecked: false, // 窄幅
+//      bagCheckedW: false, // 定宽
+//      bagCheckedH: false, // 定高
       tooth: true, // 牙绳check
       curtainhGroups: [
         {
           id: 1,
-          checked: false,
+          checked: true,
           name: '衬布'
         },
         {
           id: 2,
-          checked: false,
+          checked: true,
           name: '轨道'
         },
-        {
-          id: 3,
-          checked: false,
-          name: '窗杆'
-        },
+//        {
+//          id: 3,
+//          checked: false,
+//          name: '窗杆'
+//        },
         {
           id: 4,
-          checked: false,
+          checked: true,
           name: '遮光布'
         },
         {
@@ -272,23 +272,23 @@
         },
         {
           id: 6,
-          checked: false,
+          checked: true,
           name: '竖向花边'
         }
       ],
-      lace: '', // 花边check
-      narrow: 1.4, // 窄幅
+      lace: true, // 衬布
+      narrow: 0, // 窄幅
       defaultWidth: 1.4, // 宽幅定值
-      flowerWidth: 1.4, // 取花宽
-      flowerHeight: 2.8, // 取花高
-      toothRope: '', // 牙绳
+      flowerWidth: '', // 取花宽
+      flowerHeight: '', // 取花高
+      toothRope: '', // 遮光布
       colCounts: 6,
       useLevel: 0, // 用量
       resultsLace: '', // 花边
       resultsTooth: '', // 牙绳
-      lateralLace: '', // 横向
-      verticaLace: '', // 竖向
-      track: '', // 轨道
+      lateralLace: false, // 横向
+      verticaLace: true, // 竖向
+      track: true, // 轨道
       switchValue: false, // 对花
       vindowBar: '', // 窗杆
       recommendedBagCoreWidth: 0, // 推荐倍数
@@ -324,10 +324,47 @@
         that.$apply() // 回调app
       })
     }
+
     methods = {
       // 窗帘
       changeBag({detail}) {
-        // console.log(this.tooth)
+        // console.log(this.tooth)dultiple
+        if (!this.dultiple) {
+          return $Toast({
+            content: '倍数不能为空',
+            type: 'warning'
+          })
+        }
+        if (!this.bagWidth) {
+          return $Toast({
+            content: '请输入成品宽',
+            type: 'warning'
+          })
+        }
+        if (!this.bagHeight) {
+          return $Toast({
+            content: '请输入成品高',
+            type: 'warning'
+          })
+        }
+        if (!this.flowerWidth) {
+          return $Toast({
+            content: '请输入花距宽',
+            type: 'warning'
+          })
+        }
+        if (!this.defaultWidth) {
+          return $Toast({
+            content: '请输入布料默认值',
+            type: 'warning'
+          })
+        }
+        if (!this.flowerHeight) {
+          return $Toast({
+            content: '请输入花距高',
+            type: 'warning'
+          })
+        }
         if (!this.bagWChecked) {
           return $Toast({
             content: '请选择宽或高',
@@ -346,7 +383,7 @@
           dultiple: this.dultiple, // 倍数
           goodsWidth: this.bagWidth, // 靠包宽
           goodsHight: this.bagHeight, // 靠包高
-          clothType: this.bagWChecked, // 1：宽幅 2:宽幅定宽 3:宽幅定高
+          clothType: this.bagWChecked, // 1：窄幅 2:宽幅定宽 3:宽幅定高
           clothValue: this.defaultWidth, // 布料固定值
           flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
           flowerWidth: this.flowerWidth, // 花距宽
@@ -369,13 +406,13 @@
 //        console.log('value值', e)
         const obj = e.detail.value.find((n) => n === '1')
         const obj2 = e.detail.value.find((n) => n === '2')
-        const obj3 = e.detail.value.find((n) => n === '3')
+//        const obj3 = e.detail.value.find((n) => n === '3')
         const obj4 = e.detail.value.find((n) => n === '4')
         const obj5 = e.detail.value.find((n) => n === '5')
         const obj6 = e.detail.value.find((n) => n === '6')
         this.lace = obj // 衬布
         this.track = obj2 // 轨道
-        this.vindowBar = obj3 // 窗杆
+//        this.vindowBar = obj3 // 窗杆
         this.toothRope = obj4 // 遮光布
         this.lateralLace = obj5 // 横向花边
         this.verticaLace = obj6 // 竖向花边
@@ -387,8 +424,14 @@
       },
       // 宽幅
       radioChange(e) {
-//        console.log('radio', e.detail.value)
+        console.log('radio', e.detail.value)
         this.bagWChecked = e.detail.value
+        if (e.detail.value === '3' || e.detail.value === '2') {
+          this.defaultWidth = 2.8
+        }
+        if (e.detail.value === '1') {
+          this.defaultWidth = 1.4
+        }
       },
       // 输入框
       bindDultiple(e) {
@@ -418,7 +461,7 @@
     }
 
     onLoad () {
-      console.log('Curtain')
+//      console.log('Curtain')
     }
   }
 </script>

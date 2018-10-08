@@ -21,7 +21,7 @@ export default class extends wepy.app {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#47a3ad',
-      navigationBarTitleText: '兜兜软装计算器',
+      navigationBarTitleText: '兜兜计算器',
       navigationBarTextStyle: '#fff'
     },
     networkTimeout: {
@@ -57,17 +57,17 @@ export default class extends wepy.app {
     console.log(data)
   }
 
-  getUserInfo(cb) {
-    const that = this
-    if (this.globalData.userInfo) {
-      return this.globalData.userInfo
-    }
-    wepy.getUserInfo({
-      success (res) {
-        that.globalData.userInfo = res.userInfo
-        cb && cb(res.userInfo)
-      }
-    })
-  }
+//  getUserInfo(cb) {
+//    const that = this
+//    if (this.globalData.userInfo) {
+//      return this.globalData.userInfo
+//    }
+//    wepy.getUserInfo({
+//      success (res) {
+//        that.globalData.userInfo = res.userInfo
+//        cb && cb(res.userInfo)
+//      }
+//    })
+//  }
 }
 </script>

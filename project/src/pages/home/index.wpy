@@ -6,11 +6,31 @@
   <view class="home_box">
     <view class="scroll_view">
       <i-tabs current="{{ current_scroll }}" scroll bindchange="handleClick" color="#47A3AD">
-        <i-tab wx:for="{{section}}" wx:key="id" key="{{item.id}}" title="{{item.name}}"></i-tab>
-        <!--<i-tab key="-1" title="+">+</i-tab>-->
+      <i-tab wx:for="{{section}}" wx:key="id" key="{{item.id}}" title="{{item.name}}"></i-tab>
       </i-tabs>
+      <!--<scroll-view class="scroll_view" scroll-x="true" style="width: 100%">-->
+        <!--<view wx:for="{{section}}" wx:key="id" id="{{item.id}}" catchtap="handleTap"-->
+              <!--class="nav-name {{item.id == currentId ? 'nav-hover' : ''}}">-->
+          <!--{{item.name}}-->
+        <!--</view>-->
+      <!--</scroll-view>-->
     </view>
     <!-- 主体页面 -->
+    <!-- 主体页面 -->
+    <!--<view class="scroll_wrapper">-->
+      <!--<view class="scroll_inner">-->
+        <!--<swiper class="" duration="0" style="height:100%;" bindchange="" current='{{selectedIndex}}'-->
+                <!--bindanimationfinish="">-->
+          <!--<block wx:for="{{section}}" wx:key="id">-->
+            <!--<swiper-item class="">-->
+              <!--<scroll-view class="scroll_continer" scroll-y="true" style="height: 100%">-->
+                <!--{{currentId}}-->
+              <!--</scroll-view>-->
+            <!--</swiper-item>-->
+          <!--</block>-->
+        <!--</swiper>-->
+      <!--</view>-->
+    <!--</view>-->
     <view class="scroll_wrapper">
       <!--视图-->
       <view class="scroll_container">
@@ -49,8 +69,6 @@
   import Windowh from '../../base/windowh/index'
   import Curtain from '../../base/curtain/index'
   const {$Toast} = require('../../components/iview/base/index')
-  import moduleA from 'module-a' // aliasFields ignore module example
-  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
   @connect({
     selectId(state) {
       return state.counter.selectId
@@ -62,7 +80,7 @@
 
   export default class Home extends wepy.page {
     config = {
-      navigationBarTitleText: '兜兜软装计算器',
+      navigationBarTitleText: '兜兜计算器',
       usingComponents: {
         'i-tabs': '/components/iview/tabs/index',
         'i-tab': '/components/iview/tab/index',
@@ -103,8 +121,15 @@
     components = {Package: Package, Windowh: Windowh, Curtain: Curtain, viewImg: viewImg}
 
     methods = {
+      // 头部切换
+//      handleTap(e) {
+//        this.currentId = e.currentTarget.id
+//        this.selectedIndex = e.currentTarget.id
+//      }
+
       // 头部
       handleClick({detail}) {
+//        this.currentId = parseInt(detail.key)
         this.current_scroll = parseInt(detail.key)
         if (this.current_scroll === -1) {
           return
@@ -148,9 +173,8 @@
     }
 
     onLoad () {
-//      console.log(this.selectId)
       this.current_scroll = this.selectId
-//      this.methods.loadData(this.selectId)
+//      this.currentId = this.selectId
     }
   }
 </script>
