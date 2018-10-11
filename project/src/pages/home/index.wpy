@@ -92,7 +92,8 @@
         'i-input': '/components/iview/input/index',
         'i-radio-group': '/components/iview/radio-group/index',
         'i-radio': '/components/iview/radio/index',
-        'i-switch': '/components/iview/switch/index'
+        'i-switch': '/components/iview/switch/index',
+        'i-button': '/components/iview/button/index'
       }
     }
     // mixins = [intercetor]

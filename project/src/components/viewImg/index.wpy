@@ -4,7 +4,9 @@
 <template>
   <view class="main_img">
 
-    <image src="{{imagesUrl[0]}}" style="filter: blur(8px);"/>
+    <view class="img_box">
+      <image src="{{imagesUrl[0]}}" style="filter: blur(8px);"/>
+    </view>
 
     <view class="view_img">
       <view class="view_img_inner">

@@ -12,7 +12,7 @@
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
-                  <input type="digit" placeholder="" bindinput="bindDultiple" value="{{dultiple}}"/>
+                  <input type="digit" placeholder="" placeholder-class="phcolor" bindinput="bindDultiple" value="{{dultiple}}"/>
                   <view>倍</view>
                 </view>
               </view>
@@ -20,13 +20,13 @@
           </view>
 
           <!--成品-->
-          <view class="count_item count_height">
+          <view class="count_item">
             <view class="count_text">成品</view>
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>宽</view>
-                  <input type="digit" placeholder="成品宽" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品宽" bindinput="bindBagWidth" value="{{bagWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -40,7 +40,7 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>高</view>
-                  <input type="digit" placeholder="成品高" bindinput="bindBagHeight" value="{{bagHeight}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight" value="{{bagHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -50,19 +50,19 @@
           <!--宽幅-->
           <view class="count_item">
             <view class="count_text">
-              <view class="count_right_text">宽幅</view>
               <radio-group class="radio-group" bindchange="radioChange">
                 <label class="radio" wx:for="{{fruit}}" wx:key="id">
                   <radio value="{{item.id}}" checked="{{item.checked}}">{{item.name}}</radio>
                 </label>
               </radio-group>
+              <!--<view class="count_right_text">宽幅</view>-->
             </view>
 
             <view class="count_right">
 
               <view class="count_right_text">
                 <view class="count_right_text_input">
-                  <input type="digit" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -88,13 +88,13 @@
             </view>
           </view>
           <!--取花 -->
-          <view class="count_item count_height">
-            <view class="count_text">取花</view>
+          <view class="count_item">
+            <view class="count_text"></view>
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>花距宽</view>
-                  <input type="digit" placeholder="花距宽" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="花距宽" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -107,7 +107,7 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>花距高</view>
-                  <input type="digit" placeholder="花距高" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="花距高" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -139,8 +139,8 @@
     </view>
     <!--用料-->
     <view class="main_results">
-
-      <view class="results_box">
+      <view class="main_results_box">
+      <view class="results_box" bindtap="handleShow">
         <view class="results_count">
           <view class="result_text">布料用量</view>
           <view class="counts">{{useLevel}}m</view>
@@ -151,11 +151,15 @@
           <view class="counts">
             <view class="count-text">{{recommendedBagCoreWidth}}</view>
           </view>
+          <view class="result_text" style="margin-left: 8px">用量</view>
+          <view class="counts">
+            <view class="count-text">{{recommenUseLevel}}</view>
+          </view>
         </view>
       </view>
 
       <!--详情-->
-      <view class="results_static">
+      <view class="results_static"  hidden="{{hidden}}">
         <view class="results_header">
           <i-row>
             <i-col span="6" i-class="col-class" wx:for="{{detailList1}}" wx:key="id">
@@ -173,6 +177,12 @@
           </i-row>
         </view>
       </view>
+
+      <!--按钮-->
+      <view class="view_btn">
+        <i-button bind:click="handleClick" type="primary">计算窗帘</i-button>
+      </view>
+      </view>
     </view>
   </view>
 </template>
@@ -181,7 +191,13 @@
   const {$Toast} = require('../../components/iview/base/index')
   export default class Curtain extends wepy.component {
     data = {
+      hidden: true,
       fruit: [
+        {
+          id: 1,
+          checked: true,
+          name: '窄幅'
+        },
         {
           id: 2,
           checked: false,
@@ -191,11 +207,6 @@
           id: 3,
           checked: false,
           name: '定高'
-        },
-        {
-          id: 1,
-          checked: true,
-          name: '窄幅'
         }
       ],
       detailList1: [
@@ -292,6 +303,7 @@
       switchValue: false, // 对花
       vindowBar: '', // 窗杆
       recommendedBagCoreWidth: 0, // 推荐倍数
+      recommenUseLevel: 0, // 推荐倍数
       bag: 0,
       value: 0
     }
@@ -308,16 +320,17 @@
         data: obj
       }).then((res) => {
         console.log(res.data)
-        if (res.statusCode === 200) {
+        if (res.statusCode === 200 && res.data.CalculatorResult) {
           that.countList1[0].counts = res.data.CalculatorResult.useLevel
           that.countList1[1].counts = res.data.CalculatorResult.liningloth
           that.countList1[2].counts = res.data.CalculatorResult.lace
           that.countList1[3].counts = res.data.CalculatorResult.track
           that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
+          that.recommenUseLevel = res.data.CalculatorResult.recommenUseLevel // 用量
           that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendationatio // 推荐靠包心
         } else {
           return $Toast({
-            content: '请求失败',
+            content: res.data.msg,
             type: 'error'
           })
         }
@@ -326,8 +339,14 @@
     }
 
     methods = {
-      // 窗帘
+      handleShow() {
+        this.hidden = !this.hidden
+      },
       changeBag({detail}) {
+        this.bag = detail.value
+      },
+      // 窗帘
+      handleClick() {
         // console.log(this.tooth)dultiple
         if (!this.dultiple) {
           return $Toast({
@@ -347,37 +366,43 @@
             type: 'warning'
           })
         }
-        if (!this.flowerWidth) {
-          return $Toast({
-            content: '请输入花距宽',
-            type: 'warning'
-          })
-        }
+//        if (!this.flowerWidth) {
+//          return $Toast({
+//            content: '请输入花距宽',
+//            type: 'warning'
+//          })
+//        }
+        //        if (!this.flowerHeight) {
+//          return $Toast({
+//            content: '请输入花距高',
+//            type: 'warning'
+//          })
+//        }
         if (!this.defaultWidth) {
           return $Toast({
             content: '请输入布料默认值',
             type: 'warning'
           })
         }
-        if (!this.flowerHeight) {
-          return $Toast({
-            content: '请输入花距高',
-            type: 'warning'
-          })
-        }
-        if (!this.bagWChecked) {
-          return $Toast({
-            content: '请选择宽或高',
-            type: 'warning'
-          })
-        }
+//        if (!this.bagWChecked) {
+//          return $Toast({
+//            content: '请选择宽或高',
+//            type: 'warning'
+//          })
+//        }
         if (!this.lace && !this.toothRope && !this.lateralLace && !this.verticaLace && !this.track && !this.vindowBar) {
           return $Toast({
             content: '请选择配置',
             type: 'warning'
           })
         }
-        this.bag = detail.value
+        if (!this.bag) {
+          return $Toast({
+            content: '请输入数量',
+            type: 'warning'
+          })
+        }
+//        this.bag = detail.value
         let obj = {
           type: 1, // 1:窗帘
           dultiple: this.dultiple, // 倍数
@@ -388,7 +413,7 @@
           flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
           flowerWidth: this.flowerWidth, // 花距宽
           flowerHight: this.flowerHeight, // 花距高
-          num: detail.value, // 数量
+          num: this.bag, // 数量
           linings: this.lace ? 1 : 0, // 衬布 0:无 1:有
           shadeCloth: this.toothRope ? 1 : 0, // 遮光布 0:无 1:有
           lateralLace: this.lateralLace ? 1 : 0, // 横向花边 0:无 1:有
