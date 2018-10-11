@@ -140,22 +140,22 @@
         switch (parseInt(detail.key)) {
           case 1:
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/cl.jpg',
-              'https://www.doudoufuwu.com/pic/cl2.jpg'
+              'https://www.doudoufuwu.com/pic/cl.png',
+              'https://www.doudoufuwu.com/pic/cl2.png'
             ]
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case 2:
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/pblt.jpg',
-              'https://www.doudoufuwu.com/pic/pblt1.jpg'
+              'https://www.doudoufuwu.com/pic/pblt.png'
+//              'https://www.doudoufuwu.com/pic/pblt1.png'
             ]
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case 3:
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/kb.jpg',
-              'https://www.doudoufuwu.com/pic/kb1.jpg'
+              'https://www.doudoufuwu.com/pic/kb.png',
+              'https://www.doudoufuwu.com/pic/kb1.png'
             ]
             this.methods.SET_IMAGES({img: imgUrls})
             break

@@ -331,7 +331,7 @@
         }
       ],
       imgTitle: '平板窗帘',
-      thumb: 'https://www.doudoufuwu.com/pic/pblt1.jpg',
+      thumb: 'https://www.doudoufuwu.com/pic/pblt1.png',
       detailList2: [
         {
           name: '布料',
@@ -572,43 +572,43 @@
         switch (detail.value) {
           case '平板帘头':
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/pblt.jpg',
-              'https://www.doudoufuwu.com/pic/pblt1.jpg'
+              'https://www.doudoufuwu.com/pic/pblt.png'
+//              'https://www.doudoufuwu.com/pic/pblt1.png'
             ]
 //            this.imgTitle = '平板帘头'
             this.selectType = 0
-//            this.thumb = 'https://www.doudoufuwu.com/pic/pblt1.jpg'
+//            this.thumb = 'https://www.doudoufuwu.com/pic/pblt1.png'
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case '抽褶帘头':
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/czlt.jpg',
-              'https://www.doudoufuwu.com/pic/czlt1.jpg'
+              'https://www.doudoufuwu.com/pic/czlt.png'
+//              'https://www.doudoufuwu.com/pic/czlt1.png'
             ]
 //            this.imgTitle = '抽褶帘头'
             this.selectType = 2
-//            this.thumb = 'https://www.doudoufuwu.com/pic/czlt.jpg'
+//            this.thumb = 'https://www.doudoufuwu.com/pic/czlt.png'
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case '水波帘头':
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/lt.jpg',
-              'https://www.doudoufuwu.com/pic/sblt.jpg'
+//              'https://www.doudoufuwu.com/pic/lt.png',
+              'https://www.doudoufuwu.com/pic/sblt.png'
             ]
 //            this.imgTitle = '水波帘头'
             this.selectType = 1
-//            this.thumb = 'https://www.doudoufuwu.com/pic/lt.jpg'
+//            this.thumb = 'https://www.doudoufuwu.com/pic/lt.png'
             this.methods.SET_IMAGES({img: imgUrls})
             break
           default:
             this.imgUrls = [
-              'https://www.doudoufuwu.com/pic/pblt.jpg',
-              'https://www.doudoufuwu.com/pic/pblt1.jpg'
+              'https://www.doudoufuwu.com/pic/pblt.png'
+//              'https://www.doudoufuwu.com/pic/pblt1.png'
             ]
 //            this.imgTitle = '平板帘头'
             this.selectType = 0
             this.methods.SET_IMAGES({img: imgUrls})
-//            this.thumb = 'https://www.doudoufuwu.com/pic/pblt1.jpg'
+//            this.thumb = 'https://www.doudoufuwu.com/pic/pblt1.png'
             break
         }
       },

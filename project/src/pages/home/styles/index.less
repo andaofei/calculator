@@ -73,6 +73,7 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 10px;
+                background: @textColor;
                 .category-icon {
                   width: 100%;
                   height: 100%;
@@ -81,12 +82,12 @@
                   position: absolute;
                   right: 0;
                   bottom: 0;
-                  width: 160rpx;
-                  height: 60rpx;
-                  font-size: @minFont;
+                  width: 110rpx;
+                  height: 50rpx;
+                  font-size: @miniFont;
                   color: @textColor;
                   text-align: center;
-                  line-height: 60rpx;
+                  line-height: 50rpx;
                   background: @uiColorGreen;
                   border-radius: 0 0 10px 0;
                 }
@@ -359,8 +360,10 @@
                 padding: 20rpx;
                 .results_count {
                   display: flex;
-                  justify-content: flex-end;
+                  justify-content: space-between;
                   .result_text {
+                    width: 160rpx;
+                    text-align: left;
                     font-size: @minFont;
                     color: @baseColor2;
                     margin-right: 20rpx;
@@ -369,12 +372,22 @@
                   .counts {
                     font-weight: 600;
                     font-size: @initFont;
+                    line-height: 60rpx;
+                    min-width: 60rpx;
+                    text-align: center;
                   }
                 }
                 .results_max {
                   display: flex;
-                  justify-content: flex-end;
+                  justify-content: space-between;
+                  .results_max-left{
+                    flex: 1;
+                    display: flex;
+                    justify-content: space-between;
+                  }
                   .result_text {
+                    width: 160rpx;
+                    text-align: left;
                     font-size: @minFont;
                     color: @baseColor2;
                     margin-right: 20rpx;
@@ -385,6 +398,8 @@
                     .count-text {
                       font-size: @minFont;
                       line-height: 60rpx;
+                      min-width: 60rpx;
+                      text-align: center;
                     }
                   }
                 }

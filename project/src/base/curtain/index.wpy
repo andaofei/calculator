@@ -147,14 +147,19 @@
         </view>
 
         <view class="results_max">
+         <view calss="results_max-left">
           <view class="result_text">推荐倍数</view>
           <view class="counts">
             <view class="count-text">{{recommendedBagCoreWidth}}</view>
           </view>
+          </view>
+
+        <view calss="results_max-left">
           <view class="result_text" style="margin-left: 8px">用量</view>
           <view class="counts">
             <view class="count-text">{{recommenUseLevel}}</view>
           </view>
+        </view>
         </view>
       </view>
 
