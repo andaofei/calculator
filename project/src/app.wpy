@@ -4,58 +4,65 @@
 </style>
 
 <script>
-import wepy from 'wepy'
-import 'wepy-async-function'
+  import wepy from 'wepy'
+  import 'wepy-async-function'
 
-import { setStore } from 'wepy-redux'
-import configStore from './store'
-const store = configStore()
-setStore(store)
+  import { setStore } from 'wepy-redux'
+  import configStore from './store'
 
-export default class extends wepy.app {
-  config = {
-    pages: [
-      'pages/index',
-      'pages/home/index'
-    ],
-    window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#47a3ad',
-      navigationBarTitleText: '兜兜计算器',
-      navigationBarTextStyle: '#fff'
-    },
-    networkTimeout: {
-      request: 5000,
-      downloadFile: 10000
+  const store = configStore()
+  setStore(store)
+
+  export default class extends wepy.app {
+    config = {
+      pages: [
+        'pages/index',
+        'pages/home/index'
+      ],
+      window: {
+        backgroundTextStyle: 'light',
+        navigationBarBackgroundColor: '#47a3ad',
+        navigationBarTitleText: '兜兜计算器',
+        navigationBarTextStyle: '#fff'
+      },
+      networkTimeout: {
+        request: 5000,
+        downloadFile: 10000
+      }
     }
-  }
 
-  globalData = {
-    userInfo: null
-  }
+    globalData = {
+      userInfo: null
+    }
 
-  constructor () {
-    super()
+    constructor() {
+      super()
 //    this.use('requestfix')
-    this.use('promisify')
-  }
+      this.use('promisify')
+    }
 
-  onLaunch() {
-    this.testAsync()
-  }
+    onLaunch() {
+      this.testAsync()
+      this.onLoad()
+    }
 
-  sleep (s) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve('promise resolved')
-      }, s * 1000)
-    })
-  }
+    sleep(s) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('promise resolved')
+        }, s * 1000)
+      })
+    }
 
-  async testAsync () {
-    const data = await this.sleep(1)
-    console.log(data)
-  }
+    async testAsync() {
+      const data = await this.sleep(1)
+      console.log(data)
+    }
+
+    async onLoad() {
+      const user = await wepy.login()
+      console.log(user)
+    }
 
 //  getUserInfo(cb) {
 //    const that = this
@@ -69,5 +76,5 @@ export default class extends wepy.app {
 //      }
 //    })
 //  }
-}
+  }
 </script>

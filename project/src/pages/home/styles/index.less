@@ -36,6 +36,7 @@
       width: 100%;
       height: 100%;
       .scroll_container {
+        padding-top: 10rpx;
         height: auto;
         width: 100%;
         .main_wrapper{
@@ -43,11 +44,11 @@
           .main_img {
             position: relative;
             width: 100%;
-            height: 400rpx;
-            margin-bottom: 60rpx;
+            height: 500rpx;
+            //margin-bottom: 80rpx;
             .img_box{
               width: 100%;
-              height: 400rpx;
+              height: 500rpx;
               margin: 0 auto;
               image{
                 width: 100%;
@@ -73,7 +74,7 @@
                 width: 100%;
                 height: 100%;
                 border-radius: 10px;
-                background: @textColor;
+                background: rgba(255,255,255,0.8);
                 .category-icon {
                   width: 100%;
                   height: 100%;
@@ -94,6 +95,9 @@
               }
             }
           }
+          .package-box{
+            margin-top: 75rpx;
+          }
           .main_card{
             margin: 20rpx 0;
             box-shadow: 0 1px 7px 0 rgba(162,164,168,0.20);
@@ -105,7 +109,7 @@
             padding: 0 20rpx;
             //数量
             .main_counts {
-              margin-top: 20rpx;
+              //margin-top: 20rpx;
               padding: 20rpx;
               box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
               border-radius: 5px;
@@ -295,39 +299,6 @@
                     -webkit-transform: translate(-50%, -50%) scale(1);
                   }
                 }
-                //.select_groups {
-                //  display: flex;
-                //  flex-wrap: wrap;
-                //  .checkbox-label {
-                //    width: 25%;
-                //    font-size: @minFont;
-                //    color: @baseColor;
-                //    font-weight: 600;
-                //    margin-bottom: 20rpx;
-                //    .wx-checkbox-input {
-                //      width: 24rpx;
-                //      height: 24rpx;
-                //      outline: none;
-                //      margin-right: 20rpx;
-                //      line-height: 40 rpx;
-                //    }
-                //    .wx-checkbox-input-checked {
-                //      background: @uiColorGreen;
-                //      outline: none;
-                //    }
-                //    .wx-checkbox-input::before {
-                //      width: 24rpx;
-                //      height: 24rpx;
-                //      line-height: 24rpx;
-                //      text-align: center;
-                //      font-size: 24rpx;
-                //      color: @textColor;
-                //      background: transparent;
-                //      transform: translate(-50%, -50%) scale(1);
-                //      -webkit-transform: translate(-50%, -50%) scale(1);
-                //    }
-                //  }
-                //}
               }
               .select_counts {
                 display: flex;
@@ -374,19 +345,18 @@
                     font-size: @initFont;
                     line-height: 60rpx;
                     min-width: 60rpx;
-                    text-align: center;
+                    text-align: left;
                   }
                 }
                 .results_max {
                   display: flex;
                   justify-content: space-between;
-                  .results_max-left{
+                  .results_max_left{
                     flex: 1;
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: flex-end;
                   }
                   .result_text {
-                    width: 160rpx;
                     text-align: left;
                     font-size: @minFont;
                     color: @baseColor2;
@@ -399,7 +369,7 @@
                       font-size: @minFont;
                       line-height: 60rpx;
                       min-width: 60rpx;
-                      text-align: center;
+                      text-align: left;
                     }
                   }
                 }
