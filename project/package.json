@@ -1,6 +1,6 @@
 {
   "name": "culator",
-  "version": "0.0.2",
+  "version": "0.0.9",
   "description": "wepy",
   "main": "dist/app.js",
   "scripts": {
