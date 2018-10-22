@@ -61,7 +61,7 @@
     }
 
     onLoad () {
-      console.log('card')
+//      console.log('card')
     }
   }
 </script>
