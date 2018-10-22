@@ -96,13 +96,8 @@
       <file leaf-file-name="index.wpy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/curtain/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="1386">
-              <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
-=======
             <state relative-caret-position="476">
               <caret line="385" column="9" lean-forward="false" selection-start-line="385" selection-start-column="9" selection-end-line="385" selection-end-column="9" />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
               <folding>
                 <element signature="n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#view#2;n#view#1;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
@@ -127,15 +122,7 @@
             <state relative-caret-position="352">
               <caret line="46" column="19" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
               <folding>
-<<<<<<< HEAD
-                <element signature="n#style#0;n#swiper#0;n#view#0;n#view#0;n#view#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#swiper-item#0;n#block#0;n#swiper#0;n#view#0;n#view#0;n#view#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#view#0;n#swiper-item#0;n#block#0;n#swiper#0;n#view#0;n#view#0;n#view#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#image#0;n#view#0;n#swiper-item#0;n#block#0;n#swiper#0;n#view#0;n#view#0;n#view#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#block#2;n#view#0;n#view#0;n#view#1;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" />
-=======
                 <element signature="e#6454#6694#0" expanded="false" />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
               </folding>
             </state>
           </provider>
@@ -144,10 +131,6 @@
       <file leaf-file-name="index.wpy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/windowh/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="2970">
-              <caret line="135" column="19" selection-start-line="135" selection-start-column="19" selection-end-line="135" selection-end-column="19" />
-=======
             <state relative-caret-position="406">
               <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
               <folding>
@@ -164,7 +147,6 @@
                 <element signature="e#10792#10867#0" expanded="false" />
                 <element signature="e#10897#11166#0" expanded="false" />
               </folding>
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
             </state>
           </provider>
         </entry>
@@ -172,16 +154,11 @@
       <file leaf-file-name="index.wpy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="66">
-              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-=======
             <state relative-caret-position="1210">
               <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="e#2007#2030#0" expanded="true" />
               </folding>
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
             </state>
           </provider>
         </entry>
@@ -201,14 +178,9 @@
       <file leaf-file-name="variable.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/common/styles/base/variable.less">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="616">
-              <caret line="28" selection-start-line="28" selection-end-line="38" selection-end-column="1" />
-=======
             <state relative-caret-position="154">
               <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
             </state>
           </provider>
         </entry>
@@ -216,17 +188,9 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="462">
-              <caret line="22" column="5" selection-start-line="19" selection-start-column="3" selection-end-line="22" selection-end-column="5" />
-              <folding>
-                <element signature="e#352#375#0" expanded="true" />
-              </folding>
-=======
             <state relative-caret-position="44">
               <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
             </state>
           </provider>
         </entry>
@@ -767,11 +731,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< HEAD
-    <property name="last_opened_file_path" value="J:/work-area/LBP2.0-frontend" />
-=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="E:\xuse\calculator\project\node_modules\eslint" />
@@ -891,9 +851,6 @@
       <workItem from="1538007990890" duration="7510000" />
       <workItem from="1538218885902" duration="10582000" />
       <workItem from="1538267113455" duration="29930000" />
-<<<<<<< HEAD
-      <workItem from="1538960440361" duration="601000" />
-=======
       <workItem from="1538444971416" duration="1092000" />
       <workItem from="1538662909190" duration="4498000" />
       <workItem from="1538670799381" duration="3656000" />
@@ -901,23 +858,15 @@
       <workItem from="1538904794292" duration="1373000" />
       <workItem from="1538914223688" duration="11078000" />
       <workItem from="1539006101844" duration="13651000" />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="85511000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="1072" y="-8" width="1936" height="1176" extended-state="6" />
-=======
     <option name="totallyTimeSpent" value="148296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1841" height="1087" extended-state="1" />
     <editor active="true" />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12867443" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1216,24 +1165,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.wpy">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="396">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/wepy-list.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-351" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/components/imgCard.wxss" />
-    <entry file="file://$PROJECT_DIR$/dist/components/imgCard.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/counter.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-219">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-=======
         <state relative-caret-position="394">
           <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="2" selection-end-line="70" selection-end-column="5" />
           <folding>
@@ -1246,57 +1177,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="1386">
-          <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
-          <folding>
-            <element signature="e#1992#2015#0" expanded="true" />
-            <element signature="e#2280#2341#0" expanded="true" />
-=======
         <state relative-caret-position="323">
           <caret line="45" column="75" lean-forward="false" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="75" />
           <folding>
             <element signature="n#block#0;n#view#1;n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="false" />
             <element signature="e#2027#2050#0" expanded="false" />
             <element signature="e#2317#2390#0" expanded="false" />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/pages/home/styles/index.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2970">
-          <caret line="135" column="19" selection-start-line="135" selection-start-column="19" selection-end-line="135" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/imgcard/index.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/iview/card/index.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/iview/card/index.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="28" selection-start-line="28" selection-end-line="38" selection-end-column="1" />
-=======
     <entry file="file://$PROJECT_DIR$/src/components/viewImg/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-836">
@@ -1343,36 +1238,19 @@
             <element signature="e#7323#7563#0" expanded="false" />
             <element signature="e#7868#8397#0" expanded="false" />
           </folding>
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/group.wpy">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="462">
-          <caret line="22" column="5" selection-start-line="19" selection-start-column="3" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="e#352#375#0" expanded="true" />
-=======
         <state relative-caret-position="300">
           <caret line="118" column="39" lean-forward="false" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="39" />
           <folding>
             <element signature="e#2472#2634#0" expanded="false" />
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/components/panel.wpy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/groupitem.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-=======
     <entry file="file://$PROJECT_DIR$/src/base/windowh/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -1391,7 +1269,6 @@
             <element signature="e#10792#10867#0" expanded="false" />
             <element signature="e#10897#11166#0" expanded="false" />
           </folding>
->>>>>>> 3ec52cf17fc90ac17e5e383eabb457c94df41ba8
         </state>
       </provider>
     </entry>
