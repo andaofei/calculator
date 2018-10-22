@@ -1,7 +1,7 @@
 <style lang="less">
 </style>
 <template>
-  <view>
+  <view class="package-box">
     <!--图片卡片-->
     <!--<view class="main_card">-->
     <!--<imgCard :title.sync="imgTitle"-->
@@ -295,7 +295,7 @@
     }
     components = {imgCard: imgCard}
     data = {
-      hidden: true,
+      hidden: false,
       fruit: [
         {
           id: 1,
@@ -331,7 +331,7 @@
         }
       ],
       imgTitle: '平板窗帘',
-      thumb: 'https://www.doudoufuwu.com/pic/pblt1.jpg',
+      thumb: 'https://www.doudoufuwu.com/pic/pblt1.png',
       detailList2: [
         {
           name: '布料',
@@ -392,7 +392,7 @@
       flowerWidth: '', // 花宽
       flowerHeight: '', // 花高
       switchValue: false, // 对花
-      bag: 0 // 数量
+      bag: 1 // 数量
     }
     // 获取数据async
     setBagData (obj) {
@@ -406,7 +406,7 @@
         url: 'https://www.doudoufuwu.com/mobile/calculator',
         data: obj
       }).then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.statusCode === 200 && res.data.CalculatorValanceResult) {
           that.countList2[0].counts = res.data.CalculatorValanceResult.useLevel
           that.countList2[1].counts = res.data.CalculatorValanceResult.liningloth
@@ -479,12 +479,12 @@
             type: 'warning'
           })
         }
-        if (!this.lace && !this.toothRope) {
-          return $Toast({
-            content: '请选择配置',
-            type: 'warning'
-          })
-        }
+        // if (!this.lace && !this.toothRope) {
+        //   return $Toast({
+        //     content: '请选择配置',
+        //     type: 'warning'
+        //   })
+        // }
         if (!this.bag) {
           return $Toast({
             content: '请输入数量',
@@ -572,43 +572,43 @@
         switch (detail.value) {
           case '平板帘头':
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/pblt.jpg',
-              'https://www.doudoufuwu.com/pic/pblt1.jpg'
+              'https://www.doudoufuwu.com/pic/pblt.png'
+//              'https://www.doudoufuwu.com/pic/pblt1.png'
             ]
 //            this.imgTitle = '平板帘头'
             this.selectType = 0
-//            this.thumb = 'https://www.doudoufuwu.com/pic/pblt1.jpg'
+//            this.thumb = 'https://www.doudoufuwu.com/pic/pblt1.png'
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case '抽褶帘头':
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/czlt.jpg',
-              'https://www.doudoufuwu.com/pic/czlt1.jpg'
+              'https://www.doudoufuwu.com/pic/czlt.png'
+//              'https://www.doudoufuwu.com/pic/czlt1.png'
             ]
 //            this.imgTitle = '抽褶帘头'
             this.selectType = 2
-//            this.thumb = 'https://www.doudoufuwu.com/pic/czlt.jpg'
+//            this.thumb = 'https://www.doudoufuwu.com/pic/czlt.png'
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case '水波帘头':
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/lt.jpg',
-              'https://www.doudoufuwu.com/pic/sblt.jpg'
+//              'https://www.doudoufuwu.com/pic/lt.png',
+              'https://www.doudoufuwu.com/pic/sblt.png'
             ]
 //            this.imgTitle = '水波帘头'
             this.selectType = 1
-//            this.thumb = 'https://www.doudoufuwu.com/pic/lt.jpg'
+//            this.thumb = 'https://www.doudoufuwu.com/pic/lt.png'
             this.methods.SET_IMAGES({img: imgUrls})
             break
           default:
             this.imgUrls = [
-              'https://www.doudoufuwu.com/pic/pblt.jpg',
-              'https://www.doudoufuwu.com/pic/pblt1.jpg'
+              'https://www.doudoufuwu.com/pic/pblt.png'
+//              'https://www.doudoufuwu.com/pic/pblt1.png'
             ]
 //            this.imgTitle = '平板帘头'
             this.selectType = 0
             this.methods.SET_IMAGES({img: imgUrls})
-//            this.thumb = 'https://www.doudoufuwu.com/pic/pblt1.jpg'
+//            this.thumb = 'https://www.doudoufuwu.com/pic/pblt1.png'
             break
         }
       },

@@ -137,9 +137,9 @@
 
 
         <view class="results_max">
-          <view class="result_text">推荐靠包芯</view>
+          <view class="result_text">推荐花边</view>
           <view class="counts">
-            <view class="count-text">{{recommendedBagCoreWidth}}</view>
+            <view class="count-text">{{recommendedBagCoreWidth}}m</view>
           </view>
         </view>
       </view>
@@ -148,7 +148,7 @@
       <view class="results_static" hidden="{{hidden}}">
         <view class="results_header">
           <i-row>
-            <i-col span="6" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
+            <i-col span="8" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
               <view class="col-inner">{{item.name}}
                 <text class="col-text">({{item.unit}})</text>
               </view>
@@ -157,7 +157,7 @@
         </view>
         <view class="results_inner">
           <i-row>
-            <i-col span="6" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
+            <i-col span="8" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
               <view class="col-inner">{{item.counts}}</view>
             </i-col>
           </i-row>
@@ -179,7 +179,7 @@
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
   export default class Package extends wepy.component {
     data = {
-      hidden: true,
+      hidden: false,
       fruit: [
         {
           id: 1,
@@ -202,10 +202,10 @@
           id: 0,
           counts: 0
         },
-        {
-          id: 1,
-          counts: 0
-        },
+        // {
+        //   id: 1,
+        //   counts: 0
+        // },
         {
           id: 2,
           counts: 0
@@ -220,10 +220,10 @@
           name: '布料',
           unit: 'm'
         },
-        {
-          name: '牙绳',
-          unit: 'm'
-        },
+        // {
+        //   name: '牙绳',
+        //   unit: 'm'
+        // },
         {
           name: '花边',
           unit: 'm'
@@ -243,11 +243,11 @@
 //      bagCheckedH: false, // 定高
       tooth: true, // 牙绳check
       toothGroups: [
-        {
-          id: 1,
-          checked: true,
-          name: '牙绳'
-        },
+        // {
+        //   id: 1,
+        //   checked: true,
+        //   name: '牙绳'
+        // },
         {
           id: 2,
           checked: true,
@@ -259,7 +259,7 @@
       defaultWidth: 1.4, // 宽幅定值
       flowerWidth: '', // 取花宽
       flowerHeight: '', // 取花高
-      toothRope: true, // 牙绳
+      toothRope: false, // 牙绳
       colCounts: 6,
       useLevel: 0, // 用量
       resultsLace: '', // 花边
@@ -267,7 +267,7 @@
       recommendedBagCoreWidth: 0, // 推荐靠包心
       bagCore: '', // 靠包心
       switchValue: false, // 对花
-      bag: 0,
+      bag: 1,
       value: 0
     }
     // 获取数据async
@@ -285,13 +285,14 @@
         console.log(res, 'code')
         if (res.statusCode === 200 && res.data.CalculatorResult) {
           that.countList3[0].counts = res.data.CalculatorResult.useLevel // 布料用量
-          that.countList3[1].counts = res.data.CalculatorResult.toothRope // 牙绳
-          that.countList3[2].counts = res.data.CalculatorResult.lace // 花边
-          that.countList3[3].counts = res.data.CalculatorResult.bagCore // 靠包心
+          // that.countList3[1].counts = res.data.CalculatorResult.toothRope // 牙绳
+          that.countList3[1].counts = res.data.CalculatorResult.lace // 花边
+          that.countList3[2].counts = res.data.CalculatorResult.bagCore // 靠包心
 //          that.resultsLace = res.data.CalculatorResult.bagCore
 //          that.resultsTooth = res.data.CalculatorResult.toothRope
           that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
-          that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
+          // that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
+          that.recommendedBagCoreWidth = res.data.CalculatorResult.lace // 推荐花边
           that.bagCore = res.data.CalculatorResult.bagCore
         } else {
           return $Toast({
@@ -352,12 +353,12 @@
             type: 'warning'
           })
         }
-        if (!this.lace && !this.toothRope) {
-          return $Toast({
-            content: '请选择牙绳或花边',
-            type: 'warning'
-          })
-        }
+        // if (!this.lace && !this.toothRope) {
+        //   return $Toast({
+        //     content: '请选择花边',
+        //     type: 'warning'
+        //   })
+        // }
         if (!this.bag) {
           return $Toast({
             content: '请输入数量',

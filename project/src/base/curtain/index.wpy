@@ -12,7 +12,8 @@
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
-                  <input type="digit" placeholder="" placeholder-class="phcolor" bindinput="bindDultiple" value="{{dultiple}}"/>
+                  <input type="digit" placeholder="" placeholder-class="phcolor" bindinput="bindDultiple"
+                         value="{{dultiple}}"/>
                   <view>倍</view>
                 </view>
               </view>
@@ -26,7 +27,8 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>宽</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品宽" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品宽" bindinput="bindBagWidth"
+                         value="{{bagWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -40,7 +42,8 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>高</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight" value="{{bagHeight}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight"
+                         value="{{bagHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -62,7 +65,8 @@
 
               <view class="count_right_text">
                 <view class="count_right_text_input">
-                  <input type="digit" placeholder-class="phcolor" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="" bindinput="bindDefaultWidth"
+                         value="{{defaultWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -87,6 +91,7 @@
               </view>
             </view>
           </view>
+
           <!--取花 -->
           <view class="count_item">
             <view class="count_text"></view>
@@ -94,7 +99,8 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>花距宽</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="花距宽" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="花距宽" bindinput="bindFlowerWidth"
+                         value="{{flowerWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -107,7 +113,8 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>花距高</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="花距高" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="花距高" bindinput="bindFlowerHeight"
+                         value="{{flowerHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -135,63 +142,68 @@
           </view>
         </view>
       </view>
-
     </view>
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-      <view class="results_box" bindtap="handleShow">
-        <view class="results_count">
-          <view class="result_text">布料用量</view>
-          <view class="counts">{{useLevel}}m</view>
-        </view>
-
-        <view class="results_max">
-          <view class="result_text">推荐倍数</view>
-          <view class="counts">
-            <view class="count-text">{{recommendedBagCoreWidth}}</view>
+        <view class="results_box" bindtap="handleShow">
+          <view class="results_count">
+            <view class="result_text">布料用量</view>
+            <view class="counts">{{useLevel}}m</view>
           </view>
-          <view class="result_text" style="margin-left: 8px">用量</view>
-          <view class="counts">
-            <view class="count-text">{{recommenUseLevel}}</view>
-          </view>
-        </view>
-      </view>
 
-      <!--详情-->
-      <view class="results_static"  hidden="{{hidden}}">
-        <view class="results_header">
-          <i-row>
-            <i-col span="6" i-class="col-class" wx:for="{{detailList1}}" wx:key="id">
-              <view class="col-inner">{{item.name}}
-                <text class="col-text">({{item.unit}})</text>
+          <view class="results_max">
+            <view class="results_max_left">
+              <view class="result_text">推荐倍数</view>
+              <view class="counts">
+                <view class="count-text">{{recommendedBagCoreWidth}}</view>
               </view>
-            </i-col>
-          </i-row>
-        </view>
-        <view class="results_inner">
-          <i-row>
-            <i-col span="6" i-class="col-class" wx:for="{{countList1}}" wx:key="id">
-              <view class="col-inner">{{item.counts}}</view>
-            </i-col>
-          </i-row>
-        </view>
-      </view>
 
-      <!--按钮-->
-      <view class="view_btn">
-        <i-button bind:click="handleClick" type="primary">计算窗帘</i-button>
-      </view>
+              <view class="result_text" style="margin-left: 8px">用量</view>
+              <view class="counts">
+                <view class="count-text">{{recommenUseLevel}}m</view>
+              </view>
+            </view>
+          </view>
+
+
+        </view>
+
+        <!--详情-->
+        <view class="results_static" hidden="{{hidden}}">
+          <view class="results_header">
+            <i-row>
+              <i-col span="6" i-class="col-class" wx:for="{{detailList1}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="6" i-class="col-class" wx:for="{{countList1}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
+
+        <!--按钮-->
+        <view class="view_btn">
+          <i-button bind:click="handleClick" open-type type="primary">计算窗帘</i-button>
+        </view>
       </view>
     </view>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
-  const {$Toast} = require('../../components/iview/base/index')
+
+  const { $Toast } = require('../../components/iview/base/index')
   export default class Curtain extends wepy.component {
     data = {
-      hidden: true,
+      hidden: false,
       fruit: [
         {
           id: 1,
@@ -261,11 +273,6 @@
           checked: true,
           name: '衬布'
         },
-        {
-          id: 2,
-          checked: true,
-          name: '轨道'
-        },
 //        {
 //          id: 3,
 //          checked: false,
@@ -273,7 +280,7 @@
 //        },
         {
           id: 4,
-          checked: true,
+          checked: false,
           name: '遮光布'
         },
         {
@@ -285,6 +292,11 @@
           id: 6,
           checked: true,
           name: '竖向花边'
+        },
+        {
+          id: 2,
+          checked: true,
+          name: '轨道'
         }
       ],
       lace: true, // 衬布
@@ -292,23 +304,22 @@
       defaultWidth: 1.4, // 宽幅定值
       flowerWidth: '', // 取花宽
       flowerHeight: '', // 取花高
-      toothRope: '', // 遮光布
+      toothRope: false, // 遮光布
       colCounts: 6,
       useLevel: 0, // 用量
-      resultsLace: '', // 花边
-      resultsTooth: '', // 牙绳
       lateralLace: false, // 横向
       verticaLace: true, // 竖向
       track: true, // 轨道
       switchValue: false, // 对花
-      vindowBar: '', // 窗杆
+      vindowBar: false, // 窗杆
       recommendedBagCoreWidth: 0, // 推荐倍数
       recommenUseLevel: 0, // 推荐倍数
-      bag: 0,
+      bag: 1,
       value: 0
     }
+
     // 获取数据async
-    setBagData (obj) {
+    setBagData(obj) {
       console.log(obj)
       let that = this
       wepy.request({
@@ -342,11 +353,16 @@
       handleShow() {
         this.hidden = !this.hidden
       },
-      changeBag({detail}) {
+      changeBag({ detail }) {
         this.bag = detail.value
       },
       // 窗帘
       handleClick() {
+        wepy.getUserInfo({
+          success(res) {
+            console.log(res)
+          }
+        })
         // console.log(this.tooth)dultiple
         if (!this.dultiple) {
           return $Toast({
@@ -366,33 +382,9 @@
             type: 'warning'
           })
         }
-//        if (!this.flowerWidth) {
-//          return $Toast({
-//            content: '请输入花距宽',
-//            type: 'warning'
-//          })
-//        }
-        //        if (!this.flowerHeight) {
-//          return $Toast({
-//            content: '请输入花距高',
-//            type: 'warning'
-//          })
-//        }
         if (!this.defaultWidth) {
           return $Toast({
             content: '请输入布料默认值',
-            type: 'warning'
-          })
-        }
-//        if (!this.bagWChecked) {
-//          return $Toast({
-//            content: '请选择宽或高',
-//            type: 'warning'
-//          })
-//        }
-        if (!this.lace && !this.toothRope && !this.lateralLace && !this.verticaLace && !this.track && !this.vindowBar) {
-          return $Toast({
-            content: '请选择配置',
             type: 'warning'
           })
         }
@@ -423,12 +415,12 @@
         }
         this.setBagData(obj)
       },
-      handleFruitChange({detail = {}}) {
+      handleFruitChange({ detail = {} }) {
         this.current = detail.value
       },
       // 配置
       toolChange(e) {
-//        console.log('value值', e)
+        console.log('value值', e)
         const obj = e.detail.value.find((n) => n === '1')
         const obj2 = e.detail.value.find((n) => n === '2')
 //        const obj3 = e.detail.value.find((n) => n === '3')
@@ -485,7 +477,7 @@
       }
     }
 
-    onLoad () {
+    onLoad() {
 //      console.log('Curtain')
     }
   }
