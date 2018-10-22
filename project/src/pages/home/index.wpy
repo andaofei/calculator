@@ -175,7 +175,6 @@
 
     onLoad () {
       this.current_scroll = this.selectId
-      console.log(11)
 //      this.currentId = this.selectId
     }
   }

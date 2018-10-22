@@ -62,6 +62,17 @@
     async onLoad() {
       const user = await wepy.login()
       console.log(user)
+      // const code = user.code
+      // https://www.doudoufuwu.com/userinfo/query/{code}
+      // wepy.request({
+      //   method: 'GET',
+      //   header: {
+      //     'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      //   },
+      //   url: 'https://www.doudoufuwu.com/userinfo/query/' + code
+      // }).then((res) => {
+      //   console.log(res.data)
+      // })
     }
 
 //  getUserInfo(cb) {

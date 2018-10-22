@@ -406,7 +406,7 @@
         url: 'https://www.doudoufuwu.com/mobile/calculator',
         data: obj
       }).then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.statusCode === 200 && res.data.CalculatorValanceResult) {
           that.countList2[0].counts = res.data.CalculatorValanceResult.useLevel
           that.countList2[1].counts = res.data.CalculatorValanceResult.liningloth
