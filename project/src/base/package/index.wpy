@@ -13,7 +13,8 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>宽</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品宽" bindinput="bindBagWidth" value="{{bagWidth}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品宽" bindinput="bindBagWidth"
+                         value="{{bagWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -27,13 +28,13 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>高</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight" value="{{bagHeight}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight"
+                         value="{{bagHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
             </view>
           </view>
-
 
 
           <view class="count_item">
@@ -82,7 +83,8 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>花距宽</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="花距宽" bindinput="bindFlowerWidth" value="{{flowerWidth}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="花距宽" bindinput="bindFlowerWidth"
+                         value="{{flowerWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -94,7 +96,8 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>花距高</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="花距高" bindinput="bindFlowerHeight" value="{{flowerHeight}}"/>
+                  <input type="digit" placeholder-class="phcolor" placeholder="花距高" bindinput="bindFlowerHeight"
+                         value="{{flowerHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -129,52 +132,80 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-      <view class="results_box" bindtap="handleShow">
-        <view class="results_count">
-          <view class="result_text">布料用量</view>
-          <view class="counts">{{useLevel}}m</view>
+
+        <view class="results_box" bindtap="handleShow">
+          <view class="results_count">
+            <view class="result_text">布料用量</view>
+            <view class="counts">{{useLevel}}m</view>
+          </view>
+
+
+          <view class="results_max">
+            <view class="result_text">推荐花边</view>
+            <view class="counts">
+              <view class="count-text">{{recommendedBagCoreWidth}}m</view>
+            </view>
+          </view>
         </view>
 
+        <!--详情-->
+        <view class="results_static" hidden="{{hidden}}">
+          <view class="results_header">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
 
-        <view class="results_max">
-          <view class="result_text">推荐花边</view>
-          <view class="counts">
-            <view class="count-text">{{recommendedBagCoreWidth}}m</view>
+      </view>
+    </view>
+    <!--按钮-->
+    <view class="view_btn">
+      <view class="view_btn_box">
+        <!--左侧-->
+        <view class="view_btn_left">
+          <view class="results_count">
+            <view class="result_text">布料用量</view>
+            <view class="counts">{{useLevel}}m</view>
+          </view>
+
+
+          <view class="results_max">
+            <view class="result_text">推荐花边</view>
+            <view class="counts">
+              <view class="count-text">{{recommendedBagCoreWidth}}m</view>
+            </view>
+          </view>
+        </view>
+        <!--右侧-->
+        <view class="view_btn_right">
+          <view class="btn_right_box">
+            <view class="calculator">计算靠包</view>
+          </view>
+          <view class="btn_right_box">
+             <view class="collection">收录数据</view>
           </view>
         </view>
       </view>
-
-      <!--详情-->
-      <view class="results_static" hidden="{{hidden}}">
-        <view class="results_header">
-          <i-row>
-            <i-col span="8" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
-              <view class="col-inner">{{item.name}}
-                <text class="col-text">({{item.unit}})</text>
-              </view>
-            </i-col>
-          </i-row>
-        </view>
-        <view class="results_inner">
-          <i-row>
-            <i-col span="8" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
-              <view class="col-inner">{{item.counts}}</view>
-            </i-col>
-          </i-row>
-        </view>
-      </view>
-
-      <!--按钮-->
-      <view class="view_btn">
-        <i-button bind:click="handleClick" type="primary">计算靠包</i-button>
-      </view>
-      </view>
+      <!--<i-button bind:click="handleClick" type="primary">计算靠包</i-button>-->
     </view>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
-  const {$Toast} = require('../../components/iview/base/index')
+
+  const { $Toast } = require('../../components/iview/base/index')
   import moduleA from 'module-a' // aliasFields ignore module example
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
   export default class Package extends wepy.component {
@@ -270,8 +301,9 @@
       bag: 1,
       value: 0
     }
+
     // 获取数据async
-    setBagData (obj) {
+    setBagData(obj) {
 //      console.log(obj)
       let that = this
       wepy.request({
@@ -311,7 +343,7 @@
       handleShow() {
         this.hidden = !this.hidden
       },
-      changeBag({detail}) {
+      changeBag({ detail }) {
         this.bag = detail.value
       },
       // 靠包
@@ -382,7 +414,7 @@
         this.setBagData(obj)
       },
 
-      handleFruitChange({detail = {}}) {
+      handleFruitChange({ detail = {} }) {
         this.current = detail.value
       },
       // 牙绳
@@ -433,7 +465,7 @@
       }
     }
 
-    onLoad () {
+    onLoad() {
 //      console.log('Package')
     }
   }

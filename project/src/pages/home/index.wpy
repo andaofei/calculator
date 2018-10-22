@@ -2,35 +2,14 @@
   @import "./styles/index";
 </style>
 <template>
-  <!--头部-->
   <view class="home_box">
+    <!--头部-->
     <view class="scroll_view">
       <i-tabs current="{{ current_scroll }}" scroll bindchange="handleClick" color="#47A3AD">
       <i-tab wx:for="{{section}}" wx:key="id" key="{{item.id}}" title="{{item.name}}"></i-tab>
       </i-tabs>
-      <!--<scroll-view class="scroll_view" scroll-x="true" style="width: 100%">-->
-        <!--<view wx:for="{{section}}" wx:key="id" id="{{item.id}}" catchtap="handleTap"-->
-              <!--class="nav-name {{item.id == currentId ? 'nav-hover' : ''}}">-->
-          <!--{{item.name}}-->
-        <!--</view>-->
-      <!--</scroll-view>-->
     </view>
     <!-- 主体页面 -->
-    <!-- 主体页面 -->
-    <!--<view class="scroll_wrapper">-->
-      <!--<view class="scroll_inner">-->
-        <!--<swiper class="" duration="0" style="height:100%;" bindchange="" current='{{selectedIndex}}'-->
-                <!--bindanimationfinish="">-->
-          <!--<block wx:for="{{section}}" wx:key="id">-->
-            <!--<swiper-item class="">-->
-              <!--<scroll-view class="scroll_continer" scroll-y="true" style="height: 100%">-->
-                <!--{{currentId}}-->
-              <!--</scroll-view>-->
-            <!--</swiper-item>-->
-          <!--</block>-->
-        <!--</swiper>-->
-      <!--</view>-->
-    <!--</view>-->
     <view class="scroll_wrapper">
       <!--视图-->
       <view class="scroll_container">
