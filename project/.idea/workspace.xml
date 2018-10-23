@@ -9,7 +9,7 @@
     <list default="true" id="e1453824-c472-4c0e-a46a-8bd49ef70f8a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/base/package/index.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/package/index.wpy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/index.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/index.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/styles/base/variable.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/styles/base/variable.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/home/styles/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/styles/index.less" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,8 +30,9 @@
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -42,8 +43,8 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="125" />
-          <entry key="less" value="3018" />
-          <entry key="wpy" value="7251" />
+          <entry key="less" value="3242" />
+          <entry key="wpy" value="7330" />
           <entry key="wxml" value="44" />
           <entry key="wxss" value="97" />
         </counts>
@@ -53,8 +54,8 @@
           <entry key="CSS" value="97" />
           <entry key="HTML" value="44" />
           <entry key="JavaScript" value="125" />
-          <entry key="Less" value="3018" />
-          <entry key="Vue.js" value="7251" />
+          <entry key="Less" value="3242" />
+          <entry key="Vue.js" value="7330" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -89,12 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
+            <state relative-caret-position="616">
               <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="n#view#0;n#view#0;n#template#0;n#!!top" />
-                <element signature="e#2007#2030#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -102,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
+            <state relative-caret-position="1672">
               <caret line="76" selection-start-line="76" selection-end-line="76" />
               <folding>
                 <element signature="e#119#142#0" expanded="true" />
@@ -114,14 +111,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/package/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="192" column="36" selection-start-line="192" selection-start-column="23" selection-end-line="192" selection-end-column="36" />
+            <state relative-caret-position="528">
+              <caret line="149" column="33" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="33" />
               <folding>
                 <element signature="n#view#0;n#view#0;n#template#0;n#!!top" />
                 <element signature="n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" />
                 <element signature="n#view#1;n#view#0;n#view#0;n#template#0;n#!!top" />
-                <element signature="n#view#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" />
-                <element signature="n#view#1;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" />
+                <element signature="n#i-row#0;n#view#0;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -130,11 +126,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/home/styles/index.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="507" column="35" selection-start-line="507" selection-start-column="35" selection-end-line="507" selection-end-column="35" />
+            <state relative-caret-position="-821">
+              <caret line="382" column="39" selection-start-line="382" selection-start-column="39" selection-end-line="382" selection-end-column="39" />
               <folding>
-                <element signature="e#10686#14573#0" />
-                <element signature="e#14806#14840#0" />
+                <element signature="e#11013#11647#0" />
+                <element signature="e#11677#12504#0" />
               </folding>
             </state>
           </provider>
@@ -157,8 +153,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/common/styles/base/variable.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="11" />
+            <state relative-caret-position="88">
+              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -188,11 +184,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>img_box</find>
-      <find>view_text</find>
-      <find>counts</find>
-      <find>jpg</find>
-      <find>main_results_box</find>
       <find>count-text</find>
       <find>results_max</find>
       <find>results_max_left</find>
@@ -217,7 +208,12 @@
       <find>promise resolved</find>
       <find>requestfix</find>
       <find>view_btn</find>
+      <find>btn_right_box</find>
       <find>view_btn_right</find>
+      <find>result_text</find>
+      <find>view_btn_box</find>
+      <find>results_box</find>
+      <find>#484E5B</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -256,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/pages/index/styles/index.less" />
         <option value="$PROJECT_DIR$/src/components/imgcard/index.wpy" />
         <option value="$PROJECT_DIR$/src/mixins/test.js" />
-        <option value="$PROJECT_DIR$/src/common/styles/base/variable.less" />
         <option value="$PROJECT_DIR$/dist/app.json" />
         <option value="$PROJECT_DIR$/src/pages/index.wpy" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -266,6 +261,7 @@
         <option value="$PROJECT_DIR$/src/app.wpy" />
         <option value="$PROJECT_DIR$/src/pages/home/index.wpy" />
         <option value="$PROJECT_DIR$/src/base/package/index.wpy" />
+        <option value="$PROJECT_DIR$/src/common/styles/base/variable.less" />
         <option value="$PROJECT_DIR$/src/pages/home/styles/index.less" />
       </list>
     </option>
@@ -471,17 +467,18 @@
       <workItem from="1539006101844" duration="22164000" />
       <workItem from="1539263070428" duration="6332000" />
       <workItem from="1540126451771" duration="4578000" />
+      <workItem from="1540299356853" duration="4182000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173259000" />
+    <option name="totallyTimeSpent" value="177441000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1841" height="1087" extended-state="0" />
+    <frame x="-8" y="-8" width="1861" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12867443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12835984" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -692,9 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/app.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/viewImg/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -720,13 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wepy.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -749,15 +736,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.wpy">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#119#142#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="44">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/app.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
@@ -771,45 +758,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1672">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+          <folding>
+            <element signature="e#119#142#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
+        <state relative-caret-position="616">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/package/index.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="149" column="33" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="33" />
           <folding>
             <element signature="n#view#0;n#view#0;n#template#0;n#!!top" />
-            <element signature="e#2007#2030#0" expanded="true" />
+            <element signature="n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" />
+            <element signature="n#view#1;n#view#0;n#view#0;n#template#0;n#!!top" />
+            <element signature="n#i-row#0;n#view#0;n#view#1;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/common/styles/base/variable.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/package/index.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="192" column="36" selection-start-line="192" selection-start-column="23" selection-end-line="192" selection-end-column="36" />
-          <folding>
-            <element signature="n#view#0;n#view#0;n#template#0;n#!!top" />
-            <element signature="n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" />
-            <element signature="n#view#1;n#view#0;n#view#0;n#template#0;n#!!top" />
-            <element signature="n#view#0;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" />
-            <element signature="n#view#1;n#view#0;n#view#0;n#view#1;n#view#0;n#template#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home/styles/index.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="507" column="35" selection-start-line="507" selection-start-column="35" selection-end-line="507" selection-end-column="35" />
+        <state relative-caret-position="-821">
+          <caret line="382" column="39" selection-start-line="382" selection-start-column="39" selection-end-line="382" selection-end-column="39" />
           <folding>
-            <element signature="e#10686#14573#0" />
-            <element signature="e#14806#14840#0" />
+            <element signature="e#11013#11647#0" />
+            <element signature="e#11677#12504#0" />
           </folding>
         </state>
       </provider>

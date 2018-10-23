@@ -324,11 +324,14 @@
             margin-top: 20rpx;
             padding: 0 20rpx;
             .main_results_box {
+              padding: 10px 0;
               box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
               background: @textColor;
               .results_box {
+                display: flex;
+                justify-content: flex-end;
                 border-radius: 5px;
-                padding: 20rpx;
+                padding:0 20rpx;
                 .results_count {
                   display: flex;
                   justify-content: space-between;
@@ -373,9 +376,19 @@
                     }
                   }
                 }
+                .view_total{
+                  color: @textColor3;
+                  text-align: center;
+                  font-size: 28rpx;
+                  line-height: 60rpx;
+                  width:192rpx;
+                  height:60rpx;
+                  background:@textColor;
+                  border-radius:20px;
+                  border:1px solid rgba(233,235,242,1)
+                }
               }
               .results_static {
-                margin-top: 20rpx;
                 padding: 20rpx;
                 background: @textColor;
                 .results_header {
@@ -435,16 +448,19 @@
           }
           .view_btn{
             position: fixed;
+            z-index: 99;
             //height: 100rpx;
             left: 0;
             bottom: 0;
             width: 100%;
             background: @textColor;
+            box-shadow:0px 1px 7px 0px rgba(162,164,168,0.2);
+            border-radius:4px;
             .view_btn_box{
               display: flex;
               width: 100%;
               //height: 100%;
-              padding: 20rpx 0;
+              padding: 34rpx 0;
               .view_btn_left{
                 width: 60%;
                 padding: 0 20rpx;
@@ -458,7 +474,7 @@
                 .results_count{
                   .result_text{
                     font-size:34rpx;
-                    line-height:48rpx;
+                    line-height: 58rpx;
                     color: @baseColor2;
                   }
                   .counts{
@@ -474,41 +490,67 @@
                   .result_text{
                     color: @baseColor2;
                     font-size:28rpx;
-                    line-height:48rpx;
+                    line-height:58rpx;
                   }
                   .counts{
                     min-width: 45px;
                     text-align: right;
                     color: @baseColor2;
                     font-size: 28rpx;
-                    line-height:48rpx;
+                    line-height: 48rpx;
                   }
                 }
               }
               .view_btn_right{
                 width: 40%;
                 display: flex;
+                justify-content: space-between;
+                padding: 0 20rpx;
                 .btn_right_box{
-                  padding: 0 10rpx;
-                  flex: 1;
+                    flex: 1;
+                    padding: 0 13rpx;
                   .calculator{
                       font-size: 28rpx;
                       height: 100%;
                       //line-height: 36rpx;
                       color:rgba(255,255,255,1);
-                      background:rgba(181,59,117,1);
+                      background:@bgColor2;
                       box-shadow:0px 5px 10px 0px rgba(222,227,228,1);
                       border-radius:4px;
-                      border:1px solid rgba(181,59,117,1);
+                      border:1px solid @bgColor2;
+                      display: flex;
+                      justify-content: center;
+                      flex-direction: column;
+                    .right_box_text{
+                      font-size: 28rpx;
+                      line-height: 34rpx;
+                      padding: 0 20rpx;
+                      text-align: center;
+                    }
+                  }
+                  .calculator_hover{
+                    background:rgba(181,59,117,0.9);
                   }
                   .collection{
-                    //line-height: 36rpx;
+                    background:@textColor;
                     font-size: 28rpx;
                     height: 100%;
-                    color:rgba(121,125,135,1);
+                    color:@textColor2;
                     box-shadow:0px 5px 10px 0px rgba(222,227,228,1);
                     border-radius:4px;
-                    border:1px solid rgba(71,165,174,1);
+                    border:1px solid @uiColorGreen;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    .right_box_text{
+                      font-size: 28rpx;
+                      line-height: 34rpx;
+                      padding: 0 20rpx;
+                      text-align: center;
+                    }
+                  }
+                  .collection_hover{
+                    background:rgba(255,255,255,0.9);
                   }
                 }
                 //.calculator, .collection{

@@ -132,22 +132,23 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
+        <!--<view class="results_box" bindtap="handleShow">-->
+          <!--<view class="results_count">-->
+            <!--<view class="result_text">布料用量</view>-->
+            <!--<view class="counts">{{useLevel}}m</view>-->
+          <!--</view>-->
 
-        <view class="results_box" bindtap="handleShow">
-          <view class="results_count">
-            <view class="result_text">布料用量</view>
-            <view class="counts">{{useLevel}}m</view>
-          </view>
 
-
-          <view class="results_max">
-            <view class="result_text">推荐花边</view>
-            <view class="counts">
-              <view class="count-text">{{recommendedBagCoreWidth}}m</view>
-            </view>
-          </view>
+          <!--<view class="results_max">-->
+            <!--<view class="result_text">推荐花边</view>-->
+            <!--<view class="counts">-->
+              <!--<view class="count-text">{{recommendedBagCoreWidth}}m</view>-->
+            <!--</view>-->
+          <!--</view>-->
+        <!--</view>-->
+        <view class="results_box">
+          <view class="view_total">查看总表</view>
         </view>
-
         <!--详情-->
         <view class="results_static" hidden="{{hidden}}">
           <view class="results_header">
@@ -191,10 +192,16 @@
         <!--右侧-->
         <view class="view_btn_right">
           <view class="btn_right_box">
-            <view class="calculator">计算靠包</view>
+            <view class="calculator" bindtap="handleClick" hover-class="calculator_hover">
+              <view class="right_box_text">计算靠包</view>
+            </view>
           </view>
           <view class="btn_right_box">
-             <view class="collection">收录数据</view>
+             <view class="collection" hover-class="collection_hover">
+               <view class="right_box_text">
+                 收录数据
+               </view>
+             </view>
           </view>
         </view>
       </view>
