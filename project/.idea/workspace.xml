@@ -123,10 +123,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/home/index.wpy">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="-453">
               <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
               <folding>
                 <element signature="e#2007#2030#0" expanded="true" />
+=======
+            <state relative-caret-position="44">
+              <caret line="142" column="47" selection-start-line="142" selection-start-column="47" selection-end-line="142" selection-end-column="47" />
+              <folding>
+                <element signature="n#view#0;n#view#0;n#template#0;n#!!top" />
+                <element signature="n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" />
+>>>>>>> Stashed changes
               </folding>
             </state>
           </provider>
@@ -135,11 +143,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app.wpy">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="352">
               <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
               <folding>
                 <element signature="e#117#140#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="359">
+              <caret line="332" column="35" selection-start-line="332" selection-start-column="35" selection-end-line="332" selection-end-column="35" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -501,10 +514,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="167719000" />
+=======
+    <option name="totallyTimeSpent" value="177791000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1861" height="1096" extended-state="7" />
+    <frame x="-8" y="-8" width="1861" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12177729" />
@@ -723,8 +740,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/package/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="3982">
           <caret line="181" column="19" selection-start-line="181" selection-start-column="19" selection-end-line="181" selection-end-column="19" />
+=======
+        <state relative-caret-position="242">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="33" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -803,6 +825,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/windowh/index.wpy">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="168">
           <caret line="399" selection-start-line="399" selection-end-line="421" selection-end-column="8" />
           <folding>
@@ -813,15 +836,27 @@
             <element signature="e#10302#10550#0" />
             <element signature="e#10598#12503#0" />
           </folding>
+=======
+        <state relative-caret-position="359">
+          <caret line="332" column="35" selection-start-line="332" selection-start-column="35" selection-end-line="332" selection-end-column="35" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.wpy">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="352">
           <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
           <folding>
             <element signature="e#117#140#0" expanded="true" />
+=======
+        <state relative-caret-position="44">
+          <caret line="142" column="47" selection-start-line="142" selection-start-column="47" selection-end-line="142" selection-end-column="47" />
+          <folding>
+            <element signature="n#view#0;n#view#0;n#template#0;n#!!top" />
+            <element signature="n#view#0;n#view#0;n#view#0;n#template#0;n#!!top" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
