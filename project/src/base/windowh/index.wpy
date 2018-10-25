@@ -235,13 +235,15 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <view class="results_box" bindtap="handleShow">
-        <view class="results_count">
-          <view class="result_text">布料用量</view>
-          <view class="counts">{{useLevel}}m</view>
+        <!--<view class="results_box" bindtap="handleShow">-->
+        <!--<view class="results_count">-->
+          <!--<view class="result_text">布料用量</view>-->
+          <!--<view class="counts">{{useLevel}}m</view>-->
+        <!--</view>-->
+      <!--</view>-->
+        <view class="results_box">
+          <view class="view_total">查看总表</view>
         </view>
-      </view>
-
       <!--详情-->
         <view class="results_static" hidden="{{hidden}}">
         <view class="results_header">
@@ -262,12 +264,42 @@
           </i-row>
         </view>
       </view>
-
-        <!--按钮-->
-        <view class="view_btn">
-          <i-button bind:click="handleClick" type="primary">计算帘头</i-button>
-        </view>
     </view>
+    </view>
+    <!--按钮-->
+    <view class="view_btn">
+      <view class="view_btn_box">
+        <!--左侧-->
+        <view class="view_btn_left">
+          <view class="results_count">
+            <view class="result_text">布料用量</view>
+            <view class="counts">{{useLevel}}m</view>
+          </view>
+
+          <view class="results_max">
+            <view class="result_text"></view>
+            <view class="counts">
+              <view class="count-text"> </view>
+            </view>
+          </view>
+        </view>
+        <!--右侧-->
+        <view class="view_btn_right">
+          <view class="btn_right_box">
+            <view class="calculator" bindtap="handleClick" hover-class="calculator_hover">
+              <view class="right_box_text">计算靠包</view>
+            </view>
+          </view>
+          <view class="btn_right_box">
+            <view class="collection" hover-class="collection_hover">
+              <view class="right_box_text">
+                收录数据
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--<i-button bind:click="handleClick" type="primary">计算靠包</i-button>-->
     </view>
   </view>
 </template>
