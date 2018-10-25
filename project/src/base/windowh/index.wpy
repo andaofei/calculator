@@ -275,7 +275,7 @@
             <view class="result_text">布料用量</view>
             <view class="counts">{{useLevel}}m</view>
           </view>
-          
+
           <view class="results_max">
             <view class="result_text"></view>
             <view class="counts">
