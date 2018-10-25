@@ -31,6 +31,14 @@
           <block wx:if="{{current_scroll === 3}}">
             <Package></Package>
           </block>
+          <!--坐垫-->
+          <block wx:if="{{current_scroll === 4}}">
+            <cushion></cushion>
+          </block>
+          <!--壁纸-->
+          <block wx:if="{{current_scroll === 5}}">
+            <wallpaper></wallpaper>
+          </block>
         </view>
       </view>
     </view>
@@ -44,9 +52,11 @@
   import '../../config/config'
   import 'wepy-async-function'
   import viewImg from '../../components/viewImg/index'
-  import Package from '../../base/package/index'
-  import Windowh from '../../base/windowh/index'
-  import Curtain from '../../base/curtain/index'
+  import Package from '../../base/package/index' // 靠包
+  import Windowh from '../../base/windowh/index' // 帘头
+  import Curtain from '../../base/curtain/index' // 窗帘
+  import cushion from '../../base/cushion/index' // 坐垫
+  import wallpaper from '../../base/wallpaper/index' // 壁纸
   const {$Toast} = require('../../components/iview/base/index')
   @connect({
     selectId(state) {
@@ -95,10 +105,18 @@
         {
           id: 3,
           name: '靠包'
+        },
+        {
+          id: 4,
+          name: '坐垫'
+        },
+        {
+          id: 5,
+          name: '壁纸'
         }
       ]
     }
-    components = {Package: Package, Windowh: Windowh, Curtain: Curtain, viewImg: viewImg}
+    components = {Package: Package, Windowh: Windowh, Curtain: Curtain, viewImg: viewImg, cushion: cushion, wallpaper: wallpaper}
 
     methods = {
       // 头部切换
@@ -132,6 +150,19 @@
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case 3:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/kb.png',
+              'https://www.doudoufuwu.com/pic/kb1.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 4:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/pblt.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 5:
             imgUrls = [
               'https://www.doudoufuwu.com/pic/kb.png',
               'https://www.doudoufuwu.com/pic/kb1.png'
