@@ -121,6 +121,14 @@
         {
           id: 3,
           name: '靠包'
+        },
+        {
+          id: 4,
+          name: '坐垫'
+        },
+        {
+          id: 5,
+          name: '壁纸'
         }
       ],
       isSelect: true,
@@ -153,11 +161,23 @@
           case 2:
             imgUrls = [
               'https://www.doudoufuwu.com/pic/pblt.png'
-//              'https://www.doudoufuwu.com/pic/pblt1.png'
             ]
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case 3:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/kb.png',
+              'https://www.doudoufuwu.com/pic/kb1.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 4:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/pblt.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 5:
             imgUrls = [
               'https://www.doudoufuwu.com/pic/kb.png',
               'https://www.doudoufuwu.com/pic/kb1.png'
