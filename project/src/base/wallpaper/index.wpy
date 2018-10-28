@@ -5,15 +5,54 @@
     <view class="main_box">
       <!--规格-->
       <view class="main_counts">
+        <!--成品-->
         <view class="count_box">
-          <!--成品-->
+
           <view class="count_item">
-            <view class="count_text">成品</view>
+            <view class="count_text">铺贴位置</view>
+            <!--墙宽-->
+            <view class="count_right">
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <view>墙宽</view>
+                  <input type="digit" placeholder-class="phcolor" placeholder="墙宽" bindinput="bindBagWidth"
+                         value="{{bagWidth}}"/>
+                  <view>m</view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <!--墙高-->
+          <view class="count_item">
+            <view class="count_text"></view>
+            <view class="count_right">
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <view>墙高</view>
+                  <input type="digit" placeholder-class="phcolor" placeholder="墙高" bindinput="bindBagHeight"
+                         value="{{bagHeight}}"/>
+                  <view>m</view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <!--壁纸尺寸-->
+        <view class="count_box">
+
+          <view class="count_item">
+            <view class="count_text">壁纸尺寸</view>
+            <!--宽-->
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>宽</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品宽" bindinput="bindBagWidth"
+                  <input type="digit"
+                         placeholder-class="phcolor"
+                         placeholder="宽"
+                         bindinput="bindBagWidth"
                          value="{{bagWidth}}"/>
                   <view>m</view>
                 </view>
@@ -27,80 +66,27 @@
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
-                  <view>高</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight"
+                  <view>长</view>
+                  <input type="digit"
+                         placeholder-class="phcolor"
+                         placeholder="长"
+                         bindinput="bindBagHeight"
                          value="{{bagHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
             </view>
           </view>
-
-
+          <!--素 花-->
           <view class="count_item">
-            <view class="count_text">
-              <radio-group class="radio-group" bindchange="radioChange">
-                <label class="radio" wx:for="{{fruit}}" wx:key="id">
-                  <radio value="{{item.id}}" checked="{{item.checked}}">{{item.name}}</radio>
+            <view class="count_text"></view>
+            <view class="count_right">
+              <checkbox-group class="count_group" bindchange="toolChange">
+                <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
+                  <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+                  {{item.name}}
                 </label>
-              </radio-group>
-              <!--<view class="count_right_text">宽幅</view>-->
-            </view>
-
-            <view class="count_right">
-
-              <view class="count_right_text">
-                <view class="count_right_text_input">
-                  <input type="digit" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
-                  <view>m</view>
-                </view>
-              </view>
-            </view>
-          </view>
-          <!--对花-->
-
-          <view class="count_item">
-            <view class="count_text">
-              <view class="count_right_text">对花</view>
-            </view>
-
-            <view class="count_right">
-
-              <view class="count_right_text">
-                <view class="count_right_text_input">
-                  <i-switch value="{{switchValue}}" size="large" bind:change="onChange" slot="footer">
-                    <view slot="open">有</view>
-                    <view slot="close">无</view>
-                  </i-switch>
-                </view>
-              </view>
-            </view>
-          </view>
-          <!--取花 -->
-          <view class="count_item">
-            <view class="count_text"></view>
-            <view class="count_right">
-              <view class="count_right_text">
-                <view class="count_right_text_input">
-                  <view>花距宽</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="花距宽" bindinput="bindFlowerWidth"
-                         value="{{flowerWidth}}"/>
-                  <view>m</view>
-                </view>
-              </view>
-            </view>
-          </view>
-          <view class="count_item">
-            <view class="count_text"></view>
-            <view class="count_right">
-              <view class="count_right_text">
-                <view class="count_right_text_input">
-                  <view>花距高</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="花距高" bindinput="bindFlowerHeight"
-                         value="{{flowerHeight}}"/>
-                  <view>m</view>
-                </view>
-              </view>
+              </checkbox-group>
             </view>
           </view>
         </view>
@@ -109,7 +95,6 @@
       <!--配置-->
       <view class="main_select">
         <view class="select_box">
-
           <checkbox-group class="count_group" bindchange="toolChange">
             <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
               <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
@@ -176,18 +161,19 @@
       <view class="view_btn_box">
         <!--左侧-->
         <view class="view_btn_left">
+          <view class="view_btn_left_box">
           <view class="results_count">
-            <view class="result_text">布料用量</view>
+            <view class="result_text">用量</view>
             <view class="counts">{{useLevel}}m</view>
           </view>
-
-
-          <view class="results_max">
-            <view class="result_text">推荐花边</view>
-            <view class="counts">
-              <view class="count-text">{{recommendedBagCoreWidth}}m</view>
-            </view>
           </view>
+
+          <!--<view class="results_max">-->
+            <!--<view class="result_text">推荐花边</view>-->
+            <!--<view class="counts">-->
+              <!--<view class="count-text">{{recommendedBagCoreWidth}}m</view>-->
+            <!--</view>-->
+          <!--</view>-->
         </view>
         <!--右侧-->
         <view class="view_btn_right">
@@ -260,7 +246,7 @@
         },
         {
           name: '基膜',
-          unit: 'm²'
+          unit: '升'
         },
         {
           name: '胶',
@@ -277,15 +263,15 @@
 //      bagCheckedH: false, // 定高
       tooth: true, // 牙绳check
       toothGroups: [
-        // {
-        //   id: 1,
-        //   checked: true,
-        //   name: '牙绳'
-        // },
+        {
+          id: 1,
+          checked: true,
+          name: '基膜'
+        },
         {
           id: 2,
           checked: true,
-          name: '花边'
+          name: '胶'
         }
       ],
       lace: true, // 花边

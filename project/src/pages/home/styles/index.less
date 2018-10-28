@@ -188,6 +188,36 @@
                   }
                   .count_right {
                     display: flex;
+                    .count_group {
+                      font-size: 28rpx;
+                      margin-right: 16rpx;
+                      display: flex;
+                      flex-wrap: wrap;
+                      margin-bottom: 10rpx;
+                      .checkbox_text{
+                        margin-left: 8px;
+                      }
+                      .wx-checkbox-input {
+                        width: 24rpx;
+                        height: 24rpx;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked {
+                        background: @uiColorGreen;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked::before {
+                        width: 24rpx;
+                        height: 24rpx;
+                        line-height: 24rpx;
+                        text-align: center;
+                        font-size: 24rpx;
+                        color: @textColor;
+                        background: transparent;
+                        transform: translate(-50%, -50%) scale(1);
+                        -webkit-transform: translate(-50%, -50%) scale(1);
+                      }
+                    }
                     .count_right_text {
                       font-size: @minFont;
                       color: @baseColor;

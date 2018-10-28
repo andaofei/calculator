@@ -3,17 +3,19 @@
 <template>
   <view class="package-box">
     <view class="main_box">
+
       <!--规格-->
       <view class="main_counts">
         <view class="count_box">
+
           <!--成品-->
           <view class="count_item">
-            <view class="count_text">成品</view>
+            <view class="count_text">成品尺寸</view>
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
-                  <view>宽</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品宽" bindinput="bindBagWidth"
+                  <view>长</view>
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品长" bindinput="bindBagWidth"
                          value="{{bagWidth}}"/>
                   <view>m</view>
                 </view>
@@ -28,7 +30,7 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>宽</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight"
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品宽" bindinput="bindBagHeight"
                          value="{{bagHeight}}"/>
                   <view>m</view>
                 </view>
@@ -62,7 +64,6 @@
             </view>
 
             <view class="count_right">
-
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <input type="digit" placeholder="" bindinput="bindDefaultWidth" value="{{defaultWidth}}"/>
@@ -71,8 +72,8 @@
               </view>
             </view>
           </view>
-          <!--对花-->
 
+          <!--对花-->
           <view class="count_item">
             <view class="count_text">
               <view class="count_right_text">对花</view>
@@ -90,6 +91,7 @@
               </view>
             </view>
           </view>
+
           <!--取花 -->
           <view class="count_item">
             <view class="count_text"></view>
@@ -170,6 +172,7 @@
 
       </view>
     </view>
+
     <!--按钮-->
     <view class="view_btn">
       <view class="view_btn_box">
@@ -188,6 +191,7 @@
             </view>
           </view>
         </view>
+
         <!--右侧-->
         <view class="view_btn_right">
           <view class="btn_right_box">
