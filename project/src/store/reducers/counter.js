@@ -8,7 +8,9 @@ import {
   CURT_TOTAL,
   FLAT_TOTAL,
   WATER_TOTAL,
-  SUCK_TOTAL
+  SUCK_TOTAL,
+  CUSHION_TOTAL,
+  WALL_TOTAL
 } from '../types/counter'
 
 export default handleActions({
@@ -38,6 +40,14 @@ export default handleActions({
     return { ...state, SuckTotal: actions.payload }
   }, // 抽折帘头
 
+  [CUSHION_TOTAL](state, actions) {
+    return { ...state, CushionTotal: actions.payload }
+  },
+
+  [WALL_TOTAL](state, actions) {
+    return { ...state, WallTotal: actions.payload }
+  },
+
   [DECREMENT](state) {
     return { ...state, num: state.num - 1 }
   },
@@ -59,5 +69,7 @@ export default handleActions({
   curtTotal: [],
   waterTotal: [],
   flatTotal: [],
-  SuckTotal: []
+  SuckTotal: [],
+  CushionTotal: [],
+  WallTotal: [],
 })

@@ -134,7 +134,7 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="12" i-class="col-class" wx:for="{{countList4}}" wx:key="id">
+              <i-col span="12" i-class="col-class" wx:for="{{CushionTotal}}" wx:key="id">
                 <view class="col-inner">{{item.counts}}</view>
               </i-col>
             </i-row>
@@ -157,7 +157,7 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
+              <i-col span="8" i-class="col-class" wx:for="{{WallTotal}}" wx:key="id">
                 <view class="col-inner">{{item.counts}}</view>
               </i-col>
             </i-row>
@@ -191,6 +191,12 @@
 
     waterTotal(state) { // 水波帘头
       return state.counter.waterTotal
+    },
+    CushionTotal(state) { // 水波帘头
+      return state.counter.CushionTotal
+    },
+    WallTotal(state) { // 水波帘头
+      return state.counter.WallTotal
     }
   }, {
     PACK_TOTAL
@@ -327,6 +333,8 @@
       console.log(this.waterTotal, '水波') // 水波
       console.log(this.flatTotal, '平板') // 平板
       console.log(this.SuckTotal, '抽褶帘头') // 抽褶帘头
+      console.log(this.CushionTotal, '坐垫') // 抽褶帘头
+      console.log(this.WallTotal, '壁纸') // 抽褶帘头
     }
   }
 </script>

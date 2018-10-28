@@ -15,3 +15,7 @@ export const FLAT_TOTAL = 'FLAT_TOTAL' // 平板帘头
 export const WATER_TOTAL = 'WATER_TOTAL' // 水波帘头
 
 export const SUCK_TOTAL = 'SUCK_TOTAL' // 帘头
+
+export const CUSHION_TOTAL = 'CUSHION_TOTAL' // 坐垫
+
+export const WALL_TOTAL = 'WALL_TOTAL' // 壁纸

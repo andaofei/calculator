@@ -45,7 +45,7 @@
               <view class="count_right_text">
                 <view class="count_right_text_input">
                   <view>厚</view>
-                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight"
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品厚" bindinput="bindBagThick"
                          value="{{bagThick}}"/>
                   <view>m</view>
                 </view>
@@ -148,7 +148,7 @@
     <view class="main_results">
       <view class="main_results_box">
         <view class="results_box">
-          <view class="view_total">查看总表</view>
+          <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
         <view class="results_static" hidden="{{hidden}}">
@@ -178,20 +178,13 @@
       <view class="view_btn_box">
         <!--左侧-->
         <view class="view_btn_left">
-          <view class="results_count">
-            <view class="result_text">布料用量</view>
-            <view class="counts">{{useLevel}}m</view>
-          </view>
-
-
-          <view class="results_max">
-            <view class="result_text">推荐花边</view>
-            <view class="counts">
-              <view class="count-text">{{recommendedBagCoreWidth}}m</view>
+          <view class="view_btn_left_box">
+            <view class="results_count">
+              <view class="result_text">布料用量</view>
+              <view class="counts">{{useLevel}}m</view>
             </view>
           </view>
         </view>
-
         <!--右侧-->
         <view class="view_btn_right">
           <view class="btn_right_box">
@@ -214,10 +207,16 @@
 </template>
 <script>
   import wepy from 'wepy'
-
   const { $Toast } = require('../../components/iview/base/index')
-  import moduleA from 'module-a' // aliasFields ignore module example
-  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+  import { connect } from 'wepy-redux'
+  import { CUSHION_TOTAL, SUCK_TOTAL } from '../../store/types/counter'
+  @connect({
+    curtTotal (state) {
+      return state.counter.curtTotal
+    }
+  }, {
+    CUSHION_TOTAL, SUCK_TOTAL
+  })
   export default class Package extends wepy.component {
     data = {
       hidden: false,
@@ -244,7 +243,7 @@
           counts: 0
         },
         {
-          id: 2,
+          id: 1,
           counts: 0
         }
       ],
@@ -262,20 +261,12 @@
       disabled: false,
       bagWidth: '', // 宽
       bagHeight: '', // 高
-      bagThick: '', // 高
+      bagThick: '', // 厚
       bagWChecked: 1, // 窄幅
-//      bagHChecked: false, // 窄幅
-//      bagCheckedW: false, // 定宽
-//      bagCheckedH: false, // 定高
       tooth: true, // 牙绳check
       toothGroups: [
-        // {
-        //   id: 1,
-        //   checked: true,
-        //   name: '牙绳'
-        // },
         {
-          id: 2,
+          id: 1,
           checked: true,
           name: '牙绳'
         }
@@ -310,17 +301,11 @@
         data: obj
       }).then((res) => {
         console.log(res, 'code')
-        if (res.statusCode === 200 && res.data.CalculatorResult) {
-          that.countList3[0].counts = res.data.CalculatorResult.useLevel // 布料用量
-          // that.countList3[1].counts = res.data.CalculatorResult.toothRope // 牙绳
-          that.countList3[1].counts = res.data.CalculatorResult.lace // 花边
-          that.countList3[2].counts = res.data.CalculatorResult.bagCore // 靠包心
-//          that.resultsLace = res.data.CalculatorResult.bagCore
-//          that.resultsTooth = res.data.CalculatorResult.toothRope
-          that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
-          // that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
-          that.recommendedBagCoreWidth = res.data.CalculatorResult.lace // 推荐花边
-          that.bagCore = res.data.CalculatorResult.bagCore
+        if (res.statusCode === 200 && res.data.code === 200) {
+          that.countList3[0].counts = res.data.useLevel // 布料用量
+          that.countList3[1].counts = res.data.cushionCore // 坐垫芯
+          that.useLevel = res.data.useLevel // 推荐布料
+          that.bagCore = res.data.cushionCore
         } else {
           return $Toast({
             content: res.data.msg,
@@ -335,6 +320,10 @@
     }
 
     methods = {
+      handleCounts() {
+        this.methods.CUSHION_TOTAL(this.countList3)
+        this.$root.$navigate({ url: 'totalCounts/index' })
+      },
       handleShow() {
         this.hidden = !this.hidden
       },
@@ -346,28 +335,22 @@
         // console.log(this.tooth)
         if (!this.bagWidth) {
           return $Toast({
-            content: '请输入成品宽',
+            content: '请输入成品长',
             type: 'warning'
           })
         }
         if (!this.bagHeight) {
           return $Toast({
-            content: '请输入成品高',
+            content: '请输入成品宽',
             type: 'warning'
           })
         }
-//        if (!this.flowerWidth) {
-//          return $Toast({
-//            content: '请输入花距宽',
-//            type: 'warning'
-//          })
-//        }
-//        if (!this.flowerHeight) {
-//          return $Toast({
-//            content: '请输入花距高',
-//            type: 'warning'
-//          })
-//        }
+        if (!this.bagThick) {
+          return $Toast({
+            content: '请输入成品厚',
+            type: 'warning'
+          })
+        }
         if (!this.defaultWidth) {
           return $Toast({
             content: '请输入布料默认值',
@@ -380,12 +363,6 @@
             type: 'warning'
           })
         }
-        // if (!this.lace && !this.toothRope) {
-        //   return $Toast({
-        //     content: '请选择花边',
-        //     type: 'warning'
-        //   })
-        // }
         if (!this.bag) {
           return $Toast({
             content: '请输入数量',
@@ -394,16 +371,17 @@
         }
 //        this.bag = detail.value
         let obj = {
-          type: 2, // 2:靠包
-          goodsWidth: this.bagWidth, // 靠包宽
-          goodsHight: this.bagHeight, // 靠包高
+          type: 5, // 5:坐垫
+          cushionWidth: this.bagWidth, // 坐垫长
+          cushionLength: this.bagHeight, // 坐垫宽
+          cushionThick: this.bagThick, // 坐垫厚
           clothType: this.bagWChecked, // 1：窄幅 2:宽幅定宽 3:宽幅定高
           clothValue: this.defaultWidth, // 布料固定值
           flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
           flowerWidth: this.flowerWidth, // 花距宽
           flowerHight: this.flowerHeight, // 花距高
           num: this.bag, // 数量
-          lace: this.lace ? 1 : 0, // 花边 0:无 1:有
+          // lace: this.lace ? 1 : 0, // 花边 0:无 1:有
           toothRope: this.toothRope ? 1 : 0 // 牙绳 0:无 1:有
         }
         this.setBagData(obj)
@@ -445,6 +423,9 @@
       bindBagHeight(e) {
 //        console.log(e.detail.value)
         this.bagHeight = e.detail.value
+      },
+      bindBagThick(e) {
+        this.bagThick = e.detail.value
       },
       bindDefaultWidth(e) {
 //        console.log(e.detail.value)

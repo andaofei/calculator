@@ -52,8 +52,8 @@
                   <input type="digit"
                          placeholder-class="phcolor"
                          placeholder="宽"
-                         bindinput="bindBagWidth"
-                         value="{{bagWidth}}"/>
+                         bindinput="bindWallpaperWidth"
+                         value="{{wallpaperWidth}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -70,8 +70,8 @@
                   <input type="digit"
                          placeholder-class="phcolor"
                          placeholder="长"
-                         bindinput="bindBagHeight"
-                         value="{{bagHeight}}"/>
+                         bindinput="bindWallpaperHeight"
+                         value="{{wallpaperHeight}}"/>
                   <view>m</view>
                 </view>
               </view>
@@ -81,8 +81,8 @@
           <view class="count_item">
             <view class="count_text"></view>
             <view class="count_right">
-              <checkbox-group class="count_group" bindchange="toolChange">
-                <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
+              <checkbox-group class="count_group" bindchange="primeChange">
+                <label class="count_group" wx:for="{{primeGroups}}" wx:key="{{item.id}}">
                   <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
                   {{item.name}}
                 </label>
@@ -104,12 +104,12 @@
         </view>
 
         <!--数量-->
-        <view class="select_counts">
-          <view class="need_count">所需数量</view>
-          <view>
-            <i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100" bindchange="changeBag"/>
-          </view>
-        </view>
+        <!--<view class="select_counts">-->
+        <!--<view class="need_count">所需数量</view>-->
+        <!--<view>-->
+        <!--<i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100" bindchange="changeBag"/>-->
+        <!--</view>-->
+        <!--</view>-->
       </view>
 
     </view>
@@ -117,22 +117,8 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <!--<view class="results_box" bindtap="handleShow">-->
-          <!--<view class="results_count">-->
-            <!--<view class="result_text">布料用量</view>-->
-            <!--<view class="counts">{{useLevel}}m</view>-->
-          <!--</view>-->
-
-
-          <!--<view class="results_max">-->
-            <!--<view class="result_text">推荐花边</view>-->
-            <!--<view class="counts">-->
-              <!--<view class="count-text">{{recommendedBagCoreWidth}}m</view>-->
-            <!--</view>-->
-          <!--</view>-->
-        <!--</view>-->
         <view class="results_box">
-          <view class="view_total">查看总表</view>
+          <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
         <view class="results_static" hidden="{{hidden}}">
@@ -162,18 +148,11 @@
         <!--左侧-->
         <view class="view_btn_left">
           <view class="view_btn_left_box">
-          <view class="results_count">
-            <view class="result_text">用量</view>
-            <view class="counts">{{useLevel}}m</view>
+            <view class="results_count">
+              <view class="result_text">用量</view>
+              <view class="counts">{{useLevel}}卷</view>
+            </view>
           </view>
-          </view>
-
-          <!--<view class="results_max">-->
-            <!--<view class="result_text">推荐花边</view>-->
-            <!--<view class="counts">-->
-              <!--<view class="count-text">{{recommendedBagCoreWidth}}m</view>-->
-            <!--</view>-->
-          <!--</view>-->
         </view>
         <!--右侧-->
         <view class="view_btn_right">
@@ -183,15 +162,14 @@
             </view>
           </view>
           <view class="btn_right_box">
-             <view class="collection" hover-class="collection_hover">
-               <view class="right_box_text">
-                 收录数据
-               </view>
-             </view>
+            <view class="collection" hover-class="collection_hover">
+              <view class="right_box_text">
+                收录数据
+              </view>
+            </view>
           </view>
         </view>
       </view>
-      <!--<i-button bind:click="handleClick" type="primary">计算靠包</i-button>-->
     </view>
   </view>
 </template>
@@ -199,8 +177,16 @@
   import wepy from 'wepy'
 
   const { $Toast } = require('../../components/iview/base/index')
-  import moduleA from 'module-a' // aliasFields ignore module example
-  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+  import { connect } from 'wepy-redux'
+  import { WALL_TOTAL, SUCK_TOTAL } from '../../store/types/counter'
+
+  @connect({
+    curtTotal(state) {
+      return state.counter.curtTotal
+    }
+  }, {
+    WALL_TOTAL, SUCK_TOTAL
+  })
   export default class Package extends wepy.component {
     data = {
       hidden: false,
@@ -257,11 +243,12 @@
       disabled: false,
       bagWidth: '', // 宽
       bagHeight: '', // 高
+      wallpaperWidth: '', // 宽
+      wallpaperHeight: '', // 长
       bagWChecked: 1, // 窄幅
-//      bagHChecked: false, // 窄幅
-//      bagCheckedW: false, // 定宽
-//      bagCheckedH: false, // 定高
       tooth: true, // 牙绳check
+      prime: true, // 素
+      flower: false, // 花
       toothGroups: [
         {
           id: 1,
@@ -270,16 +257,28 @@
         },
         {
           id: 2,
-          checked: true,
+          checked: false,
           name: '胶'
         }
       ],
-      lace: true, // 花边
+      primeGroups: [
+        {
+          id: 1,
+          checked: true,
+          name: '素'
+        },
+        {
+          id: 2,
+          checked: false,
+          name: '花'
+        }
+      ],
+      lace: true, // 胶
+      toothRope: false, // 基膜
       narrow: 0, // 窄幅
       defaultWidth: 1.4, // 宽幅定值
       flowerWidth: '', // 取花宽
       flowerHeight: '', // 取花高
-      toothRope: false, // 牙绳
       colCounts: 6,
       useLevel: 0, // 用量
       resultsLace: '', // 花边
@@ -304,17 +303,11 @@
         data: obj
       }).then((res) => {
         console.log(res, 'code')
-        if (res.statusCode === 200 && res.data.CalculatorResult) {
-          that.countList3[0].counts = res.data.CalculatorResult.useLevel // 布料用量
-          // that.countList3[1].counts = res.data.CalculatorResult.toothRope // 牙绳
-          that.countList3[1].counts = res.data.CalculatorResult.lace // 花边
-          that.countList3[2].counts = res.data.CalculatorResult.bagCore // 靠包心
-//          that.resultsLace = res.data.CalculatorResult.bagCore
-//          that.resultsTooth = res.data.CalculatorResult.toothRope
-          that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
-          // that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
-          that.recommendedBagCoreWidth = res.data.CalculatorResult.lace // 推荐花边
-          that.bagCore = res.data.CalculatorResult.bagCore
+        if (res.statusCode === 200 && res.data.code === 200) {
+          that.countList3[0].counts = res.data.volumes // 壁纸
+          that.countList3[1].counts = res.data.baseFilm // 胶
+          that.countList3[2].counts = res.data.glue // 基膜
+          that.useLevel = res.data.volumes // 推荐布料
         } else {
           return $Toast({
             content: res.data.msg,
@@ -329,6 +322,10 @@
     }
 
     methods = {
+      handleCounts() {
+        this.methods.WALL_TOTAL(this.countList3)
+        this.$root.$navigate({ url: 'totalCounts/index' })
+      },
       handleShow() {
         this.hidden = !this.hidden
       },
@@ -340,31 +337,25 @@
         // console.log(this.tooth)
         if (!this.bagWidth) {
           return $Toast({
-            content: '请输入成品宽',
+            content: '请输入墙宽',
             type: 'warning'
           })
         }
         if (!this.bagHeight) {
           return $Toast({
-            content: '请输入成品高',
+            content: '请输入墙高',
             type: 'warning'
           })
         }
-//        if (!this.flowerWidth) {
-//          return $Toast({
-//            content: '请输入花距宽',
-//            type: 'warning'
-//          })
-//        }
-//        if (!this.flowerHeight) {
-//          return $Toast({
-//            content: '请输入花距高',
-//            type: 'warning'
-//          })
-//        }
-        if (!this.defaultWidth) {
+        if (!this.wallpaperWidth) {
           return $Toast({
-            content: '请输入布料默认值',
+            content: '请输入宽',
+            type: 'warning'
+          })
+        }
+        if (!this.wallpaperHeight) {
+          return $Toast({
+            content: '请输入长',
             type: 'warning'
           })
         }
@@ -374,31 +365,25 @@
             type: 'warning'
           })
         }
-        // if (!this.lace && !this.toothRope) {
+        // if (!this.bag) {
         //   return $Toast({
-        //     content: '请选择花边',
+        //     content: '请输入数量',
         //     type: 'warning'
         //   })
         // }
-        if (!this.bag) {
-          return $Toast({
-            content: '请输入数量',
-            type: 'warning'
-          })
-        }
 //        this.bag = detail.value
         let obj = {
-          type: 2, // 2:靠包
-          goodsWidth: this.bagWidth, // 靠包宽
-          goodsHight: this.bagHeight, // 靠包高
-          clothType: this.bagWChecked, // 1：窄幅 2:宽幅定宽 3:宽幅定高
-          clothValue: this.defaultWidth, // 布料固定值
+          type: 4, // 4:壁纸
+          wallHeight: this.bagWidth, // 墙高
+          wallWidth: this.bagHeight, // 靠包高
+          wallpaperWidth: this.wallpaperHeight, // 壁纸宽
+          wallpaperHeight: this.wallpaperWidth, // 壁纸高
           flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
-          flowerWidth: this.flowerWidth, // 花距宽
-          flowerHight: this.flowerHeight, // 花距高
-          num: this.bag, // 数量
-          lace: this.lace ? 1 : 0, // 花边 0:无 1:有
-          toothRope: this.toothRope ? 1 : 0 // 牙绳 0:无 1:有
+          // num: this.bag, // 数量
+          lace: this.lace ? 1 : 0, // 胶 0:无 1:有
+          toothRope: this.toothRope ? 1 : 0, // 基膜 0:无 1:有
+          prime: this.prime ? 1 : 0, // 素 0:无 1:有
+          flower: this.flower ? 1 : 0 // 花 0:无 1:有
         }
         this.setBagData(obj)
       },
@@ -413,8 +398,18 @@
         const obj2 = e.detail.value.find((n) => n === '2')
         this.toothRope = obj
         this.lace = obj2
-        console.log(this.toothRope, '牙绳')
-        console.log(this.lace, '花边')
+        console.log(this.toothRope, '基膜')
+        console.log(this.lace, '胶')
+      },
+      // 素花
+      primeChange(e) {
+        console.log('value值', e.detail.value)
+        const obj = e.detail.value.find((n) => n === '1')
+        const obj2 = e.detail.value.find((n) => n === '2')
+        this.prime = obj
+        this.flower = obj2
+        console.log(this.prime, '素')
+        console.log(this.flower, '花')
       },
       radioChange(e) {
         console.log('radio', e.detail.value)
@@ -439,6 +434,12 @@
       bindBagHeight(e) {
 //        console.log(e.detail.value)
         this.bagHeight = e.detail.value
+      },
+      bindWallpaperWidth(e) {
+        this.wallpaperWidth = e.detail.value
+      },
+      bindWallpaperHeight(e) {
+        this.wallpaperHeight = e.detail.value
       },
       bindDefaultWidth(e) {
 //        console.log(e.detail.value)
