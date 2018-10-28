@@ -57,7 +57,6 @@
     </i-modal>
   </view>
 </template>
-
 <script>
   import wepy from 'wepy'
   import { connect } from 'wepy-redux'
@@ -120,7 +119,7 @@
         },
         {
           id: 3,
-          name: '靠包'
+          name: '靠枕'
         },
         {
           id: 4,
@@ -148,7 +147,7 @@
         this.selected = item.id
         this.slectText = item.name
         this.newAdd = false
-        console.log(item.id)
+        // console.log(item.id)
         let imgUrls = []
         switch (item.id) {
           case 1:

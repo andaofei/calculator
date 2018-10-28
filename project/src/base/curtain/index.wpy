@@ -146,29 +146,8 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <!--<view class="results_box" bindtap="handleShow">-->
-          <!--<view class="results_count">-->
-            <!--<view class="result_text">布料用量</view>-->
-            <!--<view class="counts">{{useLevel}}m</view>-->
-          <!--</view>-->
-
-          <!--<view class="results_max">-->
-            <!--<view class="results_max_left">-->
-              <!--<view class="result_text">推荐倍数</view>-->
-              <!--<view class="counts">-->
-                <!--<view class="count-text">{{recommendedBagCoreWidth}}</view>-->
-              <!--</view>-->
-
-              <!--<view class="result_text" style="margin-left: 8px">用量</view>-->
-              <!--<view class="counts">-->
-                <!--<view class="count-text">{{recommenUseLevel}}m</view>-->
-              <!--</view>-->
-            <!--</view>-->
-          <!--</view>-->
-        <!--</view>-->
-
         <view class="results_box">
-          <view class="view_total">查看总表</view>
+          <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
         <view class="results_static" hidden="{{hidden}}">
@@ -231,8 +210,16 @@
 </template>
 <script>
   import wepy from 'wepy'
-
   const { $Toast } = require('../../components/iview/base/index')
+  import { connect } from 'wepy-redux'
+  import { CURT_TOTAL } from '../../store/types/counter'
+  @connect({
+    curtTotal (state) {
+      return state.counter.curtTotal
+    }
+  }, {
+    CURT_TOTAL
+  })
   export default class Curtain extends wepy.component {
     data = {
       hidden: false,
@@ -382,6 +369,11 @@
     }
 
     methods = {
+      handleCounts() {
+        console.log(this.countList1)
+        this.$root.$navigate({url: 'totalCounts/index'})
+        this.methods.CURT_TOTAL(this.countList1)
+      },
       handleShow() {
         this.hidden = !this.hidden
       },
@@ -390,11 +382,6 @@
       },
       // 窗帘
       handleClick() {
-        wepy.getUserInfo({
-          success(res) {
-            console.log(res)
-          }
-        })
         // console.log(this.tooth)dultiple
         if (!this.dultiple) {
           return $Toast({

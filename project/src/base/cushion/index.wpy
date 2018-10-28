@@ -21,13 +21,13 @@
             </view>
           </view>
 
-          <!--高-->
+          <!--宽-->
           <view class="count_item">
             <view class="count_text"></view>
             <view class="count_right">
               <view class="count_right_text">
                 <view class="count_right_text_input">
-                  <view>高</view>
+                  <view>宽</view>
                   <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight"
                          value="{{bagHeight}}"/>
                   <view>m</view>
@@ -36,6 +36,20 @@
             </view>
           </view>
 
+          <!--厚-->
+          <view class="count_item">
+            <view class="count_text"></view>
+            <view class="count_right">
+              <view class="count_right_text">
+                <view class="count_right_text_input">
+                  <view>厚</view>
+                  <input type="digit" placeholder-class="phcolor" placeholder="成品高" bindinput="bindBagHeight"
+                         value="{{bagThick}}"/>
+                  <view>m</view>
+                </view>
+              </view>
+            </view>
+          </view>
 
           <view class="count_item">
             <view class="count_text">
@@ -109,7 +123,6 @@
       <!--配置-->
       <view class="main_select">
         <view class="select_box">
-
           <checkbox-group class="count_group" bindchange="toolChange">
             <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
               <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
@@ -132,20 +145,6 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <!--<view class="results_box" bindtap="handleShow">-->
-          <!--<view class="results_count">-->
-            <!--<view class="result_text">布料用量</view>-->
-            <!--<view class="counts">{{useLevel}}m</view>-->
-          <!--</view>-->
-
-
-          <!--<view class="results_max">-->
-            <!--<view class="result_text">推荐花边</view>-->
-            <!--<view class="counts">-->
-              <!--<view class="count-text">{{recommendedBagCoreWidth}}m</view>-->
-            <!--</view>-->
-          <!--</view>-->
-        <!--</view>-->
         <view class="results_box">
           <view class="view_total">查看总表</view>
         </view>
@@ -153,7 +152,7 @@
         <view class="results_static" hidden="{{hidden}}">
           <view class="results_header">
             <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
+              <i-col span="12" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
                 <view class="col-inner">{{item.name}}
                   <text class="col-text">({{item.unit}})</text>
                 </view>
@@ -162,7 +161,7 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
+              <i-col span="12" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
                 <view class="col-inner">{{item.counts}}</view>
               </i-col>
             </i-row>
@@ -240,16 +239,8 @@
           id: 0,
           counts: 0
         },
-        // {
-        //   id: 1,
-        //   counts: 0
-        // },
         {
           id: 2,
-          counts: 0
-        },
-        {
-          id: 3,
           counts: 0
         }
       ],
@@ -258,23 +249,16 @@
           name: '布料',
           unit: 'm'
         },
-        // {
-        //   name: '牙绳',
-        //   unit: 'm'
-        // },
         {
-          name: '花边',
-          unit: 'm'
-        },
-        {
-          name: '靠包芯',
-          unit: '长*宽'
+          name: '坐垫芯',
+          unit: 'm²'
         }
       ], // 详情
       checked: false,
       disabled: false,
       bagWidth: '', // 宽
       bagHeight: '', // 高
+      bagThick: '', // 高
       bagWChecked: 1, // 窄幅
 //      bagHChecked: false, // 窄幅
 //      bagCheckedW: false, // 定宽
@@ -289,7 +273,7 @@
         {
           id: 2,
           checked: true,
-          name: '花边'
+          name: '牙绳'
         }
       ],
       lace: true, // 花边

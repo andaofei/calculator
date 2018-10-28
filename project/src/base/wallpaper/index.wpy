@@ -255,20 +255,16 @@
       ],
       detailList3: [
         {
-          name: '布料',
-          unit: 'm'
-        },
-        // {
-        //   name: '牙绳',
-        //   unit: 'm'
-        // },
-        {
-          name: '花边',
-          unit: 'm'
+          name: '壁纸',
+          unit: '卷'
         },
         {
-          name: '靠包芯',
-          unit: '长*宽'
+          name: '基膜',
+          unit: 'm²'
+        },
+        {
+          name: '胶',
+          unit: '升'
         }
       ], // 详情
       checked: false,

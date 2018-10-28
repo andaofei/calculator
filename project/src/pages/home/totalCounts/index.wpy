@@ -1,0 +1,332 @@
+<style lang="less">
+  @import "./css/index";
+</style>
+<template>
+  <view class="container">
+    <view class="container_box">
+      <!--1 -->
+      <view class="counts_item">
+        <view class="counts-text">靠枕</view>
+        <view class="counts-box">
+          <view class="results_header">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{packTotal}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
+      </view>
+
+      <!--2-->
+      <view class="counts_item">
+        <view class="counts-text">窗帘</view>
+        <view class="counts-box">
+          <view class="results_header">
+            <i-row>
+              <i-col span="6" i-class="col-class" wx:for="{{detailList1}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="6" i-class="col-class" wx:for="{{curtTotal}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
+      </view>
+
+      <!--3 -->
+      <view class="counts_item">
+        <view class="counts-text">平板帘头</view>
+        <view class="counts-box">
+          <view class="results_header">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{detailList2}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{flatTotal}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
+      </view>
+
+      <!--4 -->
+      <view class="counts_item">
+        <view class="counts-text">水波帘头</view>
+        <view class="counts-box">
+          <view class="results_header">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{detailList2}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{waterTotal}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
+      </view>
+
+      <!--5 -->
+      <view class="counts_item">
+        <view class="counts-text">抽褶帘头</view>
+        <view class="counts-box">
+          <view class="results_header">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{detailList2}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{SuckTotal}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
+      </view>
+
+      <!--6-->
+      <view class="counts_item">
+        <view class="counts-text">坐垫</view>
+        <view class="counts-box">
+          <view class="results_header">
+            <i-row>
+              <i-col span="12" i-class="col-class" wx:for="{{detailList4}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="12" i-class="col-class" wx:for="{{countList4}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
+      </view>
+
+      <!--7-->
+      <view class="counts_item">
+        <view class="counts-text">壁纸</view>
+        <view class="counts-box">
+          <view class="results_header">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{detailList5}}" wx:key="id">
+                <view class="col-inner">{{item.name}}
+                  <text class="col-text">({{item.unit}})</text>
+                </view>
+              </i-col>
+            </i-row>
+          </view>
+          <view class="results_inner">
+            <i-row>
+              <i-col span="8" i-class="col-class" wx:for="{{countList3}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import { connect } from 'wepy-redux'
+  import { PACK_TOTAL } from '../../../store/types/counter'
+
+  @connect({
+    packTotal(state) {
+      return state.counter.packTotal
+    },
+
+    curtTotal(state) {
+      return state.counter.curtTotal
+    },
+
+    SuckTotal(state) { // 抽褶帘头
+      return state.counter.SuckTotal
+    },
+
+    flatTotal(state) { // 平板帘头
+      return state.counter.flatTotal
+    },
+
+    waterTotal(state) { // 水波帘头
+      return state.counter.waterTotal
+    }
+  }, {
+    PACK_TOTAL
+  })
+
+  export default class Total extends wepy.page {
+    config = {
+      navigationBarTitleText: '兜兜计算器',
+      usingComponents: {
+        'i-row': '/components/iview/row/index',
+        'i-col': '/components/iview/col/index'
+      }
+    }
+
+    components = {}
+
+    data = {
+      detailList1: [
+        {
+          name: '布料',
+          unit: 'm'
+        },
+        {
+          name: '衬布',
+          unit: 'm'
+        },
+        {
+          name: '花边',
+          unit: 'm'
+        },
+        {
+          name: '轨道',
+          unit: 'm'
+        }
+      ], // 详情
+      detailList2: [
+        {
+          name: '布料',
+          unit: 'm'
+        },
+        {
+          name: '衬布',
+          unit: 'm'
+        },
+        {
+          name: '花边',
+          unit: 'm'
+        }
+      ], // 详情
+      countList3: [
+        {
+          id: 0,
+          counts: 0
+        },
+        // {
+        //   id: 1,
+        //   counts: 0
+        // },
+        {
+          id: 2,
+          counts: 0
+        },
+        {
+          id: 3,
+          counts: 0
+        }
+      ],
+      countList4: [
+        {
+          id: 0,
+          counts: 0
+        },
+        {
+          id: 3,
+          counts: 0
+        }
+      ],
+      detailList3: [
+        {
+          name: '布料',
+          unit: 'm'
+        },
+        // {
+        //   name: '牙绳',
+        //   unit: 'm'
+        // },
+        {
+          name: '花边',
+          unit: 'm'
+        },
+        {
+          name: '靠包芯',
+          unit: '长*宽'
+        }
+      ], // 详情
+      detailList4: [
+        {
+          name: '布料',
+          unit: 'm'
+        },
+        {
+          name: '坐垫芯',
+          unit: 'm²'
+        }
+      ], // 详情
+      detailList5: [
+        {
+          name: '壁纸',
+          unit: '卷'
+        },
+        {
+          name: '基膜',
+          unit: 'm²'
+        },
+        {
+          name: '胶',
+          unit: '升'
+        }
+      ]
+    }
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onShow() {
+    }
+
+    onLoad() {
+      console.log(this.packTotal, 'packTotal')
+      console.log(this.curtTotal, 'curtTotal')
+      console.log(this.waterTotal, '水波') // 水波
+      console.log(this.flatTotal, '平板') // 平板
+      console.log(this.SuckTotal, '抽褶帘头') // 抽褶帘头
+    }
+  }
+</script>

@@ -109,7 +109,6 @@
       <!--配置-->
       <view class="main_select">
         <view class="select_box">
-
           <checkbox-group class="count_group" bindchange="toolChange">
             <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
               <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
@@ -132,22 +131,8 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <!--<view class="results_box" bindtap="handleShow">-->
-          <!--<view class="results_count">-->
-            <!--<view class="result_text">布料用量</view>-->
-            <!--<view class="counts">{{useLevel}}m</view>-->
-          <!--</view>-->
-
-
-          <!--<view class="results_max">-->
-            <!--<view class="result_text">推荐花边</view>-->
-            <!--<view class="counts">-->
-              <!--<view class="count-text">{{recommendedBagCoreWidth}}m</view>-->
-            <!--</view>-->
-          <!--</view>-->
-        <!--</view>-->
         <view class="results_box">
-          <view class="view_total">查看总表</view>
+          <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
         <view class="results_static" hidden="{{hidden}}">
@@ -193,7 +178,7 @@
         <view class="view_btn_right">
           <view class="btn_right_box">
             <view class="calculator" bindtap="handleClick" hover-class="calculator_hover">
-              <view class="right_box_text">计算靠包</view>
+              <view class="right_box_text">计算靠枕</view>
             </view>
           </view>
           <view class="btn_right_box">
@@ -211,10 +196,17 @@
 </template>
 <script>
   import wepy from 'wepy'
-
   const { $Toast } = require('../../components/iview/base/index')
-  import moduleA from 'module-a' // aliasFields ignore module example
-  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
+  import { connect } from 'wepy-redux'
+  import { PACK_TOTAL } from '../../store/types/counter'
+
+  @connect({
+    packTotal (state) {
+      return state.counter.packTotal
+    }
+  }, {
+    PACK_TOTAL
+  })
   export default class Package extends wepy.component {
     data = {
       hidden: false,
@@ -332,7 +324,7 @@
           that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
           // that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
           that.recommendedBagCoreWidth = res.data.CalculatorResult.lace // 推荐花边
-          that.bagCore = res.data.CalculatorResult.bagCore
+          that.bagCore = res.data.CalculatorResult.bagCore // 靠包心
         } else {
           return $Toast({
             content: res.data.msg,
@@ -347,6 +339,11 @@
     }
 
     methods = {
+      handleCounts() {
+        console.log(this.countList3)
+        this.$root.$navigate({url: 'totalCounts/index'})
+        this.methods.PACK_TOTAL(this.countList3)
+      },
       handleShow() {
         this.hidden = !this.hidden
       },
@@ -368,18 +365,6 @@
             type: 'warning'
           })
         }
-//        if (!this.flowerWidth) {
-//          return $Toast({
-//            content: '请输入花距宽',
-//            type: 'warning'
-//          })
-//        }
-//        if (!this.flowerHeight) {
-//          return $Toast({
-//            content: '请输入花距高',
-//            type: 'warning'
-//          })
-//        }
         if (!this.defaultWidth) {
           return $Toast({
             content: '请输入布料默认值',
@@ -392,12 +377,6 @@
             type: 'warning'
           })
         }
-        // if (!this.lace && !this.toothRope) {
-        //   return $Toast({
-        //     content: '请选择花边',
-        //     type: 'warning'
-        //   })
-        // }
         if (!this.bag) {
           return $Toast({
             content: '请输入数量',
