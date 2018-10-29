@@ -19,8 +19,11 @@ export default handleActions({
   }, // 选择tabID
 
   [PACK_TOTAL](state, actions) {
-    // console.log(actions, 'PACK_TOTAL')
-    return { ...state, packTotal: actions.payload }
+    console.log(actions, 'PACK_TOTAL')
+    return { ...state, packTotal: {
+      counts: actions.payload.counts,
+        
+      }}
   }, // 靠包总数
 
   [CURT_TOTAL](state, actions) {

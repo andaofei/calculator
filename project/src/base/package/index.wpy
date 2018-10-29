@@ -342,7 +342,10 @@
       handleCounts() {
         console.log(this.countList3)
         this.$root.$navigate({url: 'totalCounts/index'})
-        this.methods.PACK_TOTAL(this.countList3)
+        this.methods.PACK_TOTAL({
+          counts: this.countList3,
+          active: true
+        })
       },
       handleShow() {
         this.hidden = !this.hidden

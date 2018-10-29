@@ -172,14 +172,14 @@
             break
           case 4:
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/pblt.png'
+              'https://www.doudoufuwu.com/pic/zuodian.png'
             ]
             this.methods.SET_IMAGES({img: imgUrls})
             break
           case 5:
             imgUrls = [
-              'https://www.doudoufuwu.com/pic/kb.png',
-              'https://www.doudoufuwu.com/pic/kb1.png'
+              'https://www.doudoufuwu.com/pic/bizhi.png',
+              'https://www.doudoufuwu.com/pic/bizhi.png'
             ]
             this.methods.SET_IMAGES({img: imgUrls})
             break
