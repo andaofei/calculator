@@ -20,10 +20,7 @@ export default handleActions({
 
   [PACK_TOTAL](state, actions) {
     console.log(actions, 'PACK_TOTAL')
-    return { ...state, packTotal: {
-      counts: actions.payload.counts,
-        
-      }}
+    return { ...state, packTotal: actions.payload}
   }, // 靠包总数
 
   [CURT_TOTAL](state, actions) {

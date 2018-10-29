@@ -131,11 +131,11 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <view class="results_box">
+        <view class="results_box" wx:if="{{viewShow}}">
           <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
-        <view class="results_static" hidden="{{hidden}}">
+        <view class="results_static">
           <view class="results_header">
             <i-row>
               <i-col span="8" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
@@ -153,7 +153,6 @@
             </i-row>
           </view>
         </view>
-
       </view>
     </view>
     <!--按钮-->
@@ -178,15 +177,15 @@
         <view class="view_btn_right">
           <view class="btn_right_box">
             <view class="calculator" bindtap="handleClick" hover-class="calculator_hover">
-              <view class="right_box_text">计算靠枕</view>
+              <view class="right_box_text">计算结果</view>
             </view>
           </view>
           <view class="btn_right_box">
-             <view class="collection" hover-class="collection_hover">
-               <view class="right_box_text">
-                 收录数据
-               </view>
-             </view>
+            <view class="collection" hover-class="collection_hover" bindtap="handleCollect">
+              <view class="right_box_text">
+                收录数据
+              </view>
+            </view>
           </view>
         </view>
       </view>
@@ -196,12 +195,13 @@
 </template>
 <script>
   import wepy from 'wepy'
+  const { baseUrl, baseHead } = require('../../common/url/index')
   const { $Toast } = require('../../components/iview/base/index')
   import { connect } from 'wepy-redux'
   import { PACK_TOTAL } from '../../store/types/counter'
 
   @connect({
-    packTotal (state) {
+    packTotal(state) {
       return state.counter.packTotal
     }
   }, {
@@ -209,7 +209,6 @@
   })
   export default class Package extends wepy.component {
     data = {
-      hidden: false,
       fruit: [
         {
           id: 1,
@@ -298,31 +297,28 @@
       bagCore: '', // 靠包心
       switchValue: false, // 对花
       bag: 1,
-      value: 0
+      value: 0,
+      packList: [],
+      viewShow: false
     }
 
     // 获取数据async
     setBagData(obj) {
-//      console.log(obj)
       let that = this
       wepy.request({
         method: 'POST',
-        header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-        },
-        url: 'https://www.doudoufuwu.com/mobile/calculator',
+        header: { 'content-type': baseHead },
+        url: baseUrl,
         data: obj
       }).then((res) => {
         console.log(res, 'code')
         if (res.statusCode === 200 && res.data.CalculatorResult) {
+          this.packList.push({ packCounts: res.data.CalculatorResult })
+          console.log(this.packList, 'this.packArr')
           that.countList3[0].counts = res.data.CalculatorResult.useLevel // 布料用量
-          // that.countList3[1].counts = res.data.CalculatorResult.toothRope // 牙绳
           that.countList3[1].counts = res.data.CalculatorResult.lace // 花边
           that.countList3[2].counts = res.data.CalculatorResult.bagCore // 靠包心
-//          that.resultsLace = res.data.CalculatorResult.bagCore
-//          that.resultsTooth = res.data.CalculatorResult.toothRope
           that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
-          // that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendedBagCoreWidth // 推荐靠包心
           that.recommendedBagCoreWidth = res.data.CalculatorResult.lace // 推荐花边
           that.bagCore = res.data.CalculatorResult.bagCore // 靠包心
         } else {
@@ -339,23 +335,26 @@
     }
 
     methods = {
-      handleCounts() {
-        console.log(this.countList3)
-        this.$root.$navigate({url: 'totalCounts/index'})
-        this.methods.PACK_TOTAL({
-          counts: this.countList3,
-          active: true
+      // 收录
+      handleCollect() {
+        console.log(this.packList, 'this.packArr')
+        $Toast({
+          content: '收录成功',
+          type: 'success',
+          duration: 0.5
         })
+        this.methods.PACK_TOTAL(this.packList)
+        this.viewShow = true
       },
-      handleShow() {
-        this.hidden = !this.hidden
+      // 查看
+      handleCounts() {
+        this.$root.$navigate({ url: 'totalCounts/index' })
       },
       changeBag({ detail }) {
         this.bag = detail.value
       },
       // 靠包
       handleClick() {
-        // console.log(this.tooth)
         if (!this.bagWidth) {
           return $Toast({
             content: '请输入成品宽',

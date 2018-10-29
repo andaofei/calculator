@@ -251,7 +251,7 @@
         <!--<view class="counts">{{useLevel}}m</view>-->
         <!--</view>-->
         <!--</view>-->
-        <view class="results_box">
+        <view class="results_box" wx:if="{{viewShow}}">
           <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
@@ -299,11 +299,11 @@
         <view class="view_btn_right">
           <view class="btn_right_box">
             <view class="calculator" bindtap="handleClick" hover-class="calculator_hover">
-              <view class="right_box_text">计算帘头</view>
+              <view class="right_box_text">计算结果</view>
             </view>
           </view>
           <view class="btn_right_box">
-            <view class="collection" hover-class="collection_hover">
+            <view class="collection" hover-class="collection_hover" bindtap="handleCollect">
               <view class="right_box_text">
                 收录数据
               </view>
@@ -320,7 +320,7 @@
   import { connect } from 'wepy-redux'
   import { FLAT_TOTAL, WATER_TOTAL, SUCK_TOTAL, SET_IMAGES } from '../../store/types/counter'
   import imgCard from '../../components/imgcard/index'
-
+  const { baseUrl, baseHead } = require('../../common/url/index')
   const { $Toast } = require('../../components/iview/base/index')
   @connect({
     imagesUrl(state) {
@@ -408,48 +408,9 @@
           counts: 0
         }
       ],
-      FlatCountList: [
-        {
-          id: 0,
-          counts: 0
-        },
-        {
-          id: 1,
-          counts: 0
-        },
-        {
-          id: 2,
-          counts: 0
-        }
-      ],
-      WaterCountList: [
-        {
-          id: 0,
-          counts: 0
-        },
-        {
-          id: 1,
-          counts: 0
-        },
-        {
-          id: 2,
-          counts: 0
-        }
-      ],
-      SuckCountList: [
-        {
-          id: 0,
-          counts: 0
-        },
-        {
-          id: 1,
-          counts: 0
-        },
-        {
-          id: 2,
-          counts: 0
-        }
-      ],
+      FlatCountList: [],
+      WaterCountList: [],
+      SuckCountList: [],
       toothGroups: [
         {
           id: 1,
@@ -482,7 +443,9 @@
       flowerWidth: '', // 花宽
       flowerHeight: '', // 花高
       switchValue: false, // 对花
-      bag: 1 // 数量
+      bag: 1, // 数量
+      viewShow: false,
+      packList: []
     }
 
     // 获取数据async
@@ -492,9 +455,9 @@
       wepy.request({
         method: 'POST',
         header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          'content-type': baseHead
         },
-        url: 'https://www.doudoufuwu.com/mobile/calculator',
+        url: baseUrl,
         data: obj
       }).then((res) => {
         console.log(res.data)
@@ -506,19 +469,13 @@
           that.useLevel = res.data.CalculatorValanceResult.useLevel
           switch (this.selectType) {
             case 0:
-              that.FlatCountList[0].counts = res.data.CalculatorValanceResult.useLevel
-              that.FlatCountList[1].counts = res.data.CalculatorValanceResult.liningloth
-              that.FlatCountList[2].counts = res.data.CalculatorValanceResult.lace
+              that.FlatCountList.push({windCunts: res.data.CalculatorValanceResult})
               break
             case 1:
-              that.WaterCountList[0].counts = res.data.CalculatorValanceResult.useLevel
-              that.WaterCountList[1].counts = res.data.CalculatorValanceResult.liningloth
-              that.WaterCountList[2].counts = res.data.CalculatorValanceResult.lace
+              that.WaterCountList.push({windCunts: res.data.CalculatorValanceResult})
               break
             case 2:
-              that.SuckCountList[0].counts = res.data.CalculatorValanceResult.useLevel
-              that.SuckCountList[1].counts = res.data.CalculatorValanceResult.liningloth
-              that.SuckCountList[2].counts = res.data.CalculatorValanceResult.lace
+              that.SuckCountList.push({windCunts: res.data.CalculatorValanceResult})
               break
           }
         } else {
@@ -532,8 +489,28 @@
     }
 
     methods = {
-      handleCounts() {
+      // 收录
+      handleCollect() {
         // console.log(this.countList2)
+        // switch (this.selectType) {
+        //   case 0:
+        //     console.log(this.selectType)
+        //     this.methods.FLAT_TOTAL(this.FlatCountList)
+        //     break
+        //   case 1:
+        //     console.log(this.selectType)
+        //     this.methods.WATER_TOTAL(this.WaterCountList)
+        //     break
+        //   case 2:
+        //     console.log(this.selectType)
+        //     this.methods.SUCK_TOTAL(this.SuckCountList)
+        //     break
+        // }
+        $Toast({
+          content: '收录成功',
+          type: 'success',
+          duration: 0.5
+        })
         if (this.selectType === 0) {
           this.methods.FLAT_TOTAL(this.FlatCountList)
         } else if (this.selectType === 1) {
@@ -541,20 +518,9 @@
         } else if (this.selectType === 2) {
           this.methods.SUCK_TOTAL(this.SuckCountList)
         }
-        switch (this.selectType) {
-          case 0:
-            console.log(this.selectType)
-            this.methods.FLAT_TOTAL(this.FlatCountList)
-            break
-          case 1:
-            console.log(this.selectType)
-            this.methods.WATER_TOTAL(this.WaterCountList)
-            break
-          case 2:
-            console.log(this.selectType)
-            this.methods.SUCK_TOTAL(this.SuckCountList)
-            break
-        }
+        this.viewShow = true
+      },
+      handleCounts() {
         this.$root.$navigate({ url: 'totalCounts/index' })
       },
 

@@ -5,33 +5,39 @@
   <view class="container">
     <view class="container_box">
       <!--1 -->
-      <view class="counts_item">
-        <view class="counts-text">
-          <view class="counts-left">靠枕</view>
-          <view class="active_class" wx:hidden="{{actives}}">*</view>
-        </view>
-        <view class="counts-box">
-          <view class="results_header">
-            <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
-                <view class="col-inner">{{item.name}}
-                  <text class="col-text">({{item.unit}})</text>
-                </view>
-              </i-col>
-            </i-row>
-          </view>
-          <view class="results_inner">
-            <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{packTotal}}" wx:key="id">
-                <view class="col-inner">{{item.counts}}</view>
-              </i-col>
-            </i-row>
-          </view>
-        </view>
-      </view>
+      <block wx:for="{{packTotal}}" wx:key="id">
+        <view class="counts_item" >
+          <view class="counts-text">靠枕</view>
+          <view class="counts-box">
+            <view class="results_header">
+              <i-row>
+                <i-col span="8" i-class="col-class" wx:for="{{detailList3}}" wx:key="id">
+                  <view class="col-inner">{{item.name}}
+                    <text class="col-text">({{item.unit}})</text>
+                  </view>
+                </i-col>
+              </i-row>
+            </view>
 
+            <view class="results_inner">
+              <i-row>
+                <i-col span="8" i-class="col-class">
+                  <view class="col-inner">{{item.packCounts.useLevel}}</view>
+                </i-col>
+                <i-col span="8" i-class="col-class">
+                  <view class="col-inner">{{item.packCounts.lace}}</view>
+                </i-col>
+                <i-col span="8" i-class="col-class">
+                  <view class="col-inner">{{item.packCounts.bagCore}}</view>
+                </i-col>
+              </i-row>
+            </view>
+          </view>
+        </view>
+      </block>
       <!--2-->
-      <view class="counts_item">
+      <block wx:for="{{curtTotal}}" wx:key="id">
+        <view class="counts_item">
         <view class="counts-text">窗帘</view>
         <view class="counts-box">
           <view class="results_header">
@@ -45,16 +51,26 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="6" i-class="col-class" wx:for="{{curtTotal}}" wx:key="id">
-                <view class="col-inner">{{item.counts}}</view>
+              <i-col span="6" i-class="col-class">
+                <view class="col-inner">{{item.curtCounts.useLevel}}</view>
+              </i-col>
+              <i-col span="6" i-class="col-class">
+                <view class="col-inner">{{item.curtCounts.liningloth}}</view>
+              </i-col>
+              <i-col span="6" i-class="col-class">
+                <view class="col-inner">{{item.curtCounts.lace}}</view>
+              </i-col>
+              <i-col span="6" i-class="col-class">
+                <view class="col-inner">{{item.curtCounts.track}}</view>
               </i-col>
             </i-row>
           </view>
         </view>
       </view>
-
+      </block>
       <!--3 -->
-      <view class="counts_item">
+      <block wx:for="{{flatTotal}}" wx:key="id">
+        <view class="counts_item">
         <view class="counts-text">平板帘头</view>
         <view class="counts-box">
           <view class="results_header">
@@ -68,16 +84,24 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{flatTotal}}" wx:key="id">
-                <view class="col-inner">{{item.counts}}</view>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.useLevel}}</view>
+              </i-col>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.liningloth}}</view>
+              </i-col>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.lace}}</view>
               </i-col>
             </i-row>
           </view>
         </view>
       </view>
-
+      </block>
       <!--4 -->
-      <view class="counts_item">
+
+      <block wx:for="{{waterTotal}}" wx:key="id">
+        <view class="counts_item">
         <view class="counts-text">水波帘头</view>
         <view class="counts-box">
           <view class="results_header">
@@ -91,17 +115,25 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{waterTotal}}" wx:key="id">
-                <view class="col-inner">{{item.counts}}</view>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.useLevel}}</view>
+              </i-col>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.liningloth}}</view>
+              </i-col>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.lace}}</view>
               </i-col>
             </i-row>
           </view>
         </view>
       </view>
+      </block>
 
       <!--5 -->
-      <view class="counts_item">
-        <view class="counts-text">抽褶帘头</view>
+      <block wx:for="{{SuckTotal}}" wx:key="id">
+        <view class="counts_item">
+          <view class="counts-text">抽褶帘头</view>
         <view class="counts-box">
           <view class="results_header">
             <i-row>
@@ -114,18 +146,26 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{SuckTotal}}" wx:key="id">
-                <view class="col-inner">{{item.counts}}</view>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.useLevel}}</view>
+              </i-col>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.liningloth}}</view>
+              </i-col>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.windCunts.lace}}</view>
               </i-col>
             </i-row>
           </view>
         </view>
       </view>
+      </block>
 
       <!--6-->
+      <block wx:for="{{CushionTotal}}" wx:key="id">
       <view class="counts_item">
         <view class="counts-text">坐垫</view>
-        <view class="counts-box">
+          <view class="counts-box">
           <view class="results_header">
             <i-row>
               <i-col span="12" i-class="col-class" wx:for="{{detailList4}}" wx:key="id">
@@ -137,18 +177,22 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="12" i-class="col-class" wx:for="{{CushionTotal}}" wx:key="id">
-                <view class="col-inner">{{item.counts}}</view>
+              <i-col span="12" i-class="col-class">
+                <view class="col-inner">{{item.cunshCounts.useLevel}}</view>
+              </i-col>
+              <i-col span="12" i-class="col-class">
+                <view class="col-inner">{{item.cunshCounts.cushionCore}}</view>
               </i-col>
             </i-row>
           </view>
         </view>
       </view>
-
+      </block>
       <!--7-->
-      <view class="counts_item">
+      <block wx:for="{{WallTotal}}" wx:key="id">
+        <view class="counts_item">
         <view class="counts-text">壁纸</view>
-        <view class="counts-box">
+          <view class="counts-box">
           <view class="results_header">
             <i-row>
               <i-col span="8" i-class="col-class" wx:for="{{detailList5}}" wx:key="id">
@@ -160,13 +204,20 @@
           </view>
           <view class="results_inner">
             <i-row>
-              <i-col span="8" i-class="col-class" wx:for="{{WallTotal}}" wx:key="id">
-                <view class="col-inner">{{item.counts}}</view>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.wallCounts.volumes}}</view>
+              </i-col>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.wallCounts.baseFilm}}</view>
+              </i-col>
+              <i-col span="8" i-class="col-class">
+                <view class="col-inner">{{item.wallCounts.glue}}</view>
               </i-col>
             </i-row>
           </view>
         </view>
       </view>
+      </block>
     </view>
   </view>
 </template>
@@ -179,7 +230,6 @@
     packTotal(state) {
       return state.counter.packTotal
     },
-
     curtTotal(state) {
       return state.counter.curtTotal
     },

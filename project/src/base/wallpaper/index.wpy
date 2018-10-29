@@ -83,7 +83,7 @@
             <view class="count_right">
               <checkbox-group class="count_group" bindchange="primeChange">
                 <label class="count_group" wx:for="{{primeGroups}}" wx:key="{{item.id}}">
-                  <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+                  <checkbox value="{{item.id}}" disabled="true"	 checked="{{item.checked}}"/>
                   {{item.name}}
                 </label>
               </checkbox-group>
@@ -97,7 +97,7 @@
         <view class="select_box">
           <checkbox-group class="count_group" bindchange="toolChange">
             <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
-              <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+              <checkbox value="{{item.id}}" disabled="true"	 checked="{{item.checked}}"/>
               {{item.name}}
             </label>
           </checkbox-group>
@@ -117,7 +117,7 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <view class="results_box">
+        <view class="results_box" wx:if="{{viewShow}}">
           <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
@@ -158,11 +158,11 @@
         <view class="view_btn_right">
           <view class="btn_right_box">
             <view class="calculator" bindtap="handleClick" hover-class="calculator_hover">
-              <view class="right_box_text">计算壁纸</view>
+              <view class="right_box_text">计算结果</view>
             </view>
           </view>
           <view class="btn_right_box">
-            <view class="collection" hover-class="collection_hover">
+            <view class="collection" bindtap="handleCollect" hover-class="collection_hover">
               <view class="right_box_text">
                 收录数据
               </view>
@@ -175,7 +175,7 @@
 </template>
 <script>
   import wepy from 'wepy'
-
+  const { baseUrl, baseHead } = require('../../common/url/index')
   const { $Toast } = require('../../components/iview/base/index')
   import { connect } from 'wepy-redux'
   import { WALL_TOTAL, SUCK_TOTAL } from '../../store/types/counter'
@@ -243,8 +243,8 @@
       disabled: false,
       bagWidth: '', // 宽
       bagHeight: '', // 高
-      wallpaperWidth: '', // 宽
-      wallpaperHeight: '', // 长
+      wallpaperWidth: 0.53, // 宽
+      wallpaperHeight: 10, // 长
       bagWChecked: 1, // 窄幅
       tooth: true, // 牙绳check
       prime: true, // 素
@@ -287,7 +287,9 @@
       bagCore: '', // 靠包心
       switchValue: false, // 对花
       bag: 1,
-      value: 0
+      value: 0,
+      viewShow: false,
+      wallList: []
     }
 
     // 获取数据async
@@ -297,9 +299,9 @@
       wepy.request({
         method: 'POST',
         header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          'content-type': baseHead
         },
-        url: 'https://www.doudoufuwu.com/mobile/calculator',
+        url: baseUrl,
         data: obj
       }).then((res) => {
         console.log(res, 'code')
@@ -307,6 +309,7 @@
           that.countList3[0].counts = res.data.volumes // 壁纸
           that.countList3[1].counts = res.data.baseFilm // 胶
           that.countList3[2].counts = res.data.glue // 基膜
+          this.wallList.push({wallCounts: res.data})
           that.useLevel = res.data.volumes // 推荐布料
         } else {
           return $Toast({
@@ -322,8 +325,18 @@
     }
 
     methods = {
+      // 收录
+      handleCollect() {
+        console.log(this.wallList, 'this.wallList')
+        $Toast({
+          content: '收录成功',
+          type: 'success',
+          duration: 0.5
+        })
+        this.methods.WALL_TOTAL(this.wallList)
+        this.viewShow = true
+      },
       handleCounts() {
-        this.methods.WALL_TOTAL(this.countList3)
         this.$root.$navigate({ url: 'totalCounts/index' })
       },
       handleShow() {
@@ -423,16 +436,13 @@
       },
       // 对花
       onChange(event) {
-//        console.log(event)
         this.switchValue = event.detail.value
       },
       // 输入框
       bindBagWidth(e) {
-//        console.log(e.detail.value)
         this.bagWidth = e.detail.value
       },
       bindBagHeight(e) {
-//        console.log(e.detail.value)
         this.bagHeight = e.detail.value
       },
       bindWallpaperWidth(e) {
@@ -442,15 +452,12 @@
         this.wallpaperHeight = e.detail.value
       },
       bindDefaultWidth(e) {
-//        console.log(e.detail.value)
         this.defaultWidth = e.detail.value
       },
       bindFlowerWidth(e) {
-//        console.log(e.detail.value)
         this.flowerWidth = e.detail.value
       },
       bindFlowerHeight(e) {
-//        console.log(e.detail.value)
         this.flowerHeight = e.detail.value
       }
     }

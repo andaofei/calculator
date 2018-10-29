@@ -146,7 +146,7 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <view class="results_box">
+        <view class="results_box" wx:if="{{viewShow}}">
           <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
@@ -192,11 +192,11 @@
         <view class="view_btn_right">
           <view class="btn_right_box">
             <view class="calculator" bindtap="handleClick" hover-class="calculator_hover">
-              <view class="right_box_text">计算窗帘</view>
+              <view class="right_box_text">计算结果</view>
             </view>
           </view>
           <view class="btn_right_box">
-            <view class="collection" hover-class="collection_hover">
+            <view class="collection" bindtap="handleCollect" hover-class="collection_hover">
               <view class="right_box_text">
                 收录数据
               </view>
@@ -210,6 +210,7 @@
 </template>
 <script>
   import wepy from 'wepy'
+  const { baseUrl, baseHead } = require('../../common/url/index')
   const { $Toast } = require('../../components/iview/base/index')
   import { connect } from 'wepy-redux'
   import { CURT_TOTAL } from '../../store/types/counter'
@@ -334,7 +335,9 @@
       recommendedBagCoreWidth: 0, // 推荐倍数
       recommenUseLevel: 0, // 推荐倍数
       bag: 1,
-      value: 0
+      value: 0,
+      viewShow: false,
+      curtList: []
     }
 
     // 获取数据async
@@ -344,9 +347,9 @@
       wepy.request({
         method: 'POST',
         header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          'content-type': baseHead
         },
-        url: 'https://www.doudoufuwu.com/mobile/calculator',
+        url: baseUrl,
         data: obj
       }).then((res) => {
         console.log(res.data)
@@ -355,6 +358,7 @@
           that.countList1[1].counts = res.data.CalculatorResult.liningloth
           that.countList1[2].counts = res.data.CalculatorResult.lace
           that.countList1[3].counts = res.data.CalculatorResult.track
+          this.curtList.push({ curtCounts: res.data.CalculatorResult })
           that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
           that.recommenUseLevel = res.data.CalculatorResult.recommenUseLevel // 用量
           that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendationatio // 推荐靠包心
@@ -369,10 +373,19 @@
     }
 
     methods = {
+      // 收录
+      handleCollect() {
+        console.log(this.curtList, 'this.curtList')
+        $Toast({
+          content: '收录成功',
+          type: 'success',
+          duration: 0.5
+        })
+        this.methods.CURT_TOTAL(this.curtList)
+        this.viewShow = true
+      },
       handleCounts() {
-        console.log(this.countList1)
         this.$root.$navigate({url: 'totalCounts/index'})
-        this.methods.CURT_TOTAL(this.countList1)
       },
       handleShow() {
         this.hidden = !this.hidden

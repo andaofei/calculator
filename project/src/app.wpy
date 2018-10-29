@@ -33,7 +33,8 @@
     }
 
     globalData = {
-      userInfo: null
+      userInfo: null,
+      calculatorUr: `https://www.doudoufuwu.com/mobile/calculator`
     }
 
     constructor() {

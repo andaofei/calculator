@@ -124,14 +124,14 @@
 
       <!--配置-->
       <view class="main_select">
-        <view class="select_box">
-          <checkbox-group class="count_group" bindchange="toolChange">
-            <label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">
-              <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
-              {{item.name}}
-            </label>
-          </checkbox-group>
-        </view>
+        <!--<view class="select_box">-->
+          <!--<checkbox-group class="count_group" bindchange="toolChange">-->
+            <!--<label class="count_group" wx:for="{{toothGroups}}" wx:key="{{item.id}}">-->
+              <!--<checkbox value="{{item.id}}" disabled="true" checked="{{item.checked}}"/>-->
+              <!--{{item.name}}-->
+            <!--</label>-->
+          <!--</checkbox-group>-->
+        <!--</view>-->
 
         <!--数量-->
         <view class="select_counts">
@@ -147,7 +147,7 @@
     <!--用料-->
     <view class="main_results">
       <view class="main_results_box">
-        <view class="results_box">
+        <view class="results_box" wx:if="{{viewShow}}">
           <view class="view_total" bindtap="handleCounts">查看总表</view>
         </view>
         <!--详情-->
@@ -189,11 +189,11 @@
         <view class="view_btn_right">
           <view class="btn_right_box">
             <view class="calculator" bindtap="handleClick" hover-class="calculator_hover">
-              <view class="right_box_text">计算坐垫</view>
+              <view class="right_box_text">计算结果</view>
             </view>
           </view>
           <view class="btn_right_box">
-             <view class="collection" hover-class="collection_hover">
+             <view class="collection" bindtap="handleCollect" hover-class="collection_hover">
                <view class="right_box_text">
                  收录数据
                </view>
@@ -207,6 +207,7 @@
 </template>
 <script>
   import wepy from 'wepy'
+  const { baseUrl, baseHead } = require('../../common/url/index')
   const { $Toast } = require('../../components/iview/base/index')
   import { connect } from 'wepy-redux'
   import { CUSHION_TOTAL, SUCK_TOTAL } from '../../store/types/counter'
@@ -259,8 +260,8 @@
       ], // 详情
       checked: false,
       disabled: false,
-      bagWidth: '', // 宽
-      bagHeight: '', // 高
+      bagWidth: '', // 长
+      bagHeight: '', // 宽
       bagThick: '', // 厚
       bagWChecked: 1, // 窄幅
       tooth: true, // 牙绳check
@@ -285,7 +286,9 @@
       bagCore: '', // 靠包心
       switchValue: false, // 对花
       bag: 1,
-      value: 0
+      value: 0,
+      viewShow: false,
+      cushionList: []
     }
 
     // 获取数据async
@@ -295,15 +298,16 @@
       wepy.request({
         method: 'POST',
         header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          'content-type': baseHead
         },
-        url: 'https://www.doudoufuwu.com/mobile/calculator',
+        url: baseUrl,
         data: obj
       }).then((res) => {
         console.log(res, 'code')
         if (res.statusCode === 200 && res.data.code === 200) {
           that.countList3[0].counts = res.data.useLevel // 布料用量
           that.countList3[1].counts = res.data.cushionCore // 坐垫芯
+          this.cushionList.push({cunshCounts: res.data})
           that.useLevel = res.data.useLevel // 推荐布料
           that.bagCore = res.data.cushionCore
         } else {
@@ -320,8 +324,18 @@
     }
 
     methods = {
+      // 收录
+      handleCollect() {
+        console.log(this.cushionList, 'this.cushionList')
+        $Toast({
+          content: '收录成功',
+          type: 'success',
+          duration: 0.5
+        })
+        this.methods.CUSHION_TOTAL(this.cushionList)
+        this.viewShow = true
+      },
       handleCounts() {
-        this.methods.CUSHION_TOTAL(this.countList3)
         this.$root.$navigate({ url: 'totalCounts/index' })
       },
       handleShow() {
@@ -380,9 +394,9 @@
           flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
           flowerWidth: this.flowerWidth, // 花距宽
           flowerHight: this.flowerHeight, // 花距高
-          num: this.bag, // 数量
+          num: this.bag // 数量
           // lace: this.lace ? 1 : 0, // 花边 0:无 1:有
-          toothRope: this.toothRope ? 1 : 0 // 牙绳 0:无 1:有
+          // toothRope: this.toothRope ? 1 : 0 // 牙绳 0:无 1:有
         }
         this.setBagData(obj)
       },
