@@ -408,6 +408,48 @@
           counts: 0
         }
       ],
+      FlatCountList: [
+        {
+          id: 0,
+          counts: 0
+        },
+        {
+          id: 1,
+          counts: 0
+        },
+        {
+          id: 2,
+          counts: 0
+        }
+      ],
+      WaterCountList: [
+        {
+          id: 0,
+          counts: 0
+        },
+        {
+          id: 1,
+          counts: 0
+        },
+        {
+          id: 2,
+          counts: 0
+        }
+      ],
+      SuckCountList: [
+        {
+          id: 0,
+          counts: 0
+        },
+        {
+          id: 1,
+          counts: 0
+        },
+        {
+          id: 2,
+          counts: 0
+        }
+      ],
       toothGroups: [
         {
           id: 1,
@@ -457,10 +499,28 @@
       }).then((res) => {
         console.log(res.data)
         if (res.statusCode === 200 && res.data.CalculatorValanceResult) {
+          console.log(this.selectType)
           that.countList2[0].counts = res.data.CalculatorValanceResult.useLevel
           that.countList2[1].counts = res.data.CalculatorValanceResult.liningloth
           that.countList2[2].counts = res.data.CalculatorValanceResult.lace
           that.useLevel = res.data.CalculatorValanceResult.useLevel
+          switch (this.selectType) {
+            case 0:
+              that.FlatCountList[0].counts = res.data.CalculatorValanceResult.useLevel
+              that.FlatCountList[1].counts = res.data.CalculatorValanceResult.liningloth
+              that.FlatCountList[2].counts = res.data.CalculatorValanceResult.lace
+              break
+            case 1:
+              that.WaterCountList[0].counts = res.data.CalculatorValanceResult.useLevel
+              that.WaterCountList[1].counts = res.data.CalculatorValanceResult.liningloth
+              that.WaterCountList[2].counts = res.data.CalculatorValanceResult.lace
+              break
+            case 2:
+              that.SuckCountList[0].counts = res.data.CalculatorValanceResult.useLevel
+              that.SuckCountList[1].counts = res.data.CalculatorValanceResult.liningloth
+              that.SuckCountList[2].counts = res.data.CalculatorValanceResult.lace
+              break
+          }
         } else {
           return $Toast({
             content: res.data.msg,
@@ -474,18 +534,25 @@
     methods = {
       handleCounts() {
         // console.log(this.countList2)
+        if (this.selectType === 0) {
+          this.methods.FLAT_TOTAL(this.FlatCountList)
+        } else if (this.selectType === 1) {
+          this.methods.WATER_TOTAL(this.WaterCountList)
+        } else if (this.selectType === 2) {
+          this.methods.SUCK_TOTAL(this.SuckCountList)
+        }
         switch (this.selectType) {
           case 0:
             console.log(this.selectType)
-            this.methods.FLAT_TOTAL(this.countList2)
+            this.methods.FLAT_TOTAL(this.FlatCountList)
             break
           case 1:
             console.log(this.selectType)
-            this.methods.WATER_TOTAL(this.countList2)
+            this.methods.WATER_TOTAL(this.WaterCountList)
             break
           case 2:
             console.log(this.selectType)
-            this.methods.SUCK_TOTAL(this.countList2)
+            this.methods.SUCK_TOTAL(this.SuckCountList)
             break
         }
         this.$root.$navigate({ url: 'totalCounts/index' })

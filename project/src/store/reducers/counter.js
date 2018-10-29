@@ -29,14 +29,17 @@ export default handleActions({
   }, // 窗帘总数
 
   [FLAT_TOTAL](state, actions) {
+    console.log(actions)
     return { ...state, flatTotal: actions.payload }
   }, // 平板帘头
 
   [WATER_TOTAL](state, actions) {
+    console.log(actions)
     return { ...state, waterTotal: actions.payload }
   }, // 水波帘头
 
   [SUCK_TOTAL](state, actions) {
+    console.log(actions)
     return { ...state, SuckTotal: actions.payload }
   }, // 抽折帘头
 
