@@ -289,7 +289,8 @@
       bag: 1,
       value: 0,
       viewShow: false,
-      wallList: []
+      wallList: [],
+      curtResults: {}
     }
 
     // 获取数据async
@@ -309,7 +310,7 @@
           that.countList3[0].counts = res.data.volumes // 壁纸
           that.countList3[1].counts = res.data.baseFilm // 胶
           that.countList3[2].counts = res.data.glue // 基膜
-          this.wallList.push({wallCounts: res.data})
+          that.curtResults = res.data
           that.useLevel = res.data.volumes // 推荐布料
         } else {
           return $Toast({
@@ -327,7 +328,16 @@
     methods = {
       // 收录
       handleCollect() {
-        console.log(this.wallList, 'this.wallList')
+        if (Object.keys(this.curtResults).length === 0) {
+          $Toast({
+            content: '暂无收录数据',
+            type: 'warning',
+            duration: 0.5
+          })
+          return
+        }
+        this.wallList.push({wallCounts: this.curtResults})
+        // console.log(this.wallList, 'this.wallList')
         $Toast({
           content: '收录成功',
           type: 'success',

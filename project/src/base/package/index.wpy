@@ -299,7 +299,8 @@
       bag: 1,
       value: 0,
       packList: [],
-      viewShow: false
+      viewShow: false,
+      curtResults: {}
     }
 
     // 获取数据async
@@ -313,7 +314,7 @@
       }).then((res) => {
         console.log(res, 'code')
         if (res.statusCode === 200 && res.data.CalculatorResult) {
-          this.packList.push({ packCounts: res.data.CalculatorResult })
+          that.curtResults = res.data.CalculatorResult
           console.log(this.packList, 'this.packArr')
           that.countList3[0].counts = res.data.CalculatorResult.useLevel // 布料用量
           that.countList3[1].counts = res.data.CalculatorResult.lace // 花边
@@ -337,7 +338,15 @@
     methods = {
       // 收录
       handleCollect() {
-        console.log(this.packList, 'this.packArr')
+        if (Object.keys(this.curtResults).length === 0) {
+          $Toast({
+            content: '暂无收录数据',
+            duration: 0.5,
+            type: 'warning'
+          })
+          return
+        }
+        this.packList.push({ packCounts: this.curtResults })
         $Toast({
           content: '收录成功',
           type: 'success',

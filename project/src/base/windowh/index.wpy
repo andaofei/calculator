@@ -227,8 +227,16 @@
         <!--数量-->
         <view class="select_counts">
           <view class="need_count">所需数量</view>
-          <view>
+          <view wx:if="{{selectType === 0}}">
             <i-input-number i-class="number_class" value="{{ bag }}" min="0" max="100" bindchange="handleChangeBag"/>
+          </view>
+
+          <view wx:elif="{{selectType === 1}}">
+            <i-input-number i-class="number_class" value="{{ bag1 }}" min="0" max="100" bindchange="handleChangeBag1"/>
+          </view>
+
+          <view wx:else="{{selectType === 2}}">
+            <i-input-number i-class="number_class" value="{{ bag2 }}" min="0" max="100" bindchange="handleChangeBag2"/>
           </view>
         </view>
       </view>
@@ -267,7 +275,19 @@
           </view>
 
           <view class="results_inner">
-            <i-row>
+            <i-row wx:if="{{selectType === 0}}">
+              <i-col span="8" i-class="col-class" wx:for="{{countList}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+
+            <i-row wx:elif="{{selectType === 1}}">
+              <i-col span="8" i-class="col-class" wx:for="{{countList1}}" wx:key="id">
+                <view class="col-inner">{{item.counts}}</view>
+              </i-col>
+            </i-row>
+
+            <i-row wx:else="{{selectType === 2}}">
               <i-col span="8" i-class="col-class" wx:for="{{countList2}}" wx:key="id">
                 <view class="col-inner">{{item.counts}}</view>
               </i-col>
@@ -285,15 +305,11 @@
           <view class="view_btn_left_box">
             <view class="results_count">
               <view class="result_text">布料用量</view>
-              <view class="counts">{{useLevel}}m</view>
+              <view class="counts" wx:if="{{selectType === 0}}">{{useLevel}}m</view>
+              <view class="counts" wx:elif="{{selectType === 1}}">{{useLevel2}}m</view>
+              <view class="counts" wx:else="{{selectType === 2}}">{{useLevel3}}m</view>
             </view>
           </view>
-          <!--<view class="results_max" style="opacity: 0">-->
-          <!--<view class="result_text">0</view>-->
-          <!--<view class="counts">-->
-          <!--<view class="count-text">0</view>-->
-          <!--</view>-->
-          <!--</view>-->
         </view>
         <!--右侧-->
         <view class="view_btn_right">
@@ -320,6 +336,7 @@
   import { connect } from 'wepy-redux'
   import { FLAT_TOTAL, WATER_TOTAL, SUCK_TOTAL, SET_IMAGES } from '../../store/types/counter'
   import imgCard from '../../components/imgcard/index'
+
   const { baseUrl, baseHead } = require('../../common/url/index')
   const { $Toast } = require('../../components/iview/base/index')
   @connect({
@@ -394,6 +411,34 @@
           unit: 'm'
         }
       ], // 详情
+      countList: [
+        {
+          id: 0,
+          counts: 0
+        },
+        {
+          id: 1,
+          counts: 0
+        },
+        {
+          id: 2,
+          counts: 0
+        }
+      ],
+      countList1: [
+        {
+          id: 0,
+          counts: 0
+        },
+        {
+          id: 1,
+          counts: 0
+        },
+        {
+          id: 2,
+          counts: 0
+        }
+      ],
       countList2: [
         {
           id: 0,
@@ -411,6 +456,9 @@
       FlatCountList: [],
       WaterCountList: [],
       SuckCountList: [],
+      FlatResults: [],
+      WaterResults: [],
+      SuckResults: [],
       toothGroups: [
         {
           id: 1,
@@ -429,6 +477,8 @@
       toothRope: true, // 加衬
       bagWChecked: 1, // 窄幅
       useLevel: 0, // 用量
+      useLevel2: 0, // 用量
+      useLevel3: 0, // 用量
       bagWidth: '', // 宽
       defaultWidth: 1.4, // 默认宽
       bagHeight: '', // 高
@@ -444,8 +494,11 @@
       flowerHeight: '', // 花高
       switchValue: false, // 对花
       bag: 1, // 数量
+      bag1: 1, // 数量
+      bag2: 1, // 数量
       viewShow: false,
-      packList: []
+      packList: [],
+      curtResults: {}
     }
 
     // 获取数据async
@@ -463,19 +516,27 @@
         console.log(res.data)
         if (res.statusCode === 200 && res.data.CalculatorValanceResult) {
           console.log(this.selectType)
-          that.countList2[0].counts = res.data.CalculatorValanceResult.useLevel
-          that.countList2[1].counts = res.data.CalculatorValanceResult.liningloth
-          that.countList2[2].counts = res.data.CalculatorValanceResult.lace
-          that.useLevel = res.data.CalculatorValanceResult.useLevel
           switch (this.selectType) {
             case 0:
-              that.FlatCountList.push({windCunts: res.data.CalculatorValanceResult})
+              that.countList[0].counts = res.data.CalculatorValanceResult.useLevel
+              that.countList[1].counts = res.data.CalculatorValanceResult.liningloth
+              that.countList[2].counts = res.data.CalculatorValanceResult.lace
+              that.useLevel = res.data.CalculatorValanceResult.useLevel
+              that.FlatResults = res.data.CalculatorValanceResult
               break
             case 1:
-              that.WaterCountList.push({windCunts: res.data.CalculatorValanceResult})
+              that.countList1[0].counts = res.data.CalculatorValanceResult.useLevel
+              that.countList1[1].counts = res.data.CalculatorValanceResult.liningloth
+              that.countList1[2].counts = res.data.CalculatorValanceResult.lace
+              that.useLevel2 = res.data.CalculatorValanceResult.useLevel
+              that.WaterResults = res.data.CalculatorValanceResult
               break
             case 2:
-              that.SuckCountList.push({windCunts: res.data.CalculatorValanceResult})
+              that.countList2[0].counts = res.data.CalculatorValanceResult.useLevel
+              that.countList2[1].counts = res.data.CalculatorValanceResult.liningloth
+              that.countList2[2].counts = res.data.CalculatorValanceResult.lace
+              that.useLevel3 = res.data.CalculatorValanceResult.useLevel
+              that.SuckResults = res.data.CalculatorValanceResult
               break
           }
         } else {
@@ -491,21 +552,42 @@
     methods = {
       // 收录
       handleCollect() {
-        // console.log(this.countList2)
-        // switch (this.selectType) {
-        //   case 0:
-        //     console.log(this.selectType)
-        //     this.methods.FLAT_TOTAL(this.FlatCountList)
-        //     break
-        //   case 1:
-        //     console.log(this.selectType)
-        //     this.methods.WATER_TOTAL(this.WaterCountList)
-        //     break
-        //   case 2:
-        //     console.log(this.selectType)
-        //     this.methods.SUCK_TOTAL(this.SuckCountList)
-        //     break
-        // }
+        switch (this.selectType) {
+          case 0:
+            if (Object.keys(this.FlatResults).length === 0) {
+              $Toast({
+                content: '暂无收录数据',
+                duration: 0.5,
+                type: 'warning'
+              })
+              return
+            }
+            this.FlatCountList.push({ windCunts: this.FlatResults })
+            break
+          case 1:
+            if (Object.keys(this.WaterResults).length === 0) {
+              $Toast({
+                content: '暂无收录数据',
+                duration: 0.5,
+                type: 'warning'
+              })
+              return
+            }
+            this.WaterCountList.push({ windCunts: this.WaterResults })
+            break
+          case 2:
+            if (Object.keys(this.SuckResults).length === 0) {
+              $Toast({
+                content: '暂无收录数据',
+                duration: 0.5,
+                type: 'warning'
+              })
+              return
+            }
+            this.SuckCountList.push({ windCunts: this.SuckResults })
+            break
+        }
+
         $Toast({
           content: '收录成功',
           type: 'success',
@@ -531,7 +613,12 @@
       handleChangeBag({ detail }) {
         this.bag = detail.value
       },
-
+      handleChangeBag1({ detail }) {
+        this.bag1 = detail.value
+      },
+      handleChangeBag2({ detail }) {
+        this.bag2 = detail.value
+      },
       // 帘头
       handleClick() {
         if (!this.bagWidth) {
@@ -570,14 +657,15 @@
             type: 'warning'
           })
         }
-        if (!this.bag) {
-          return $Toast({
-            content: '请输入数量',
-            type: 'warning'
-          })
-        }
+
         let obj = {}
         if (this.selectType === 1) {
+          if (!this.bag1) {
+            return $Toast({
+              content: '请输入数量',
+              type: 'warning'
+            })
+          }
           if (!this.flagWidth) {
             return $Toast({
               content: '请输入边旗宽',
@@ -618,12 +706,28 @@
             flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
             flowerWidth: this.flowerWidth, // 花距宽
             flowerHight: this.flowerHeight, // 花距高
-            num: this.bag, // 数量
+            num: this.bag1, // 数量
             lace: this.lace ? 1 : 0, // 花边 0:无 1:有
             linings: this.toothRope ? 1 : 0,  // 加衬 0:无 1:有
             valanceType: this.selectType // 0:平板帘头 1:水波帘头 2:抽褶帘头
           }
         } else {
+          if (this.selectType === 0) {
+            if (!this.bag) {
+              return $Toast({
+                content: '请输入数量',
+                type: 'warning'
+              })
+            }
+          }
+          if (this.selectType === 2) {
+            if (!this.bag2) {
+              return $Toast({
+                content: '请输入数量',
+                type: 'warning'
+              })
+            }
+          }
           obj = {
             type: 3, // 2:帘头
             goodsWidth: this.bagWidth, // 宽
@@ -635,7 +739,8 @@
             flowerType: this.switchValue ? 1 : 0, // 0:无对花 1:有对花
             flowerWidth: this.flowerWidth, // 花距宽
             flowerHight: this.flowerHeight, // 花距高
-            num: this.bag, // 数量
+            // num: this.bag, // 数量
+            num: this.selectType === 0 ? this.bag : this.bag2, // 数量
             lace: this.lace ? 1 : 0, // 花边 0:无 1:有
             linings: this.toothRope ? 1 : 0,  // 加衬 0:无 1:有
             valanceType: this.selectType // 0:平板帘头 1:水波帘头 2:抽褶帘头

@@ -169,7 +169,6 @@
             </i-row>
           </view>
         </view>
-
       </view>
     </view>
 
@@ -288,7 +287,8 @@
       bag: 1,
       value: 0,
       viewShow: false,
-      cushionList: []
+      cushionList: [],
+      curtResults: {}
     }
 
     // 获取数据async
@@ -307,7 +307,7 @@
         if (res.statusCode === 200 && res.data.code === 200) {
           that.countList3[0].counts = res.data.useLevel // 布料用量
           that.countList3[1].counts = res.data.cushionCore // 坐垫芯
-          this.cushionList.push({cunshCounts: res.data})
+          that.curtResults = res.data
           that.useLevel = res.data.useLevel // 推荐布料
           that.bagCore = res.data.cushionCore
         } else {
@@ -326,6 +326,15 @@
     methods = {
       // 收录
       handleCollect() {
+        if (Object.keys(this.curtResults).length === 0) {
+          $Toast({
+            content: '暂无收录数据',
+            duration: 0.5,
+            type: 'warning'
+          })
+          return
+        }
+        this.cushionList.push({cunshCounts: this.curtResults})
         console.log(this.cushionList, 'this.cushionList')
         $Toast({
           content: '收录成功',
