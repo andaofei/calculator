@@ -176,15 +176,30 @@
         <!--左侧-->
         <view class="view_btn_left">
           <view class="results_count">
-            <view class="result_text">布料用量</view>
-            <view class="counts">{{useLevel}}m</view>
+            <view class="results_count_left_curtain">
+              <view class="result_text">布料用量</view>
+              <view class="counts">{{useLevel}}m</view>
+            </view>
+
+            <view class="results_count_left_curtain">
+              <view class="result_text">实际倍数</view>
+              <view class="counts">{{ActualMultiple}}</view>
+            </view>
           </view>
 
-
           <view class="results_max">
-            <view class="result_text">推荐倍数</view>
-            <view class="counts">
-              <view class="count-text">{{recommendedBagCoreWidth}}</view>
+            <view class="results_count_left_curtain">
+              <view class="result_text">经济倍数</view>
+              <view class="counts">
+                <view class="count-text">{{EconomicMultiple}}</view>
+              </view>
+            </view>
+
+            <view class="results_count_left_curtain">
+              <view class="result_text">经济用量</view>
+              <view class="counts">
+                <view class="count-text">{{EconomicUse}}m</view>
+              </view>
             </view>
           </view>
         </view>
@@ -326,7 +341,10 @@
       flowerHeight: '', // 取花高
       toothRope: false, // 遮光布
       colCounts: 6,
-      useLevel: 0, // 用量
+      useLevel: 0, // 布料用量
+      ActualMultiple: 0, // 实际倍数
+      EconomicMultiple: 2, // 经济倍数
+      EconomicUse: 0, // 经济用量
       lateralLace: false, // 横向
       verticaLace: true, // 竖向
       track: true, // 轨道
@@ -360,9 +378,12 @@
           that.countList1[2].counts = res.data.CalculatorResult.lace
           that.countList1[3].counts = res.data.CalculatorResult.track
           that.curtResults = res.data.CalculatorResult
-          that.useLevel = res.data.CalculatorResult.useLevel // 推荐布料
-          that.recommenUseLevel = res.data.CalculatorResult.recommenUseLevel // 用量
-          that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendationatio // 推荐靠包心
+          // that.recommenUseLevel = res.data.CalculatorResult.recommenUseLevel
+          that.useLevel = res.data.CalculatorResult.useLevel // 布料用量
+          that.EconomicMultiple = res.data.CalculatorResult.recommendationatio // 经济倍数
+          that.EconomicUse = res.data.CalculatorResult.recommenUseLevel // 经济用量
+          that.ActualMultiple = res.data.CalculatorResult.resultDultiple // 实际倍数
+          that.recommendedBagCoreWidth = res.data.CalculatorResult.recommendationatio // 推荐倍数
         } else {
           return $Toast({
             content: res.data.msg,
