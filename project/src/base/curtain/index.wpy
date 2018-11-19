@@ -174,7 +174,7 @@
     <view class="view_btn">
       <view class="view_btn_box">
         <!--左侧-->
-        <view class="view_btn_left">
+        <view class="view_btn_left view_btn_left_curtain">
           <view class="results_count">
             <view class="results_count_left_curtain">
               <view class="result_text">布料用量</view>

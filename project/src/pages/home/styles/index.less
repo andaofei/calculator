@@ -492,8 +492,13 @@
               //height: 100%;
               padding: 34rpx 0;
               .view_btn_left{
-                width: 60%;
                 padding: 0 20rpx;
+              }
+              .view_btn_left_curtain{
+                padding: 0 10rpx 0 20rpx;
+              }
+              .view_btn_left, .view_btn_left_curtain{
+                width: 60%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -528,7 +533,7 @@
                     text-align: right;
                     justify-content: flex-end;
                     .result_text{
-                      width: 50px;
+                      //width: 50px;
                       font-size:24rpx;
                       line-height: 58rpx;
                       color: @baseColor2;
@@ -539,7 +544,7 @@
                     }
                     .counts{
                       display: flex;
-                      min-width: 20px;
+                      min-width: 40rpx;
                       flex-direction: column;
                       justify-content: center;
                       text-align: right;
@@ -550,16 +555,19 @@
                     }
                   }
                   .result_text{
-                    font-size:34rpx;
+                    font-size:32rpx;
                     line-height: 58rpx;
                     color: @baseColor2;
                   }
                   .counts{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                     text-align: right;
-                    min-width: 45px;
+                    min-width: 90rpx;
                     color: @baseColor2;
-                    font-size: 28rpx;
-                    line-height:32rpx;
+                    font-size: 48rpx;
+                    line-height:48rpx;
                     font-weight: 600;
                   }
                 }
@@ -579,7 +587,7 @@
                       white-space: normal;
                     }
                     .counts{
-                      min-width: 20px;
+                      min-width: 40rpx;
                       text-align: right;
                       color: @baseColor2;
                       font-size: 28rpx;
@@ -592,18 +600,19 @@
                   }
                   .result_text{
                     color: @baseColor2;
-                    font-size:28rpx;
+                    font-size:32rpx;
                     line-height:58rpx;
                   }
                   .counts{
-                    min-width: 45px;
-                    text-align: right;
-                    color: @baseColor2;
-                    font-size: 28rpx;
-                    line-height: 48rpx;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    text-align: right;
+                    min-width: 90rpx;
+                    color: @baseColor2;
+                    font-size: 48rpx;
+                    line-height:48rpx;
+                    font-weight: 600;
                   }
                 }
               }
