@@ -445,6 +445,24 @@
             type: 'warning'
           })
         }
+
+        console.log(this.switchValue)
+        if (this.switchValue) {
+          if (!this.flowerWidth) {
+            return $Toast({
+              content: '请输入花距宽',
+              type: 'warning'
+            })
+          }
+          console.log(this.switchValue)
+          if (!this.flowerHeight) {
+            return $Toast({
+              content: '请输入花距高',
+              type: 'warning'
+            })
+          }
+        }
+
         if (!this.defaultWidth) {
           return $Toast({
             content: '请输入布料默认值',
@@ -499,7 +517,7 @@
       },
       //      对花
       onChange(event) {
-        console.log(event)
+        // console.log(event)
         this.switchValue = event.detail.value
       },
       // 宽幅
