@@ -24,7 +24,7 @@
         backgroundTextStyle: 'light',
         navigationBarBackgroundColor: '#47a3ad',
         navigationBarTitleText: '兜兜计算器',
-        navigationBarTextStyle: '#fff'
+        navigationBarTextStyle: 'white'
       },
       networkTimeout: {
         request: 5000,
@@ -32,10 +32,10 @@
       }
     }
 
-    globalData = {
-      userInfo: null,
-      calculatorUr: `https://www.doudoufuwu.com/mobile/calculator`
-    }
+    // globalData = {
+    //   userInfo: null,
+    //   calculatorUr: `https://www.doudoufuwu.com/mobile/calculator`
+    // }
 
     constructor() {
       super()
