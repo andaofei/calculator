@@ -1,0 +1,696 @@
+@import "../../../common/styles/base/variable";
+
+.home_box {
+  width: 100%;
+  height: 100%;
+  .scroll_view {
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+    background: @textColor;
+    position: fixed;
+    top:0;
+    left: 0;
+    overflow: hidden;
+    z-index: 99;
+    .nav-name {
+      display: inline-block;
+      font-size: 28rpx;
+      color: @baseColor;
+      padding: 20rpx 20rpx;
+      width: 33%;
+      text-align: center;
+    }
+    .nav-hover {
+      border-bottom: 2px solid #42929D;
+      color: #42929D;
+    }
+    .nav-hover {
+      border-bottom: 2px solid @uiColorGreen;
+      color: @uiColorGreen;
+      width: 25%;
+    }
+  }
+  .scroll_wrapper{
+      margin-top: 100rpx;
+      width: 100%;
+      height: 100%;
+      .scroll_container {
+        padding-top: 10rpx;
+        height: auto;
+        width: 100%;
+        .main_wrapper{
+          padding: 40rpx 20rpx 200rpx 20rpx;
+          .main_img {
+            position: relative;
+            width: 100%;
+            height: 500rpx;
+            //margin-bottom: 80rpx;
+            .img_box{
+              width: 100%;
+              height: 500rpx;
+              margin: 0 auto;
+              image{
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .category-icon {
+              width: 100%;
+              height: 100%;
+              border-radius: 10px;
+            }
+            .view_img{
+              position: absolute;
+              transform: translate(-50%,-50%);
+              top: 50%;
+              left: 50%;
+              width: 90%;
+              height: 120%;
+              border-radius: 10px;
+              box-shadow: 0 10px 12px 0 rgba(66,68,71,0.20);
+              .view_img_inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.8);
+                .category-icon {
+                  width: 100%;
+                  height: 100%;
+                }
+                .view_text{
+                  position: absolute;
+                  right: 0;
+                  bottom: 0;
+                  width: 110rpx;
+                  height: 50rpx;
+                  font-size: @miniFont;
+                  color: @textColor;
+                  text-align: center;
+                  line-height: 50rpx;
+                  background: @uiColorGreen;
+                  border-radius: 0 0 10px 0;
+                }
+              }
+            }
+          }
+          .package-box{
+            margin-top: 75rpx;
+          }
+          .main_card{
+            margin: 20rpx 0;
+            box-shadow: 0 1px 7px 0 rgba(162,164,168,0.20);
+            .i-card{
+              margin: 0;
+            }
+          }
+          .main_box {
+            padding: 0 20rpx;
+            //数量
+            .main_counts {
+              //margin-top: 20rpx;
+              padding: 20rpx;
+              box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
+              border-radius: 5px;
+              background: @textColor;
+              .count_box {
+                .count_item {
+                  display: flex;
+                  justify-content: space-between;
+                  border-bottom: 0.5px solid #F3F3F3;
+                  padding: 20rpx 0;
+                  .count_text{
+                    line-height: 1.4rem;
+                  }
+                  .count_text, .check_groups {
+                    color: @textColor2;
+                    font-size: @minFont;
+                    display: flex;
+                    margin-right: 5px;
+                    //line-height: 1.4rem;
+                    .count_group {
+                      margin-right: 10rpx;
+                      .wx-checkbox-input {
+                        width: 24rpx;
+                        height: 24rpx;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked {
+                        background: @uiColorGreen;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked::before {
+                        width: 24rpx;
+                        height: 24rpx;
+                        line-height: 24rpx;
+                        text-align: center;
+                        font-size: 24rpx;
+                        color: @textColor;
+                        background: transparent;
+                        transform: translate(-50%, -50%) scale(1);
+                        -webkit-transform: translate(-50%, -50%) scale(1);
+                      }
+                    }
+                    .count_right_text {
+                      //line-height: 1.4rem;
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;
+                    }
+                  }
+                  .count_right_text{
+                    margin-right: 8px;
+                  }
+                  // radio
+                  .radio-group{
+                    display: flex;
+                    .radio{
+                      margin-right: 8px;
+                      line-height: 1.4rem;
+                      .wx-radio-input {
+                        border-radius: 50%;
+                        width: 28rpx;
+                        height: 28rpx;
+                      }
+                      .wx-radio-input.wx-radio-input-checked::before {
+                        border-radius: 50%;
+                        width: 44rpx;
+                        height: 44rpx;
+                        line-height: 44rpx;
+                        text-align: center;
+                        font-size: 26rpx; /* 对勾大小 26rpx */
+                        color:#fff; /* 对勾颜色 */
+                        background: @uiColorGreen;
+                        border-color: @uiColorGreen;
+                      }
+                    }
+                  }
+                  .count_right {
+                    display: flex;
+                    .count_group {
+                      font-size: 28rpx;
+                      margin-right: 16rpx;
+                      display: flex;
+                      flex-wrap: wrap;
+                      margin-bottom: 10rpx;
+                      .checkbox_text{
+                        margin-left: 8px;
+                      }
+                      .wx-checkbox-input {
+                        width: 24rpx;
+                        height: 24rpx;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked {
+                        background: @uiColorGreen;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked::before {
+                        width: 24rpx;
+                        height: 24rpx;
+                        line-height: 24rpx;
+                        text-align: center;
+                        font-size: 24rpx;
+                        color: @textColor;
+                        background: transparent;
+                        transform: translate(-50%, -50%) scale(1);
+                        -webkit-transform: translate(-50%, -50%) scale(1);
+                      }
+                    }
+                    .count_right_text {
+                      font-size: @minFont;
+                      color: @baseColor;
+                      font-weight: 600;
+                      line-height: 1.4rem;
+                      .count_right_text_input{
+                        display: flex;
+                        .phcolor{
+                          color: @placeColor;
+                          font-size: @minFont;
+                        }
+                        input{
+                          text-align: center;
+                          width: 60px;
+                          font-size: @minFont;
+                          color: @baseColor;
+                        }
+                      }
+                    }
+                    // 多选
+                    .count_group {
+                      margin-right: 20rpx;
+                      display: flex;
+                      justify-content: center;
+                      .checkbox_text {
+                        font-size: @minFont;
+                        color: @baseColor;
+                        line-height: 1.4rem;
+                        font-weight: 600;
+                      }
+                      .wx-checkbox-input {
+                        width: 24rpx;
+                        height: 24rpx;
+                        outline: none;
+                        margin-right: 10rpx;
+                        line-height: 40rpx;
+                      }
+                      .wx-checkbox-input-checked {
+                        background: @uiColorGreen;
+                        outline: none;
+                      }
+                      .wx-checkbox-input-checked::before {
+                        width: 24rpx;
+                        height: 24rpx;
+                        line-height: 24rpx;
+                        text-align: center;
+                        font-size: 24rpx;
+                        color: @textColor;
+                        background: transparent;
+                        transform: translate(-50%, -50%) scale(1);
+                        -webkit-transform: translate(-50%, -50%) scale(1);
+                      }
+                    }
+                  }
+                }
+                .count_height{
+                  border-bottom: 0;
+                }
+                .count_item_radio{
+                  color: @textColor2;
+                }
+              }
+            }
+            .number_class {
+              view, input {
+                border: none;
+                font-size: @minFont;
+                font-weight: 600;
+              }
+            }
+            // 配置
+            .main_select {
+              border-radius: 5px;
+              background: @textColor;
+              box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
+              padding: 20rpx;
+              margin-top: 20rpx;
+              .select_box {
+                //border-bottom: 0.5px solid #F3F3F3;
+                color: @textColor2;
+                font-size: @minFont;
+                display: flex;
+                .count_group {
+                  margin-right: 16rpx;
+                  display: flex;
+                  flex-wrap: wrap;
+                  margin-bottom: 10rpx;
+                  .checkbox_text{
+                    margin-left: 8px;
+                  }
+                  .wx-checkbox-input {
+                    width: 24rpx;
+                    height: 24rpx;
+                    outline: none;
+                  }
+                  .wx-checkbox-input-checked {
+                    background: @uiColorGreen;
+                    outline: none;
+                  }
+                  .wx-checkbox-input-checked::before {
+                    width: 24rpx;
+                    height: 24rpx;
+                    line-height: 24rpx;
+                    text-align: center;
+                    font-size: 24rpx;
+                    color: @textColor;
+                    background: transparent;
+                    transform: translate(-50%, -50%) scale(1);
+                    -webkit-transform: translate(-50%, -50%) scale(1);
+                  }
+                }
+              }
+              .select_counts {
+                display: flex;
+                justify-content: space-between;
+                padding: 10rpx 0;
+                .need_count {
+                  color: @textColor2;
+                  font-size: @minFont;
+                  line-height: 60rpx;
+                }
+                .number_class {
+                  view, input {
+                    border: none;
+                    font-size: @minFont;
+                    font-weight: 600;
+                  }
+                }
+              }
+            }
+          }
+          // 数量
+          .main_results {
+            margin-top: 20rpx;
+            padding: 0 20rpx;
+            .main_results_box {
+              padding: 10px 0;
+              box-shadow: 0 1px 7px 0 rgba(162, 164, 168, 0.20);
+              background: @textColor;
+              .results_box {
+                display: flex;
+                justify-content: flex-end;
+                border-radius: 5px;
+                padding:0 20rpx;
+                .results_count {
+                  display: flex;
+                  justify-content: space-between;
+                  .result_text {
+                    width: 160rpx;
+                    text-align: left;
+                    font-size: @minFont;
+                    color: @baseColor2;
+                    margin-right: 20rpx;
+                    line-height: 60rpx;
+                  }
+                  .counts {
+                    font-weight: 600;
+                    font-size: @initFont;
+                    line-height: 60rpx;
+                    min-width: 60rpx;
+                    text-align: left;
+                  }
+                }
+                .results_max {
+                  display: flex;
+                  justify-content: space-between;
+                  .results_max_left{
+                    flex: 1;
+                    display: flex;
+                    justify-content: flex-end;
+                  }
+                  .result_text {
+                    text-align: left;
+                    font-size: @minFont;
+                    color: @baseColor2;
+                    margin-right: 20rpx;
+                    line-height: 60rpx;
+                  }
+                  .counts {
+                    display: flex;
+                    .count-text {
+                      font-size: @minFont;
+                      line-height: 60rpx;
+                      min-width: 60rpx;
+                      text-align: left;
+                    }
+                  }
+                }
+                .view_total{
+                  color: @textColor3;
+                  text-align: center;
+                  font-size: 28rpx;
+                  line-height: 60rpx;
+                  width:192rpx;
+                  height:60rpx;
+                  background:@textColor;
+                  border-radius:20px;
+                  border:1px solid rgba(233,235,242,1)
+                }
+              }
+              .results_static {
+                padding: 20rpx;
+                background: @textColor;
+                .results_header {
+                  border-radius: 5px 5px 0 0;
+                  background: @bgColor;
+                  .col-class {
+                    text-align: center;
+                    line-height: 60rxp;
+                    view {
+                      font-size: @minFont;
+                      font-weight: 400;
+                      text-align: center;
+                    }
+                    .col-inner {
+                      font-size: @minFont;
+                      line-height: 32px;
+                      font-weight: 600;
+                      color: @baseColor;
+                      text-overflow: ellipsis;
+                      overflow: hidden;
+                      white-space: normal;
+                    }
+                    .col-text {
+                      font-size: @miniFont;
+                      font-weight: 400;
+                    }
+                  }
+                }
+                .results_inner {
+                  border-radius: 0 0 5px 5px;
+                  border-bottom: 1px solid @bgColor;
+                  border-left: 1px solid @bgColor;
+                  border-right: 1px solid @bgColor;
+                  .col-class {
+                    text-align: center;
+                    line-height: 60rxp;
+                    view {
+                      font-size: @minFont;
+                      font-weight: 400;
+                      text-align: center;
+                    }
+                    .col-inner {
+                      font-size: @minFont;
+                      line-height: 32px;
+                      text-overflow: ellipsis;
+                      overflow: hidden;
+                      white-space: normal;
+                    }
+                  }
+                }
+              }
+              .view_btn {
+                background: @textColor;
+                padding: 10px 0;
+              }
+            }
+          }
+          .view_btn{
+            //position: fixed;
+            margin-top:20rpx;
+            //height: 100rpx;
+            width: 100%;
+            background: @textColor;
+            box-shadow:0px 1px 7px 0px rgba(162,164,168,0.2);
+            border-radius:4px;
+            .view_btn_box{
+              display: flex;
+              width: 100%;
+              //height: 100%;
+              padding: 34rpx 0;
+              .view_btn_left{
+                padding: 0 20rpx;
+              }
+              .view_btn_left_curtain{
+                padding: 0 10rpx 0 20rpx;
+              }
+              .view_btn_left, .view_btn_left_curtain{
+                width: 60%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .view_btn_left_box{
+                  display: flex;
+                  justify-content: center;
+                  .results_count{
+                    width: 100%;
+                    .result_text{
+                      font-size:34rpx;
+                      line-height: 116rpx;
+                      color: @baseColor2;
+                    }
+                    .counts{
+                      text-align: right;
+                      min-width: 45px;
+                      color: @baseColor2;
+                      font-size: 48rpx;
+                      line-height:116rpx;
+                      font-weight: 600;
+                    }
+                  }
+                }
+                .results_count,.results_max{
+                  display: flex;
+                  justify-content: flex-end;
+                }
+                .results_count{
+                  .results_count_left_curtain{
+                    display: flex;
+                    flex: 1;
+                    text-align: right;
+                    justify-content: flex-end;
+                    .result_text{
+                      //width: 50px;
+                      font-size:24rpx;
+                      line-height: 58rpx;
+                      color: @baseColor2;
+                      padding-right: 5rpx;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: normal;
+                    }
+                    .counts{
+                      display: flex;
+                      min-width: 40rpx;
+                      flex-direction: column;
+                      justify-content: center;
+                      text-align: right;
+                      color: @baseColor2;
+                      font-size: 32rpx;
+                      line-height:32rpx;
+                      font-weight: 600;
+                    }
+                  }
+                  .result_text{
+                    font-size:32rpx;
+                    line-height: 58rpx;
+                    color: @baseColor2;
+                  }
+                  .counts{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: right;
+                    min-width: 90rpx;
+                    color: @baseColor2;
+                    font-size: 48rpx;
+                    line-height:48rpx;
+                    font-weight: 600;
+                  }
+                }
+                .results_max{
+                  .results_count_left_curtain{
+                    display: flex;
+                    flex: 1;
+                    text-align: right;
+                    justify-content: flex-end;
+                    .result_text{
+                      color: @baseColor2;
+                      font-size:24rpx;
+                      line-height:58rpx;
+                      padding-right:5rpx;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: normal;
+                    }
+                    .counts{
+                      min-width: 40rpx;
+                      text-align: right;
+                      color: @baseColor2;
+                      font-size: 28rpx;
+                      line-height:32rpx;
+                      font-weight: 600;
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;
+                    }
+                  }
+                  .result_text{
+                    color: @baseColor2;
+                    font-size:32rpx;
+                    line-height:58rpx;
+                  }
+                  .counts{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: right;
+                    min-width: 90rpx;
+                    color: @baseColor2;
+                    font-size: 48rpx;
+                    line-height:48rpx;
+                    font-weight: 600;
+                  }
+                }
+              }
+              .view_btn_right{
+                width: 40%;
+                display: flex;
+                justify-content: space-between;
+                padding: 0 20rpx;
+                .btn_right_box{
+                    flex: 1;
+                    padding: 0 13rpx;
+                  .calculator{
+                      font-size: 28rpx;
+                      height: 100%;
+                      //line-height: 36rpx;
+                      color:rgba(255,255,255,1);
+                      background:@bgColor2;
+                      box-shadow:0px 5px 10px 0px rgba(222,227,228,1);
+                      border-radius:4px;
+                      border:1px solid @bgColor2;
+                      display: flex;
+                      justify-content: center;
+                      flex-direction: column;
+                    .right_box_text{
+                      font-size: 28rpx;
+                      line-height: 34rpx;
+                      padding: 0 20rpx;
+                      text-align: center;
+                    }
+                  }
+                  .calculator_hover{
+                    background:rgba(181,59,117,0.9);
+                  }
+                  .collection{
+                    background:@textColor;
+                    font-size: 28rpx;
+                    height: 100%;
+                    color:@textColor2;
+                    box-shadow:0px 5px 10px 0px rgba(222,227,228,1);
+                    border-radius:4px;
+                    border:1px solid @uiColorGreen;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    .right_box_text{
+                      font-size: 28rpx;
+                      line-height: 34rpx;
+                      padding: 0 20rpx;
+                      text-align: center;
+                    }
+                  }
+                  .collection_hover{
+                    background:rgba(255,255,255,0.9);
+                  }
+                }
+                //.calculator, .collection{
+                //  width: 60px;
+                //  text-align: center;
+                //  font-size: 28rpx;
+                //  line-height: 36rpx;
+                //  padding: 30rpx 30rpx;
+                //}
+                //.calculator{
+                //  margin-right: 20rpx;
+                //  color:rgba(255,255,255,1);
+                //  background:rgba(181,59,117,1);
+                //  box-shadow:0px 5px 10px 0px rgba(222,227,228,1);
+                //  border-radius:4px;
+                //  border:1px solid rgba(181,59,117,1);
+                //}
+                //.collection{
+                //  color:rgba(121,125,135,1);
+                //  box-shadow:0px 5px 10px 0px rgba(222,227,228,1);
+                //  border-radius:4px;
+                //  border:1px solid rgba(71,165,174,1);
+                //}
+              }
+            }
+          }
+        }
+      }
+  }
+}

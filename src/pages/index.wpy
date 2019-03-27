@@ -18,56 +18,42 @@
 </style>
 <template>
   <view class="container">
-    <!-- <view class="userinfo" @tap="handleViewTap">
-      <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
-      <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
-    </view> -->
-
     <view class="wrapper">
-      <view class="wrapper_top">
-        <view class="title">请选择计算类别</view>
-        <view class="wrapper_list">
-          <block wx:for-items="{{groupList}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-            <view class="list_item">
-              <view class="item">
-                <view  class="item_inner {{selected === item.id ? 'item_inner_select':null}}" @tap="select({{item}})">{{item.name}}</view>
-              </view>
-            </view>
-          </block>
-          <!--<view  class="list_item">-->
-            <!--<view class="item">-->
-              <!--<view class="item_inner {{newAdd? 'item_inner_select':null}}" @tap="addNewGruop()">+</view>-->
-            <!--</view>-->
-          <!--</view>-->
-        </view>
-      </view>
+        <!--材料单-->
+        <block wx:if="{{current === 'document'}}">
+            <Materials></Materials>
+        </block>
 
-      <view class="wrapper_bottom">
-        <button class="btn" hover-class="btn_hover" @tap="toHomePage" wx:if="{{isSelect}}">进入</button>
-        <button class="btn" hover-class="btn_hover" @tap="handleAdd" wx:else>添加类别</button>
-        <!--<button class="btn" hover-class="btn_hover" @tap="addNumbewr" >add</button>-->
-      </view>
+        <!--计算器-->
+        <block wx:if="{{current === 'calculator'}}">
+            <Calculator></Calculator>
+        </block>
+
+        <!--个人中心-->
+        <block wx:if="{{current === 'mine'}}">
+            <UserCenter></UserCenter>
+        </block>
     </view>
-    <i-toast id="toast"/>
-    <i-message id="message" />
-    <i-modal title="添加类别" visible="{{ visible }}" bind:ok="handleCancel" bind:cancel="handleClose">
-      <view>
-        <input placeholder="请输入名称" value="{{ groupValue }}" maxlength="20"  bindinput="handleChange"/>
+      <view class="container-footer">
+          <i-tab-bar current="{{ current }}" bindchange="handleChange">
+              <i-tab-bar-item key="document" icon="document" current-icon="document_fill" title="材料单"></i-tab-bar-item>
+              <i-tab-bar-item key="calculator" icon="mobilephone" current-icon="mobilephone_fill" title="计算器"></i-tab-bar-item>
+              <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
+          </i-tab-bar>
       </view>
-    </i-modal>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
   import { connect } from 'wepy-redux'
   import Counter from 'counter' // alias example
-//  import moduleA from 'module-a' // aliasFields ignore module example
+  import Calculator from '../base/Calculator-view/index'
+  import Materials from '../base/Materials-list/index'
+  import UserCenter from '../base/User-center/index'
   import testMixin from '../mixins/test'
   const { $Toast } = require('../components/iview/base/index')
   import { INCREMENT, DECREMENT, SET_IMAGES } from '../store/types/counter'
   import { asyncInc } from '../store/actions'
-  // const { $Message } = require('../components/iview/base/index')
-//  console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
 
   @connect({
     selectId (state) {
@@ -92,17 +78,32 @@
       usingComponents: {
         'i-toast': '/components/iview/toast/index',
         'i-modal': '/components/iview/modal/index',
-        'i-input': '/components/iview/input/index'
+        'i-input': '/components/iview/input/index',
+        'i-tab-bar': '/components/iview/tab-bar/index',
+        'i-tab-bar-item': '/components/iview/tab-bar-item/index',
+        'i-tabs': '/components/iview/tabs/index',
+        'i-tab': '/components/iview/tab/index',
+        'i-input-number': '/components/iview/input-number/index',
+        'i-row': '/components/iview/row/index',
+        'i-col': '/components/iview/col/index',
+        'i-card': '/components/iview/card/index',
+        'i-radio-group': '/components/iview/radio-group/index',
+        'i-radio': '/components/iview/radio/index',
+        'i-switch': '/components/iview/switch/index',
+        'i-button': '/components/iview/button/index'
       }
     }
     components = {
       counter1: Counter,
-      counter2: Counter
+      counter2: Counter,
+      Calculator: Calculator,
+      Materials: Materials,
+      UserCenter: UserCenter
     }
-
     mixins = [testMixin]
 
     data = {
+      current: 'document',
       userInfo: {
         nickName: '加载中...'
       },
@@ -188,7 +189,18 @@
             break
         }
       },
-
+      handleChange({ detail }) {
+        this.current = detail.key
+        let imgUrls = []
+        imgUrls = [
+          'https://www.doudoufuwu.com/pic/cl.png',
+          'https://www.doudoufuwu.com/pic/cl2.png'
+        ]
+        // this.selected = 1
+        // this.slectText = '窗帘'
+        this.methods.INCREMENT({id: 1})
+        this.methods.SET_IMAGES({img: imgUrls})
+      },
       // 选择类别
       toHomePage() {
         if (this.slectText) {
@@ -233,11 +245,11 @@
 
       handleClose() {
         this.visible = false
-      },
-
-      handleChange(e) {
-        this.groupValue = e.detail.value
       }
+
+      // handleChange(e) {
+      //   this.groupValue = e.detail.value
+      // }
     }
 
     events = {}

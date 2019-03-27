@@ -1,0 +1,189 @@
+<style lang="less">
+    @import "./styles/index";
+    .scroll_view{
+        width: 100%;
+        height: 100rpx;
+    }
+</style>
+<template>
+    <view class="home_box">
+        <!--头部-->
+        <view class="scroll_view">
+            <i-tabs current="{{ current_scroll }}" scroll bindchange="handleClick" color="#47A3AD">
+                <i-tab wx:for="{{section}}" wx:key="id" key="{{item.id}}" title="{{item.name}}"></i-tab>
+            </i-tabs>
+        </view>
+        <!-- 主体页面 -->
+        <view class="scroll_wrapper">
+            <!--视图-->
+            <view class="scroll_container">
+                <view class="main_wrapper">
+                    <!--头部轮播-->
+                    <viewImg></viewImg>
+
+                    <!--窗帘-->
+                    <block wx:if="{{current_scroll === 1}}">
+                        <Curtain></Curtain>
+                    </block>
+
+                    <!--帘头-->
+                    <block wx:if="{{current_scroll === 2}}">
+                        <Windowh></Windowh>
+                    </block>
+
+                    <!--靠包-->
+                    <block wx:if="{{current_scroll === 3}}">
+                        <Package></Package>
+                    </block>
+                    <!--坐垫-->
+                    <block wx:if="{{current_scroll === 4}}">
+                        <cushion></cushion>
+                    </block>
+                    <!--壁纸-->
+                    <block wx:if="{{current_scroll === 5}}">
+                        <wallpaper></wallpaper>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <i-toast id="toast"/>
+    </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import { connect } from 'wepy-redux'
+  import { INCREMENT, SET_IMAGES } from '../../store/types/counter'
+  import '../../config/config'
+  import 'wepy-async-function'
+  import viewImg from '../../components/viewImg/index'
+  import Package from '../../base/package/index' // 靠包
+  import Windowh from '../../base/windowh/index' // 帘头
+  import Curtain from '../../base/curtain/index' // 窗帘
+  import cushion from '../../base/cushion/index' // 坐垫
+  import wallpaper from '../../base/wallpaper/index' // 壁纸
+  const {$Toast} = require('../../components/iview/base/index')
+  @connect({
+    selectId(state) {
+      return state.counter.selectId
+    }
+  }, {
+    INCREMENT,
+    SET_IMAGES
+  })
+
+  export default class Calculator extends wepy.component {
+    config = {
+      navigationBarTitleText: '兜兜计算器'
+    }
+    // mixins = [intercetor]
+    data = {
+      currentId: 1,
+      selectedIndex: 1,
+      current_scroll: 1,
+      checkList: [],
+      colList: [],
+      rowList: [],
+      section: [
+        {
+          id: 1,
+          name: '窗帘'
+        },
+        {
+          id: 2,
+          name: '帘头'
+        },
+        {
+          id: 3,
+          name: '靠枕'
+        },
+        {
+          id: 4,
+          name: '坐垫'
+        },
+        {
+          id: 5,
+          name: '壁纸'
+        }
+      ]
+    }
+    components = {
+      Package: Package,
+      Windowh: Windowh,
+      Curtain: Curtain,
+      viewImg: viewImg,
+      cushion: cushion,
+      wallpaper: wallpaper
+    }
+
+    methods = {
+      // 头部切换
+//      handleTap(e) {
+//        this.currentId = e.currentTarget.id
+//        this.selectedIndex = e.currentTarget.id
+//      }
+
+      // 头部
+      handleClick({detail}) {
+//        this.currentId = parseInt(detail.key)
+        this.current_scroll = parseInt(detail.key)
+        if (this.current_scroll === -1) {
+          return
+        }
+        this.methods.INCREMENT(detail.key)
+        let imgUrls = []
+        switch (parseInt(detail.key)) {
+          case 1:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/cl.png',
+              'https://www.doudoufuwu.com/pic/cl2.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 2:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/pblt.png'
+//              'https://www.doudoufuwu.com/pic/pblt1.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 3:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/kb.png',
+              'https://www.doudoufuwu.com/pic/kb1.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 4:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/zuodian.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          case 5:
+            imgUrls = [
+              'https://www.doudoufuwu.com/pic/bizhi.png',
+              'https://www.doudoufuwu.com/pic/bizhi.png'
+            ]
+            this.methods.SET_IMAGES({img: imgUrls})
+            break
+          default:
+            this.imgUrls = []
+            break
+        }
+        $Toast({
+          content: 'loading',
+          type: 'loading'
+        })
+        setTimeout(() => {
+          $Toast.hide()
+        }, 300)
+      }
+    }
+
+    onLoad () {
+      // this.current_scroll = this.selectId
+      // this.current_scroll = 1
+//      this.currentId = this.selectId
+    }
+  }
+</script>

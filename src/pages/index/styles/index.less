@@ -1,64 +1,10 @@
 @import "../../../common/styles/base/variable";
 
-.wrapper {
-  position: absolute;
-  width: 90%;
-  height: 80%;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  background: @textColor;
-  border-radius: 5px;
-  box-shadow: 0 8px 10px 0 rgba(66,68,71,0.20);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 40rpx 0;
-  .wrapper_top {
-    .title {
-      text-align: center;
-      font-size: @minFont;
-      font-weight: 600;
-    }
-    .wrapper_list {
-      padding-top: 40rpx;
-      display: flex;
-      flex-wrap: wrap;
-      .list_item{
-        width: 33%;
-        text-align: center;
-        .item {
-          padding: 20rpx;
-          .item_inner {
-            border-radius: 30rpx;
-            //color: @textColor;
-            //background: @uiColorGreen;
-            background: @bgColorInner;
-            color: @baseColor;
-            font-size: @miniFont;
-            line-height: 32px;
-          }
-          .item_inner_select{
-            color: @textColor;
-            background: @uiColorGreen;
-          }
-        }
-      }
-    }
-  }
-  .wrapper_bottom {
-    text-align: center;
-    padding-bottom: 40rpx;
-    .btn {
-      width: 45%;
-      font-size: @baseFont;
-      background: @uiColorGreen;
-      color: @textColor;
-      line-height: 80rpx;
-      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20);
-    }
-    .btn_hover{
-      background: @uiColorGreenHover;
-    }
-  }
+.container {
+
+}
+.container-footer{
+  position: fixed;
+  bottom:0;
+  width: 100%;
 }
